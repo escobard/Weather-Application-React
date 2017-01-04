@@ -26,28 +26,21 @@ Install NPM:
 $ npm install
 ```
 
-Install bower components:
-```
-$ bower install
-```
-
-
 ## Usage
 
 To run this application locally use the following commands:
 
-
 ```
-$ gulp serve
+$ npm start
 ```
 
 To publish, minimize, and compile components for production use:
 
 ```
-$ gulp public
+$ npm build
 ```
 
-## Libraries & Frameworks
+## Libraries, Frameworks & Tutorials
 
 [React](https://facebook.github.io/react/)
 
