@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
     <div>
     <Nav />
-    <section>
+    <section className="container">
       <SearchBar />
       <WeatherList />
      </section>
