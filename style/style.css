@@ -5,3 +5,6 @@
 ul.nav.navbar-nav {
     float: left;
 }
+nav {
+    margin-bottom: 40px;
+}
