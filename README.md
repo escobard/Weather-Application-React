@@ -26,36 +26,35 @@ Install NPM:
 $ npm install
 ```
 
-Install bower components:
-```
-$ bower install
-```
-
-
 ## Usage
 
 To run this application locally use the following commands:
 
-
 ```
-$ gulp serve
+$ npm start
 ```
 
 To publish, minimize, and compile components for production use:
 
 ```
-$ gulp public
+$ npm build
 ```
 
-## Libraries & Frameworks
+## Libraries, Frameworks
 
 [React](https://facebook.github.io/react/)
 
 [Redux] (http://redux.js.org/docs/introduction/)
 
-[ReduxSimpleStarter] (https://github.com/StephenGrider/ReduxSimpleStarter)
+
+
+[Material Design for Bootstrap] (http://mdbootstrap.com/getting-started/)
 
 [Udemy - Modern React with Redux] (https://www.udemy.com/react-redux/)
+
+## Tutorials
+
+[ReduxSimpleStarter] (https://github.com/StephenGrider/ReduxSimpleStarter)
 
 ## Contribution
 Feel free to contribute to any and all of the files within this repository as you see fit. These files are mainly for personal use, but my goal is to help others better understand JavaScript Object Oriented programming with my software and helpful commentary.

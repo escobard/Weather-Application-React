@@ -1,4 +1,8 @@
-** Changelog for Event Planning Application
+** Changelog for Capstone project
+
+v0.2
+- added bootstrap material components
+- added bootstrap header
+
 v0.1
-- prototype to refactor into stand-alone project
-- prototype to begin adding bootstrap header and nav bar 
+- refactored into stand-alone project

@@ -1,17 +1,10 @@
-.input-group{
-	margin:20px 0px;
+.navbar-brand {
+    float: left;
 }
 
-td, th {
-	vertical-align: middle !important;
-	text-align: center !important;
+ul.nav.navbar-nav {
+    float: left;
 }
-
-td svg {
-    max-height: 175px;
-}
-
-td:first-of-type {
-	height: 175px;
-	width: 250px;
+nav {
+    margin-bottom: 40px;
 }
