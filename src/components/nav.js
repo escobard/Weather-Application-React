@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class Nav extends Component {
   render() {
     return (
+    	<header>
 		<nav className="navbar navbar-dark bg-primary navbar-fixed-top">
 
 		    <div className="container nav-container">
@@ -14,6 +15,7 @@ export default class Nav extends Component {
 		    </div>
 
 		</nav>
+		</header>
     );
   }
 }
