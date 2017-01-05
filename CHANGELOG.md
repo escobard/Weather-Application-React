@@ -5,6 +5,7 @@ v0.3
 - prototype to continue adding material components
 - prototype to revise style
 - prototype to add footer
+- prototype to continue adding semantics
 
 v0.2
 - added bootstrap components
