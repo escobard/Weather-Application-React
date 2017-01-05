@@ -1,11 +1,11 @@
-.input-group{
-	margin:20px 0px;
+.navbar-brand {
+    float: left;
 }
 
-td, th {
-	vertical-align: middle !important;
-	text-align: center !important;
+ul.nav.navbar-nav {
+    float: left;
 }
+
 
 td svg {
     max-height: 175px;
@@ -21,4 +21,8 @@ footer {
     position: absolute;
     width: 100%;
     bottom: 0;
+}
+nav {
+    margin-bottom: 40px;
+
 }
