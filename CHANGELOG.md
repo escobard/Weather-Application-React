@@ -2,10 +2,9 @@
 
 v0.3
 - prototype to add search bar into the header
-- prototype to continue adding material components
-- prototype to revise style
-- prototype to add footer
-- prototype to continue adding semantics
+- prototype to continue adding material component
+- added footer
+- fixed semantics
 
 v0.2
 - added bootstrap components
