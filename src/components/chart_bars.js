@@ -26,7 +26,7 @@ export default (props) => {
 		<div>
 		<div>
 			<Sparklines className="chartActual" height={120} width={180} data={props.chartData}>
-				<SparklinesBars color={props.color} />
+				<SparklinesBars style={{ fill: "#00e660" }}/>
 			</Sparklines>
 		</div>
 			<div>{avarage(props.chartData)} {props.units}</div>
