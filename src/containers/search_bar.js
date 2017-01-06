@@ -22,7 +22,7 @@ class SearchBar extends Component {
 		super(props);
 
 		// this create the state of this component, for the search term
-		this.state = { searchTerm: 'calgary' }
+		this.state = { searchTerm: '' }
 
 		// to bind .this to any specific function so it points to the constructor, we use the following method:
 		this.onInputChange = this.onInputChange.bind(this);
