@@ -50,7 +50,9 @@ class WeatherList extends Component {
 				    <div className="card-block">
 				        <h4 className="card-title">Forecast for {cityName}</h4>
 				    </div>
-				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
+				    <section className="container-fluid mapContainer">
+				    	<GoogleMap lon={lon} lat={lat} />
+				    </section>
 					<section className="charts">
 						<div className="chartContainer first">
 							<ChartLines chartData={temps} color="#FF5200" units="Kelvin"/>
