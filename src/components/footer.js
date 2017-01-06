@@ -4,7 +4,7 @@ export default class FooterComp extends Component {
   render() {
     return (
             <div className="footer-copyright">
-                <div className="container-fluid">
+                <div className="container-fluid animated slideInUp">
                     <span>© 2017 Copyright:</span>
                     <a href="https://github.com/escobard"> Daniel Escobar</a>
                 </div>

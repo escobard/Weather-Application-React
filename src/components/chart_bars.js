@@ -12,7 +12,7 @@ import React from 'react';
 import _ from 'lodash';
 
 // imports the chart API for reat, Sparklines, more on that here : https://github.com/borisyankov/react-sparklines
-import { Sparklines, SparklinesLine, SparklinesReferenceLine} from 'react-sparklines';
+import { Sparklines, SparklinesBars, SparklinesReferenceLine} from 'react-sparklines';
 
 // creates the avarage function
 function avarage(data) {
@@ -24,11 +24,12 @@ function avarage(data) {
 export default (props) => {
 	return (
 		<div>
-			<Sparklines height={120} width={180} data={props.chartData}>
-				<SparklinesLine color={props.color} />
-				<SparklinesReferenceLine type="avg" />
+		<div>
+			<Sparklines className="chartActual" height={120} width={180} data={props.chartData}>
+				<SparklinesBars style={{ fill: "#00e660" }}/>
 			</Sparklines>
-			<div>{avarage(props.chartData)} {props.units}</div>
+		</div>
+			<div><h5 className="chartDescription animated fadeIn">Humidity: {avarage(props.chartData)} {props.units}</h5></div>
 		</div>
 		
 	);

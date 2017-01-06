@@ -6,7 +6,9 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import Chart from '../components/chart';
+import ChartLines from '../components/chart_lines';
+import ChartBars from '../components/chart_bars';
+import ChartSpots from '../components/chart_spots';
 import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
@@ -42,20 +44,26 @@ class WeatherList extends Component {
 	
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
+
 		return(
-			<article>
-				<table className="weatherDisplay" key={cityName}>
-					<tbody>
-						<tr>
-							
-							<td><GoogleMap lon={lon} lat={lat} /></td>
-							<td><Chart chartData={temps} color="orange" units="Kelvin"/></td>
-							<td><Chart chartData={pressures} color="red" units="hPa"/></td>
-							<td><Chart chartData={humidities} color="blue" units="%"/></td>
-							
-						</tr>
-					</tbody>
-				</table>
+			<article className="card animated fadeInDown" key={cityName}>
+				    <div className="card-block">
+				        <h4 className="card-title animated fadeInDown">Forecast for {cityName}</h4>
+				    </div>
+				    <section className="animated fadeInUp mapContainer">
+				    	<GoogleMap lon={lon} lat={lat} />
+				    </section>
+					<section className="charts">
+						<div className="chartContainer first animated fadeInUp">
+							<ChartLines chartData={temps} color="#FF5200" units="Kelvin"/>
+						</div>
+						<div className="chartContainer second animated fadeInUp">
+							<ChartBars chartData={humidities} color="#00FF6A" units="%"/>
+						</div>
+						<div className="chartContainer third animated fadeInUp">
+							<ChartSpots chartData={pressures} color="#FF6E00" units="%"/>
+						</div>
+					</section>		
 			</article>
 		);
 	}
@@ -63,17 +71,6 @@ class WeatherList extends Component {
 	render(){
 		return(
 			<div>
-			<table className="table table-hover">
-
-				<thead>
-					<tr>
-						<th>City</th>
-						<th>Temperature (K)</th>
-						<th>Pressure (hPa)</th>
-						<th>Humidity (%)</th>
-					</tr>
-				</thead>
-			</table>
 				{this.props.weather.map(this.renderWeather)}
 		</div>
 			

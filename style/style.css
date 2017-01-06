@@ -1,21 +1,33 @@
 
 /*===========================================================
 
-	Main Application Styles
+    Main Application Styles
 
 ===========================================================*/
 
 /*===========================================================
 
-	DOM Component Styles
+    DOM Component Styles
 
 ===========================================================*/
-
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
 footer {
     padding-top: 0 !important;
-    position: fixed;
     width: 100%;
+    position: absolute;
+    right: 0;
     bottom: 0;
+    left: 0;
+    background-color: #efefef;
+    text-align: center;
 }
 
 .navbar-brand {
@@ -23,116 +35,158 @@ footer {
     display: block !important;
     font-size: 24px !important;
     padding: 0;
-}
-#subButton {
-    height: 50px;
-    padding: 14px 70px;
-    margin: 3px 6px 1px;
-}
-
-main.container {
-    margin-bottom: 80px;
+    font-weight: bold;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
 
 /*===========================================================
 
-	Weather Search Widget Styles
+    Search Widget Styles
 
 ===========================================================*/
 
-
 .input-group{
-	margin:20px 0px;
 
-}
+    margin:20px 0px;
 
-ul.nav.navbar-nav {
-    float: left;
-}
-
-
-td svg {
-    max-height: 175px;
-}
-
-td:first-of-type {
-	height: 175px;
-	width: 250px;
 }
 
 
 #searchInput {
     height: 50px;
     border-radius: 0.25rem;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
-
-td {
-    min-width: 275px;
-    padding: 0 5px;
-}
-
-table.weatherDisplay {
-    margin: 20px 0;
+#subButton {
+    height: 50px;
+    padding: 14px 70px;
+    margin: 3px 6px 1px;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
 /*===========================================================
 
-	Intro Styles
+    Weather Widget Styles
 
 ===========================================================*/
 
-html,
-body,
-header,
-.view {
-    height: 100%;
+article.card {
+    background: rgb(0, 87, 162);
+    margin: 25px 0 30px;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
-/* Navigation*/
-
-.navbar {
-    background-color: transparent;
-}
-
-.top-nav-collapse {
-    background-color: #2E2E2E;
-}
-
-@media only screen and (max-width: 768px) {
-    .navbar {
-        background-color: #2E2E2E;
-    }
-}
-/*Intro*/
-
-.view {
-    background: url("http://mdbootstrap.com/img/Photos/Horizontal/People/12-col/img%20(58).jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.card-title {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0px !important;
+    font-weight: bold;
+    font-size: 22px;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
-@media (max-width: 768px) {
-    .full-bg-img,
-    .view {
-        height: auto;
-        position: relative;
-    }
+.card-block {
+    padding-bottom: 10px !important;
+}
+.mapContainer {
+    min-height: 300px;
+    margin: 15px 0;
+    height: 30vh;
+    width: 100%;
+    padding: 0px 15px;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    -ms-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+.charts {padding: 15px;}
+
+.chartContainer {
+    display: block;
+    width: 32%;
+    float: left;
+    margin: 0 1%;
+    padding: 2%;
+    border-radius: 3px;
 }
 
-.description {
-    padding-top: 25%;
-    padding-bottom: 3rem;
-    color: #fff
+.chartContainer.first {
+    background-color: rgba(0, 150, 136, 0.8);
+    margin-left: 0;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.chartContainer.first polyline {
+    fill-opacity: 1 !important;
 }
 
-@media (max-width: 992px) {
-    .description {
-        padding-top: 7rem;
-        text-align: center;
-    }
-    #app-mockup {
-        max-height: 400px;
-    }
+.chartContainer.second {
+    background-color: rgba(224, 62, 50, 0.8);
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+    -ms-animation-delay: 1.3s;
+    animation-delay: 1.3s;
+}
+.chartContainer.third {
+    margin-right: 0;
+    background-color: rgba(0, 188, 212, 0.8);
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    -ms-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+}
+h5.chartDescription {
+    text-align: center;
+    color: #fff;
+    padding: 20px 0 10px;
+    margin: 0;
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    animation-delay: 2s;
 }
 
