@@ -43,22 +43,24 @@ class WeatherList extends Component {
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
 		return(
-
-			<tr key={cityName}>
-				
-				<td><GoogleMap lon={lon} lat={lat} /></td>
-				<td><Chart chartData={temps} color="orange" units="Kelvin"/></td>
-				<td><Chart chartData={pressures} color="red" units="hPa"/></td>
-				<td><Chart chartData={humidities} color="blue" units="%"/></td>
-				
-			</tr>
-
+				<table className="weatherDisplay" key={cityName}>
+					<tbody>
+						<tr>
+							
+							<td><GoogleMap lon={lon} lat={lat} /></td>
+							<td><Chart chartData={temps} color="orange" units="Kelvin"/></td>
+							<td><Chart chartData={pressures} color="red" units="hPa"/></td>
+							<td><Chart chartData={humidities} color="blue" units="%"/></td>
+							
+						</tr>
+					</tbody>
+				</table>
 		);
 	}
 	
 	render(){
 		return(
-
+			<div>
 			<table className="table table-hover">
 
 				<thead>
@@ -69,12 +71,12 @@ class WeatherList extends Component {
 						<th>Humidity (%)</th>
 					</tr>
 				</thead>
-				
-				<tbody>
-					{this.props.weather.map(this.renderWeather)}
-				</tbody>
-
 			</table>
+			<article>
+				{this.props.weather.map(this.renderWeather)}
+			</article>	
+		</div>
+			
 
 		);
 	}

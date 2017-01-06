@@ -14,9 +14,13 @@ export default class App extends Component {
     <div>
       <Nav />
     <main className="container">
-      <Intro />
-      <SearchBar />
-      <WeatherList />
+      <section className="introContainer">
+        <Intro />
+      </section>
+      <section className="widgetContainer">
+        <SearchBar />
+        <WeatherList />
+      </section>
      </main>
      <footer className="page-footer blue center-on-small-only">
        <FooterComp />
