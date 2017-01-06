@@ -3,6 +3,7 @@
 v0.5
 - prototype to add offline mode to application
 - prototype to continue fixing semantics
+- prototype to continue adding material components
 
 v0.4
 - styled search bar
