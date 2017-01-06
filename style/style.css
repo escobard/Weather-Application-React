@@ -41,7 +41,7 @@ main.container {
 ===========================================================*/
 .card-title {
     text-align: center;
-    color: #0275d8;
+    color: #3F51B5;
     margin-bottom: 0px !important;
 }
 .input-group{
@@ -51,6 +51,9 @@ main.container {
 #searchInput {
     height: 50px;
     border-radius: 0.25rem;
+}
+.card-block {
+    padding-bottom: 10px;
 }
 .mapContainer {
     min-height: 300px;
