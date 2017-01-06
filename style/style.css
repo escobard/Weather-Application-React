@@ -108,6 +108,14 @@ article.card {
     height: 30vh;
     width: 100%;
     padding: 0px 15px;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    -ms-animation-delay: 0.7s;
+    animation-delay: 0.7s;
 }
 .charts {padding: 15px;}
 
@@ -123,16 +131,41 @@ article.card {
 .chartContainer.first {
     background-color: rgba(0, 150, 136, 0.8);
     margin-left: 0;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    animation-delay: 1s;
 }
 .chartContainer.first polyline {
     fill-opacity: 1 !important;
 }
+
+.chartContainer.second {
+    background-color: rgba(224, 62, 50, 0.8);
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+    -ms-animation-delay: 1.3s;
+    animation-delay: 1.3s;
+}
 .chartContainer.third {
     margin-right: 0;
     background-color: rgba(0, 188, 212, 0.8);
-}
-.chartContainer.second {
-    background-color: rgba(224, 62, 50, 0.8);
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    -ms-animation-delay: 1.6s;
+    animation-delay: 1.6s;
 }
 h5.chartDescription {
     text-align: center;
