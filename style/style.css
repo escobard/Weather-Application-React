@@ -179,4 +179,8 @@ h5.chartDescription {
     color: #fff;
     padding: 20px 0 10px;
     margin: 0;
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    animation-delay: 2s;
 }

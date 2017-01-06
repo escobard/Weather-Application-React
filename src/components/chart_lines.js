@@ -30,7 +30,7 @@ export default (props) => {
 				
 			</Sparklines>
 		</div>
-			<div><h5 className="chartDescription">Temperature: {avarage(props.chartData)} {props.units}</h5></div>
+			<div><h5 className="chartDescription animated fadeIn">Temperature: {avarage(props.chartData)} {props.units}</h5></div>
 		</div>
 		
 	);
