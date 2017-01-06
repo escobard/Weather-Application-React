@@ -12,7 +12,7 @@ import React from 'react';
 import _ from 'lodash';
 
 // imports the chart API for reat, Sparklines, more on that here : https://github.com/borisyankov/react-sparklines
-import { Sparklines, SparklinesLine, SparklinesReferenceLine} from 'react-sparklines';
+import { Sparklines, SparklinesLine, SparklinesBars, SparklinesSpots, SparklinesReferenceLine} from 'react-sparklines';
 
 // creates the avarage function
 function avarage(data) {

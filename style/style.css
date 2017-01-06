@@ -53,7 +53,7 @@ main.container {
     border-radius: 0.25rem;
 }
 .card-block {
-    padding-bottom: 10px;
+    padding-bottom: 10px !important;
 }
 .mapContainer {
     min-height: 300px;
