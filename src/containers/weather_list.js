@@ -44,9 +44,6 @@ class WeatherList extends Component {
 		const { lon, lat } = cityData.city.coord;
 		return(
 			<article className="card"key={cityName}>
-				    <div className="card-block">
-				        <h4 className="card-title">{cityName}</h4>
-				    </div>
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
 						<div className="chartContainer">
@@ -54,6 +51,9 @@ class WeatherList extends Component {
 						</div>
 						<div className="chartContainer">
 							<Chart chartData={humidities} color="blue" units="%"/>
+						</div>
+						<div className="chartContainer">
+							<Chart chartData={pressures} color="gray" units="%"/>
 						</div>
 					</section>		
 			</article>
