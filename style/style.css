@@ -1,20 +1,14 @@
-.input-group{
-	margin:20px 0px;
-}
+/*===========================================================
 
-td, th {
-	vertical-align: middle !important;
-	text-align: center !important;
-}
+	Main Application Styles
 
-td svg {
-    max-height: 175px;
-}
+===========================================================*/
 
-td:first-of-type {
-	height: 175px;
-	width: 250px;
-}
+/*===========================================================
+
+	DOM Component Styles
+
+===========================================================*/
 
 footer {
     padding-top: 0 !important;
@@ -35,11 +29,36 @@ footer {
     margin: 3px 6px 1px;
 }
 
+main.container {
+    margin-bottom: 80px;
+}
+
+/*===========================================================
+
+	Weather Search Widget Styles
+
+===========================================================*/
+
+
+.input-group{
+	margin:20px 0px;
+}
+
+td, th {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+td svg {
+    max-height: 175px;
+}
+
+td:first-of-type {
+	height: 175px;
+	width: 250px;
+}
+
 #searchInput {
     height: 50px;
     border-radius: 0.25rem;
-}
-
-main.container {
-    margin-bottom: 80px;
 }
