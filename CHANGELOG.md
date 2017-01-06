@@ -7,8 +7,7 @@ v0.5
 v0.4
 - styled search bar
 - fixed footer / nav styles
-- scrapped intro component
-- prototype to continue fixing semantics
+- scrapped intro components
 
 v0.3
 - prototype to add search bar into the header
