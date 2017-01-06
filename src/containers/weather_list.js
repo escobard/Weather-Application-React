@@ -6,7 +6,9 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import Chart from '../components/chart';
+import ChartLines from '../components/chart_lines';
+import ChartBars from '../components/chart_bars';
+import ChartSpots from '../components/chart_spots';
 import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
@@ -43,23 +45,21 @@ class WeatherList extends Component {
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
 
-		// these are the chart type variables
-		const lines = 'lines';
 		return(
 			<article className="card"key={cityName}>
 				    <div className="card-block">
-				        <h4 className="card-title">Weather Forecast for : {cityName}</h4>
+				        <h4 className="card-title">Forecast for : {cityName}</h4>
 				    </div>
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
 						<div className="chartContainer">
-							<Chart chartType={lines} chartData={temps} color="orange" units="Kelvin"/>
+							<ChartLines chartData={temps} color="orange" units="Kelvin"/>
 						</div>
 						<div className="chartContainer">
-							<Chart chartType={lines} chartData={humidities} color="blue" units="%"/>
+							<ChartBars chartData={humidities} color="blue" units="%"/>
 						</div>
 						<div className="chartContainer">
-							<Chart chartType={lines} chartData={pressures} color="gray" units="%"/>
+							<ChartSpots chartData={pressures} color="gray" units="%"/>
 						</div>
 					</section>		
 			</article>
