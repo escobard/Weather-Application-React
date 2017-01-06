@@ -71,7 +71,16 @@ table.weatherDisplay {
     margin: 20px 0;
 }
 .mapContainer {
-    height: 175px;
-    width: 250px;
+    min-height: 300px;
+    height: 30vh;
+    width: 100%;
+    padding: 0px 15px;
 }
+.charts {margin-top: 15px;}
 
+.chartContainer {
+    display: block;
+    width: 49%;
+    float: left;
+    margin: 0 0.5%;
+}

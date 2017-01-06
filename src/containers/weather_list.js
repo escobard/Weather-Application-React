@@ -49,8 +49,12 @@ class WeatherList extends Component {
 				    </div>
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
-						<div className="chartContainer"><Chart chartData={temps} color="orange" units="Kelvin"/></div>
-						<div className="chartContainer"><Chart chartData={humidities} color="blue" units="%"/></div>
+						<div className="chartContainer">
+							<Chart chartData={temps} color="orange" units="Kelvin"/>
+						</div>
+						<div className="chartContainer">
+							<Chart chartData={humidities} color="blue" units="%"/>
+						</div>
 					</section>		
 			</article>
 		);
