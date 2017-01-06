@@ -70,4 +70,8 @@ td {
 table.weatherDisplay {
     margin: 20px 0;
 }
+.mapContainer {
+    height: 175px;
+    width: 250px;
+}
 

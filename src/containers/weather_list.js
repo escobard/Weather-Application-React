@@ -43,39 +43,15 @@ class WeatherList extends Component {
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
 		return(
-			<article key={cityName}>
-				<div className="card">
-
-				    <div className="view overlay hm-white-slight">
-				        <img src="http://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%287%29.jpg" className="img-fluid" alt="" />
-				        <a href="#">
-				            <div className="mask"></div>
-				        </a>
-				    </div>
-
+			<article className="card"key={cityName}>
 				    <div className="card-block">
-
-				        <h4 className="card-title">Card title</h4>
-
-				        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				        <a href="#" className="btn btn-primary">Button</a>
+				        <h4 className="card-title">{cityName}</h4>
 				    </div>
-
-				</div>
-
-				
-				<table className="weatherDisplay">
-					<tbody>
-						<tr>
-							
-							<td><GoogleMap lon={lon} lat={lat} /></td>
-							<td><Chart chartData={temps} color="orange" units="Kelvin"/></td>
-							<td><Chart chartData={pressures} color="red" units="hPa"/></td>
-							<td><Chart chartData={humidities} color="blue" units="%"/></td>
-							
-						</tr>
-					</tbody>
-				</table>
+				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
+					<section className="charts">
+						<div className="chartContainer"><Chart chartData={temps} color="orange" units="Kelvin"/></div>
+						<div className="chartContainer"><Chart chartData={humidities} color="blue" units="%"/></div>
+					</section>		
 			</article>
 		);
 	}
