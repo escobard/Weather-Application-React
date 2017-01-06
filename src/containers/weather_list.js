@@ -43,6 +43,7 @@ class WeatherList extends Component {
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
 		return(
+			<article>
 				<table className="weatherDisplay" key={cityName}>
 					<tbody>
 						<tr>
@@ -55,6 +56,7 @@ class WeatherList extends Component {
 						</tr>
 					</tbody>
 				</table>
+			</article>
 		);
 	}
 	
@@ -72,9 +74,7 @@ class WeatherList extends Component {
 					</tr>
 				</thead>
 			</table>
-			<article>
 				{this.props.weather.map(this.renderWeather)}
-			</article>	
 		</div>
 			
 
