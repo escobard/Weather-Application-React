@@ -76,11 +76,14 @@ article.card {
     margin: 25px 0 30px;
 }
 .chartContainer.first {
-    background-color: #000;
-
+    background-color: rgba(0, 150, 136, 0.8);
     margin-left: 0;
 }
 
 .chartContainer.third {
     margin-right: 0;
+    background-color: rgba(0, 188, 212, 0.8);
+}
+.chartContainer.second {
+    background-color: rgba(224, 62, 50, 0.8);
 }
