@@ -18,7 +18,7 @@ td:first-of-type {
 
 footer {
     padding-top: 0 !important;
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
 }
@@ -38,4 +38,8 @@ footer {
 #searchInput {
     height: 50px;
     border-radius: 0.25rem;
+}
+
+main.container {
+    margin-bottom: 80px;
 }
