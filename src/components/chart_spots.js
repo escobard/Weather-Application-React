@@ -30,7 +30,7 @@ export default (props) => {
 				<SparklinesLine style={{ fill: "none" }} color={props.color} />
 			</Sparklines>
 		</div>
-			<div>{avarage(props.chartData)} {props.units}</div>
+			<div><h5 className="chartDescription">{avarage(props.chartData)} {props.units}</h5></div>
 		</div>
 		
 	);

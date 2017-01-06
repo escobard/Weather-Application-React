@@ -39,6 +39,7 @@ main.container {
     Weather Search Widget Styles
 
 ===========================================================*/
+
 .card-title {
     text-align: center;
     color: #0275d8;
@@ -90,4 +91,10 @@ article.card {
 }
 .chartContainer.second {
     background-color: rgba(224, 62, 50, 0.8);
+}
+h5.chartDescription {
+    text-align: center;
+    color: #fff;
+    padding: 20px 0 10px;
+    margin: 0;
 }
