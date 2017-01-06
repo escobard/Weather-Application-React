@@ -1,5 +1,49 @@
+
+/*===========================================================
+
+	Main Application Styles
+
+===========================================================*/
+
+/*===========================================================
+
+	DOM Component Styles
+
+===========================================================*/
+
+footer {
+    padding-top: 0 !important;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
 .navbar-brand {
-    float: left;
+    text-align: center !important;
+    display: block !important;
+    font-size: 24px !important;
+    padding: 0;
+}
+#subButton {
+    height: 50px;
+    padding: 14px 70px;
+    margin: 3px 6px 1px;
+}
+
+main.container {
+    margin-bottom: 80px;
+}
+
+/*===========================================================
+
+	Weather Search Widget Styles
+
+===========================================================*/
+
+
+.input-group{
+	margin:20px 0px;
+
 }
 
 ul.nav.navbar-nav {
@@ -16,13 +60,79 @@ td:first-of-type {
 	width: 250px;
 }
 
-footer {
-    padding-top: 0 !important;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-nav {
-    margin-bottom: 40px;
 
+#searchInput {
+    height: 50px;
+    border-radius: 0.25rem;
 }
+
+td {
+    min-width: 275px;
+    padding: 0 5px;
+}
+
+table.weatherDisplay {
+    margin: 20px 0;
+}
+
+/*===========================================================
+
+	Intro Styles
+
+===========================================================*/
+
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #2E2E2E;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #2E2E2E;
+    }
+}
+/*Intro*/
+
+.view {
+    background: url("http://mdbootstrap.com/img/Photos/Horizontal/People/12-col/img%20(58).jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .full-bg-img,
+    .view {
+        height: auto;
+        position: relative;
+    }
+}
+
+.description {
+    padding-top: 25%;
+    padding-bottom: 3rem;
+    color: #fff
+}
+
+@media (max-width: 992px) {
+    .description {
+        padding-top: 7rem;
+        text-align: center;
+    }
+    #app-mockup {
+        max-height: 400px;
+    }
+}
+

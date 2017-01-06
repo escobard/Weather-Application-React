@@ -76,17 +76,14 @@ class SearchBar extends Component {
 		
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input 
+					id="searchInput"
 					placeholder="Get a five-day forecast in your favorite cities"
 					className="form-control"
 					value={this.state.searchTerm}
 					onChange={this.onInputChange}
 				/>
-				
-				<span className="input-group-btn">
-					
-					<button type="submit" className="btn btn-secondary">Submit</button>
+					<button type="submit" id="subButton" className="btn btn-primary">Submit</button>
 
-				</span>
 
 			</form>
 
