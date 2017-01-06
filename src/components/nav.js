@@ -4,7 +4,7 @@ export default class Nav extends Component {
   render() {
     return (
     	<header>
-		<nav className="navbar navbar-dark bg-primary navbar-fixed-top">
+		<nav className="navbar navbar-fixed-top navbar-dark bg-primary">
 
 		    <div className="container nav-container">
 
