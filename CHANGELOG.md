@@ -1,10 +1,13 @@
 ** Changelog for Capstone project
 
-v0.4
-- prototype to style search bar
-- prototype to continue adding material components
-- prototype to continue fixing semantics
+v0.5
 - prototype to add offline mode to application
+
+v0.4
+- styled search bar
+- fixed footer / nav styles
+- prototype to add intro component
+- prototype to continue fixing semantics
 
 v0.3
 - prototype to add search bar into the header
