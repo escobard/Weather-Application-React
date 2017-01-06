@@ -59,7 +59,7 @@ class WeatherList extends Component {
 							<ChartBars chartData={humidities} color="#00FF6A" units="%"/>
 						</div>
 						<div className="chartContainer third">
-							<ChartSpots chartData={pressures} color="gray" units="%"/>
+							<ChartSpots chartData={pressures} color="#FF6E00" units="%"/>
 						</div>
 					</section>		
 			</article>

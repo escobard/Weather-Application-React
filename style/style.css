@@ -41,8 +41,10 @@ main.container {
 ===========================================================*/
 .card-title {
     text-align: center;
-    color: #000000;
+    color: #0275d8;
     margin-bottom: 0px !important;
+    font-weight: bold;
+    font-size: 22px;
 }
 .input-group{
     margin:20px 0px;

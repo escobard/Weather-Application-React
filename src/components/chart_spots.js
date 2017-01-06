@@ -26,9 +26,8 @@ export default (props) => {
 		<div>
 		<div>
 			<Sparklines className="chartActual" height={120} width={180} data={props.chartData}>
-				<SparklinesLine style={{ fill: "none" }} color={props.color} />
 				<SparklinesSpots />
-				<SparklinesReferenceLine type="avg" />
+				<SparklinesLine style={{ fill: "none" }} color={props.color} />
 			</Sparklines>
 		</div>
 			<div>{avarage(props.chartData)} {props.units}</div>
