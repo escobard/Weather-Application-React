@@ -1,10 +1,15 @@
 ** Changelog for Capstone project
 
+v0.55
+- added 3 types of charts to application
+- styled charts and card
+- prototype to add animations to each card element
+
 v0.5
 - prototype to add offline mode to application
-- prototype to continue fixing semantics
-- prototype to continue adding material components
-- prototype to add content animations
+- fixed more semantics
+- added card component to weather widget
+- added content animation
 
 v0.4
 - styled search bar
