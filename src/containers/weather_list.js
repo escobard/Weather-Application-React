@@ -53,7 +53,7 @@ class WeatherList extends Component {
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
 						<div className="chartContainer first">
-							<ChartLines chartData={temps} color="orange" units="Kelvin"/>
+							<ChartLines chartData={temps} color="#FF5200" units="Kelvin"/>
 						</div>
 						<div className="chartContainer second">
 							<ChartBars chartData={humidities} color="blue" units="%"/>

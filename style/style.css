@@ -41,7 +41,7 @@ main.container {
 ===========================================================*/
 .card-title {
     text-align: center;
-    color: #3F51B5;
+    color: #000000;
     margin-bottom: 0px !important;
 }
 .input-group{
@@ -79,7 +79,9 @@ article.card {
     background-color: rgba(0, 150, 136, 0.8);
     margin-left: 0;
 }
-
+.chartContainer.first polyline {
+    fill-opacity: 1 !important;
+}
 .chartContainer.third {
     margin-right: 0;
     background-color: rgba(0, 188, 212, 0.8);
