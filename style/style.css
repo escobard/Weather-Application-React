@@ -43,32 +43,9 @@ main.container {
 	margin:20px 0px;
 }
 
-td, th {
-	vertical-align: middle !important;
-	text-align: center !important;
-}
-
-td svg {
-    max-height: 175px;
-}
-
-td:first-of-type {
-	height: 175px;
-	width: 250px;
-}
-
 #searchInput {
     height: 50px;
     border-radius: 0.25rem;
-}
-
-td {
-    min-width: 275px;
-    padding: 0 5px;
-}
-
-table.weatherDisplay {
-    margin: 20px 0;
 }
 .mapContainer {
     min-height: 300px;
@@ -83,4 +60,7 @@ table.weatherDisplay {
     width: 49%;
     float: left;
     margin: 0 0.5%;
+}
+article.card {
+    margin: 25px 0 30px;
 }
