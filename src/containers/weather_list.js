@@ -48,17 +48,17 @@ class WeatherList extends Component {
 		return(
 			<article className="card"key={cityName}>
 				    <div className="card-block">
-				        <h4 className="card-title">Forecast for : {cityName}</h4>
+				        <h4 className="card-title">Forecast for {cityName}</h4>
 				    </div>
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
-						<div className="chartContainer">
+						<div className="chartContainer first">
 							<ChartLines chartData={temps} color="orange" units="Kelvin"/>
 						</div>
-						<div className="chartContainer">
+						<div className="chartContainer second">
 							<ChartBars chartData={humidities} color="blue" units="%"/>
 						</div>
-						<div className="chartContainer">
+						<div className="chartContainer third">
 							<ChartSpots chartData={pressures} color="gray" units="%"/>
 						</div>
 					</section>		
