@@ -42,7 +42,7 @@ main.container {
 
 .card-title {
     text-align: center;
-    color: #0275d8;
+    color: #fff;
     margin-bottom: 0px !important;
     font-weight: bold;
     font-size: 22px;
@@ -76,6 +76,7 @@ main.container {
     border-radius: 3px;
 }
 article.card {
+    background: rgb(2, 117, 216);
     margin: 25px 0 30px;
 }
 .chartContainer.first {
