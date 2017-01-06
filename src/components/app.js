@@ -4,7 +4,6 @@ import WeatherList from '../containers/weather_list';
 
 // custom components
 import Nav from './nav';
-import Intro from './intro';
 import FooterComp from './footer';
 
 
@@ -14,9 +13,6 @@ export default class App extends Component {
     <div>
       <Nav />
     <main className="container">
-      <section className="introContainer">
-        <Intro />
-      </section>
       <section className="widgetContainer">
         <SearchBar />
         <WeatherList />

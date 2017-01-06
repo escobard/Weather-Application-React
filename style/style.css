@@ -99,15 +99,36 @@ header,
         background-color: #2E2E2E;
     }
 }
-
-.full-bg-img {
-    color: #fff;
-}
+/*Intro*/
 
 .view {
-    background: url("http://mdbootstrap.com/img/Photos/Horizontal/People/12-col/img%20(63).jpg")no-repeat center center fixed;
+    background: url("http://mdbootstrap.com/img/Photos/Horizontal/People/12-col/img%20(58).jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .full-bg-img,
+    .view {
+        height: auto;
+        position: relative;
+    }
+}
+
+.description {
+    padding-top: 25%;
+    padding-bottom: 3rem;
+    color: #fff
+}
+
+@media (max-width: 992px) {
+    .description {
+        padding-top: 7rem;
+        text-align: center;
+    }
+    #app-mockup {
+        max-height: 400px;
+    }
 }
