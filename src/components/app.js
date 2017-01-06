@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import SearchBar from '../containers/search_bar';
 import WeatherList from '../containers/weather_list';
+
+// custom components
 import Nav from './nav';
+import Intro from './intro';
 import FooterComp from './footer';
 
 
@@ -11,6 +14,7 @@ export default class App extends Component {
     <div>
       <Nav />
     <main className="container">
+      <Intro />
       <SearchBar />
       <WeatherList />
      </main>
