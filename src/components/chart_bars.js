@@ -29,7 +29,7 @@ export default (props) => {
 				<SparklinesBars style={{ fill: "#00e660" }}/>
 			</Sparklines>
 		</div>
-			<div><h5 className="chartDescription">{avarage(props.chartData)} {props.units}</h5></div>
+			<div><h5 className="chartDescription">Humidity: {avarage(props.chartData)} {props.units}</h5></div>
 		</div>
 		
 	);
