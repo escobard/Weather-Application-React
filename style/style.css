@@ -23,12 +23,12 @@ footer {
     font-size: 24px !important;
     padding: 0;
     font-weight: bold;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
-#subButton {
-    height: 50px;
-    padding: 14px 70px;
-    margin: 3px 6px 1px;
-}
+
 
 main.container {
     margin-bottom: 80px;
@@ -36,10 +36,53 @@ main.container {
 
 /*===========================================================
 
-    Weather Search Widget Styles
+    Search Widget Styles
 
 ===========================================================*/
 
+.input-group{
+    margin:20px 0px;
+}
+
+#searchInput {
+    height: 50px;
+    border-radius: 0.25rem;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+#subButton {
+    height: 50px;
+    padding: 14px 70px;
+    margin: 3px 6px 1px;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+/*===========================================================
+
+    Weather Widget Styles
+
+===========================================================*/
+article.card {
+    background: rgb(0, 87, 162);
+    margin: 25px 0 30px;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
 .card-title {
     text-align: center;
     color: #fff;
@@ -50,19 +93,12 @@ main.container {
     -moz-animation-duration: 0.5s;
     -ms-animation-duration: 0.5s;
     animation-duration: 0.5s;
-    -webkit-animation-delay: 3s;
-    -moz-animation-delay: 3s;
-    -ms-animation-delay: 3s;
-    animation-delay: 3s;
-}
-.input-group{
-    margin:20px 0px;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
-#searchInput {
-    height: 50px;
-    border-radius: 0.25rem;
-}
 .card-block {
     padding-bottom: 10px !important;
 }
@@ -83,10 +119,7 @@ main.container {
     padding: 2%;
     border-radius: 3px;
 }
-article.card {
-    background: rgb(0, 87, 162);
-    margin: 25px 0 30px;
-}
+
 .chartContainer.first {
     background-color: rgba(0, 150, 136, 0.8);
     margin-left: 0;

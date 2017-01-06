@@ -50,7 +50,7 @@ class WeatherList extends Component {
 				    <div className="card-block">
 				        <h4 className="card-title animated fadeInDown">Forecast for {cityName}</h4>
 				    </div>
-				    <section className="animated slideInUp mapContainer">
+				    <section className="animated fadeInUp mapContainer">
 				    	<GoogleMap lon={lon} lat={lat} />
 				    </section>
 					<section className="charts">

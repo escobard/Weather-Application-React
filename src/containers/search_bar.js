@@ -78,11 +78,11 @@ class SearchBar extends Component {
 				<input 
 					id="searchInput"
 					placeholder="Get a five-day forecast in your favorite cities"
-					className="form-control animated slideInLeft"
+					className="form-control animated fadeInLeft"
 					value={this.state.searchTerm}
 					onChange={this.onInputChange}
 				/>
-					<button type="submit" id="subButton" className="btn btn-primary animated slideInRight">Submit</button>
+					<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
 
 
 			</form>
