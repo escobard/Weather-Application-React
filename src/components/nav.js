@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Intro from './intro';
 
 export default class Nav extends Component {
   render() {
@@ -16,7 +15,6 @@ export default class Nav extends Component {
 		    </div>
 
 		</nav>
-		<Intro />
 		</header>
     );
   }
