@@ -42,6 +42,9 @@ class WeatherList extends Component {
 	
 		// this is the ES6 way of grabbing the lon / lat data
 		const { lon, lat } = cityData.city.coord;
+
+		// these are the chart type variables
+		const lines = 'lines';
 		return(
 			<article className="card"key={cityName}>
 				    <div className="card-block">
@@ -50,13 +53,13 @@ class WeatherList extends Component {
 				    <section className="mapContainer"><GoogleMap lon={lon} lat={lat} /></section>
 					<section className="charts">
 						<div className="chartContainer">
-							<Chart chartData={temps} color="orange" units="Kelvin"/>
+							<Chart chartType={lines} chartData={temps} color="orange" units="Kelvin"/>
 						</div>
 						<div className="chartContainer">
-							<Chart chartData={humidities} color="blue" units="%"/>
+							<Chart chartType={lines} chartData={humidities} color="blue" units="%"/>
 						</div>
 						<div className="chartContainer">
-							<Chart chartData={pressures} color="gray" units="%"/>
+							<Chart chartType={lines} chartData={pressures} color="gray" units="%"/>
 						</div>
 					</section>		
 			</article>
