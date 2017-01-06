@@ -46,21 +46,21 @@ class WeatherList extends Component {
 		const { lon, lat } = cityData.city.coord;
 
 		return(
-			<article className="card"key={cityName}>
+			<article className="card animated fadeInDown" key={cityName}>
 				    <div className="card-block">
-				        <h4 className="card-title">Forecast for {cityName}</h4>
+				        <h4 className="card-title animated fadeInDown">Forecast for {cityName}</h4>
 				    </div>
-				    <section className="container-fluid mapContainer">
+				    <section className="animated slideInUp mapContainer">
 				    	<GoogleMap lon={lon} lat={lat} />
 				    </section>
 					<section className="charts">
-						<div className="chartContainer first">
+						<div className="chartContainer first animated fadeInUp">
 							<ChartLines chartData={temps} color="#FF5200" units="Kelvin"/>
 						</div>
-						<div className="chartContainer second">
+						<div className="chartContainer second animated fadeInUp">
 							<ChartBars chartData={humidities} color="#00FF6A" units="%"/>
 						</div>
-						<div className="chartContainer third">
+						<div className="chartContainer third animated fadeInUp">
 							<ChartSpots chartData={pressures} color="#FF6E00" units="%"/>
 						</div>
 					</section>		
