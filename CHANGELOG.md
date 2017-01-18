@@ -1,8 +1,8 @@
 ** Changelog for Capstone project
 
 v0.8
-- added geolocation API into the application
-- prototype to test geolocation functionality
+- added geolocation API into the application - originally from this fiddle : https://codepen.io/jnmorse/pen/qbLegO
+- tested geolocation functionality, working as intended
 
 v0.7
 - added offline capabilities
