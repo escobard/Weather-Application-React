@@ -20,12 +20,12 @@ class Location extends Component {
     console.log("Loading Geolocation...")   
       return (
         <div>
-        <p>Loading... your Location</p>
+        <h3>Loading... your Location</h3>
         </div>
       );
     } 
 
-    else {
+    else if (latitude > 1){
       var lat = latitude;
       var lon = longitude;
       console.log(lat);
@@ -47,6 +47,11 @@ class Location extends Component {
       </article>        
 
       );
+    }
+    else{
+        <div>
+          <h3>Geolocation failed!</h3>
+        </div>
     }
   }
   render () {
