@@ -5,7 +5,8 @@ import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { applyMiddleware, createStore, combineReducers, bindActionCreators } from 'redux';
 
-import getLocation from '../actions/action_geolocation'
+import getLocation from '../actions/action_geolocation';
+
 
 /* Redux Action Types
 const GET_LOCATION = 'GET_LOCATION';
@@ -38,6 +39,9 @@ const getLocation = () => {
 }; */
 
 class Location extends Component {
+  componentWillMount() {
+    this.props.getLocation();
+  }
 
   render () {
     const {coords: {latitude, longitude}} = this.props.location;
@@ -51,11 +55,11 @@ class Location extends Component {
   }
 }
 
-function mapStateToProps ({location}) {
+function mapStateToProps ({location}){
   return {location};
 };
 
-export default connect(mapStateToProps)(Location);
+export default connect(mapStateToProps, {getLocation})(Location);
 
 /* const GeoLocate = () => {
   return (

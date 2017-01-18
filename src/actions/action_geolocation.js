@@ -7,7 +7,7 @@
 // Redux Action Types
 export const GET_LOCATION = 'GET_LOCATION';
 
-function getLocation () {
+const getLocation = () => {
   const geolocation = navigator.geolocation;
   
   const location = new Promise((resolve, reject) => {
