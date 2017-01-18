@@ -20,7 +20,7 @@ class Location extends Component {
     console.log("Loading Geolocation...")   
       return (
         <div>
-        <p>Loading...</p>
+        <p>Loading... your Location</p>
         </div>
       );
     } 
@@ -31,15 +31,16 @@ class Location extends Component {
       console.log(lat);
       console.log(lon);
       return (
-        <div>
-          <div>Latitude: <span>{lat}</span></div>
-          <div>Longitude: <span>{lon}</span></div>
-          <div>
-            <section className="animated fadeInUp mapContainer">
-              <GoogleMap zoom={16} lon={lon} lat={lat}/>
-            </section>
+        <section id="geolocateMap" className="animated fadeInUp">
+          <h3 className="animated">Your location coordinates are:</h3>
+          <div className="coordinates">
+          <p className="lat">Latitude: <span>{lat}</span></p>
+          <p className="lon">Longitude: <span>{lon}</span></p>
           </div>
-        </div>
+          <div className="mapContainer">           
+              <GoogleMap zoom={16} lon={lon} lat={lat}/>
+          </div> 
+        </section>
       );
     }
   }

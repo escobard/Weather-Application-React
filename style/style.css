@@ -55,7 +55,26 @@ footer {
     font-size: 20px;
 }
 
+/*===========================================================
 
+    Geolocate Styles
+
+===========================================================*/
+#geolocateMap {
+    text-align: center;
+}
+#geolocateMap h3{
+    color: #0275d8;
+}
+.coordinates {
+    display: inline-block;
+    width: 100%;
+}
+
+.coordinates p {
+    float: left;
+    width: 50%;
+}
 
 /*===========================================================
 

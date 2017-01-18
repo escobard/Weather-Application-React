@@ -22,8 +22,8 @@ export default class App extends Component {
       <section className="widgetContainer">
         <SearchBar />
         <OfflineHandle />
-        <Location />
         <WeatherList />
+        <Location />
       </section>
      </main>
      <footer className="page-footer blue center-on-small-only">
