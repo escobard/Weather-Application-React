@@ -1,7 +1,7 @@
 ** Changelog for Capstone project
 
 v0.6
-- prototype to apply responsive and mobile fixes
+- applied responsive styles and fixes
 - prototype to further clean up semantics
 
 v0.55
