@@ -6,7 +6,7 @@
 
 
 // sets the cache name
-var staticCacheName = 'wa-static-v1.3';
+var staticCacheName = 'wa-static-v1.4';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -21,6 +21,8 @@ self.addEventListener('install', function(event) {
       '/img/clouds-favicon.png',
       '/bundle.js'
       ]);
+    }).then(function(){
+      return self.skipWaiting();
     })
   );
 });
@@ -37,6 +39,8 @@ self.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
+    }).then(function(){
+      return self.clients.claim();
     })
   );
 });
