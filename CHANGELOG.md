@@ -1,8 +1,8 @@
 ** Changelog for Capstone project
 
 v0.9
-- prototype to do something with geolocation data
-- prototype to finalize application offline functionality
+- created a map with geolocation data, and posted coordinates
+- finalized and cleaned up offline functionality
 
 v0.8
 - added geolocation API into the application - originally from this fiddle : https://codepen.io/jnmorse/pen/qbLegO
