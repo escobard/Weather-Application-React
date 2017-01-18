@@ -9,6 +9,7 @@ import Location from '../containers/geo_location';
 import Nav from './nav';
 import FooterComp from './footer';
 
+// maps
 import OfflineHandle from './offline-handle';
 
 
