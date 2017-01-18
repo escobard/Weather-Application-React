@@ -17,6 +17,8 @@ body {
   position: relative;
   padding-bottom: 6rem;
   min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 footer {
     padding-top: 0 !important;
@@ -191,9 +193,41 @@ h5.chartDescription {
     Responsive Styles
 
 ===========================================================*/
-@media only screen and (min-width: 0px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 768px) {
     main.container {
         width: 90%;
         max-width: none;
     }
+    .chartContainer {
+    width: 98%;
+    float: left;
+    margin-top: 4%;
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+    margin-bottom: 2%;
+    }
+    .chartContainer.first {
+    margin-top: 0 !important;
+
+    }
+    .navbar-brand {
+        font-size: 18px !important;
+
+    }
+    input#searchInput {
+    width: 100% !important;
+    display: block;
+    position: absolute;
+}
+button#subButton {
+    float: left;
+    width: 100%;
+    position: absolute;
+    margin: 53px 0 0 0;
+    display: inline-block;
+}
+
+form.input-group {
+    height: 130px;
+}
 }
