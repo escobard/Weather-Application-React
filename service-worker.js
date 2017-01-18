@@ -6,7 +6,7 @@
 
 
 // sets the cache name
-var staticCacheName = 'wa-static-v1.1';
+var staticCacheName = 'wa-static-v1.2';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -17,6 +17,7 @@ self.addEventListener('install', function(event) {
       '/style/mdb.min.css',
       '/img/clouds-192.png',
       '/img/clouds.png',
+      '/img/gears.gif',
       '/img/clouds-favicon.png',
       '/bundle.js'
       ]);
