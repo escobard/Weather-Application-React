@@ -1,8 +1,12 @@
 ** Changelog for Capstone project
 
+v0.9
+- prototype to do something with geolocation data
+- prototype to finalize application offline functionality
+
 v0.8
-- prototype to add geolocation API and hook it up to weather API
-- prototype to test geolocation functionality
+- added geolocation API into the application - originally from this fiddle : https://codepen.io/jnmorse/pen/qbLegO
+- tested geolocation functionality, working as intended
 
 v0.7
 - added offline capabilities

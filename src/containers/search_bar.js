@@ -39,9 +39,6 @@ class SearchBar extends Component {
 	// 
 	onInputChange(event) {
 
-		// this logs the value of the input .target being the parent element (the input) and .value being the value of the input
-		console.log('The search bar value is: ' + event.target.value);
-
 		// this makes it so that the final value of the input sets the .state.searchTerm value
 		// this throws an error because .this is bound to the event change function, not the constructor
 		// to fix this, refer to the constructor notes 'bind' above

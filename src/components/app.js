@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+
+// custom containers
 import SearchBar from '../containers/search_bar';
 import WeatherList from '../containers/weather_list';
+import Location from '../containers/geo_location';
 
 // custom components
 import Nav from './nav';
@@ -18,6 +21,7 @@ export default class App extends Component {
       <section className="widgetContainer">
         <SearchBar />
         <OfflineHandle />
+        <Location />
         <WeatherList />
       </section>
      </main>
