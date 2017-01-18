@@ -22,10 +22,10 @@ export default class OfflineHandle extends Component {
 	    //
 	    
 	    return (
-	    	<div className="offline-text ">
-				<h3 className="animated fadeInDown">The application is offline!</h3>
-				<img className="animated fadeIn" src="img/gears.gif" alt="application is offline" />
-				<h3 className="animated fadeInUp">Please connect to the internet to search the Weather.</h3>
+	    	<div className="offline-text animated fadeInDown">
+				<h3>The application is offline!</h3>
+				<h3>Please connect to the internet to search the Weather.</h3>
+				<img src="img/gears.gif" alt="application is offline" />
 			</div>
 	    );
 	}
