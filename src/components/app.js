@@ -6,6 +6,8 @@ import WeatherList from '../containers/weather_list';
 import Nav from './nav';
 import FooterComp from './footer';
 
+import OfflineHandle from './offline-handle';
+
 
 export default class App extends Component {
   render() {
@@ -15,6 +17,7 @@ export default class App extends Component {
     <main className="container">
       <section className="widgetContainer">
         <SearchBar />
+        <OfflineHandle />
         <WeatherList />
       </section>
      </main>

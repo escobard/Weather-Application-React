@@ -8,22 +8,23 @@
 
 import React, { Component } from 'react';
 
-export default class offlineHandle extends Component {
+export default class OfflineHandle extends Component {
   offline(){
-  	if(!navigator.onLine) { 
+  	if(navigator.onLine) { 
+	    //
+	    
 	    return (
-	    	<section class="animated fadeInUp">
+	    	<div className="animated fadeInUp">
 				<h3>Application is offline, please connect to the internet to search the Weather.</h3>
-			</section>
+			</div>
 	    );
-
 	}
   }
 
   render() {
     return (
 		<div>
-			{this.offline};
+			{this.offline()}
 		</div>
     );
   }
