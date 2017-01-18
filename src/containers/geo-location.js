@@ -1,8 +1,7 @@
-// React and Redux Const
-const { Component } = React;
-const { render } = ReactDOM;
-const { Provider, connect } = ReactRedux;
-const { applyMiddleware, createStore, combineReducers, bindActionCreators } = Redux;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider, connect } from 'react-redux';
+import { applyMiddleware, createStore, combineReducers, bindActionCreators } from 'redux';
 
 // Redux Action Types
 const GET_LOCATION = 'GET_LOCATION';
@@ -108,5 +107,5 @@ render(
   <Provider store={createStoreWithMiddleware(rootReducer)}>
     <App />
   </Provider>
-  , document.querySelector('#app')
+  , document.querySelector('#application')
 );
