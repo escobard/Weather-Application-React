@@ -5,7 +5,9 @@ import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { applyMiddleware, createStore, combineReducers, bindActionCreators } from 'redux';
 
-// Redux Action Types
+import getLocation from '../actions/action_geolocation'
+
+/* Redux Action Types
 const GET_LOCATION = 'GET_LOCATION';
 
 const getLocation = () => {
@@ -29,16 +31,13 @@ const getLocation = () => {
   }
 };
 
-const Header = (props) => {
+/* const Header = (props) => {
   return (
     <header><h1>{props.title}</h1></header>
   );
-};
+}; */
 
 class Location extends Component {
-  componentWillMount() {
-    this.props.getLocation();
-  }
 
   render () {
     const {coords: {latitude, longitude}} = this.props.location;
@@ -52,20 +51,22 @@ class Location extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {location: state.location};
+function mapStateToProps ({location}) {
+  return {location};
 };
 
-Location = connect(mapStateToProps, {getLocation})(Location);
+export default connect(mapStateToProps)(Location);
 
-const App = () => {
+/* const GeoLocate = () => {
   return (
     <div>
-      <Header title="Your Location" />
       <Location />
     </div>
   );
-};
+}; */
+
+/*
+Actions
 
 const INIT_STATE = {
   coords: {
@@ -81,13 +82,16 @@ const LocationReducer = (state = INIT_STATE, action) => {
   default:
     return state
   }
-}
+} */
+
+/* 
+reducers
 
 const rootReducer = combineReducers ({
   location: LocationReducer
 });
 
-/* simplified React Promise Middleware */
+/* simplified React Promise Middleware 
 function promiseMiddleware({dispatch}) {
   function isPromise(val) {
     return val && typeof val.then === 'function';
@@ -104,10 +108,10 @@ function promiseMiddleware({dispatch}) {
 }
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
-
+export default class RenderLocation extends Component{
 render(
   <Provider store={createStoreWithMiddleware(rootReducer)}>
-    <App />
+    <GeoLocate />
   </Provider>
-  , document.querySelector('.application')
 );
+} */
