@@ -34,7 +34,7 @@ export function fetchWeather(city){
 	// it then places the city argument (which will be the result of the search string) into the url const
 	// creating our URL for the ajax request, more on this API's URL method here = https://openweathermap.org/forecast5
 	// the last thing is the country code, which for the purposes of this application we will leave as the US
-	const url = `${ROOT_URL}&q=${city},us`;
+	const url = `${ROOT_URL}&q=${city}`;
 
 	// calls the ajax request with axios
 	// this returns a promise

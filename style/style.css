@@ -41,6 +41,7 @@ footer {
     animation-duration: 0.5s;
 }
 
+
 /*===========================================================
 
     Search Widget Styles
@@ -183,4 +184,16 @@ h5.chartDescription {
     -moz-animation-delay: 2s;
     -ms-animation-delay: 2s;
     animation-delay: 2s;
+}
+
+/*===========================================================
+
+    Responsive Styles
+
+===========================================================*/
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    main.container {
+        width: 90%;
+        max-width: none;
+    }
 }
