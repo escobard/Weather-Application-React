@@ -71,11 +71,19 @@ footer {
     width: 100%;
 }
 
-.coordinates p {
+.coordinates h5 {
     float: left;
     width: 50%;
 }
-
+#geolocateMap .mapContainer {
+    margin-bottom: 0;
+}
+#geolocateMap h5 {
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
 /*===========================================================
 
     Search Widget Styles
@@ -209,9 +217,9 @@ article.card {
     -ms-animation-delay: 1.6s;
     animation-delay: 1.6s;
 }
-h5.chartDescription {
+h5 {
     text-align: center;
-    color: #fff;
+    color: #fff !important;
     padding: 20px 0 10px;
     margin: 0;
     -webkit-animation-delay: 2s;

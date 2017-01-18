@@ -31,16 +31,21 @@ class Location extends Component {
       console.log(lat);
       console.log(lon);
       return (
-        <section id="geolocateMap" className="animated fadeInUp">
-          <h3 className="animated">Your location coordinates are:</h3>
-          <div className="coordinates">
-          <p className="lat">Latitude: <span>{lat}</span></p>
-          <p className="lon">Longitude: <span>{lon}</span></p>
-          </div>
+      <article className="card animated fadeInUp" key={latitude}>
+            <div className="card-block">
+                <h4 className="card-title animated fadeInDown">Your current location is...</h4>
+            </div>
+        <section id="geolocateMap">
           <div className="mapContainer">           
               <GoogleMap zoom={16} lon={lon} lat={lat}/>
           </div> 
-        </section>
+          <div className="coordinates">
+          <h5 className="animated fadeInLeft lat">Latitude: <span>{lat}</span></h5>
+          <h5 className="animated fadeInRight lon">Longitude: <span>{lon}</span></h5>
+          </div>
+        </section>   
+      </article>        
+
       );
     }
   }
