@@ -1,8 +1,13 @@
 ** Changelog for Capstone project
 
+v0.7
+- prototype to add offline capabilities
+- prototype to add manifest.json
+
 v0.6
 - applied responsive styles and fixes
-- prototype to further clean up semantics
+- cleaned up semantics
+- enabled offline capability
 
 v0.55
 - added 3 types of charts to application

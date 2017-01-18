@@ -9,7 +9,7 @@ export default class Nav extends Component {
 		    <div className="container nav-container">
 
 		        <div className="navbar-toggleable-xs" id="collapseEx2">
-		            <h1 className="navbar-brand animated slideInDown">Weather Application - v0.6</h1>
+		            <h1 className="navbar-brand animated slideInDown">Weather Application - v0.7</h1>
 		        </div>
 
 		    </div>
