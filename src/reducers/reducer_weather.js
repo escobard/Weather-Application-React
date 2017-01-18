@@ -5,7 +5,7 @@
 // =============================================================
 
 // imports the action.type of our fetchWeather component
-import { FETCH_WEATHER } from '../actions/index';
+import { FETCH_WEATHER } from '../actions/action_fetchweather';
 
 // creates the reducer for our weather data post middleware
 function weatherReducer(state = [], action){

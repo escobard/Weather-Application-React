@@ -8,7 +8,7 @@
 import React from 'react';
 
 // imports google maps component, more on that here : https://github.com/tomchentw/react-google-maps
-import { GoogleMapLoader, GoogleMap} from 'react-google-maps';
+import {GoogleMap, GoogleMapLoader, Marker} from 'react-google-maps';
 
 export default (props) => {
 	return (
@@ -20,7 +20,13 @@ export default (props) => {
 		}
 
 		googleMapElement={
-			<GoogleMap defaultZoom={12} defaultCenter={{lat: props.lat, lng: props.lon}} />
+			<GoogleMap 
+				ref={(map) => console.log(map)} 
+				defaultZoom={props.zoom} 
+				defaultCenter={{lat: props.lat, lng: props.lon}} 
+				
+			/>
+
 		}
 
 		/>		

@@ -1,121 +1,70 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Component} from 'react';
-import {render} from 'react-dom';
-import { Provider, connect } from 'react-redux';
-import { applyMiddleware, createStore, combineReducers, bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import ReactDOM, {render} from 'react-dom';
+import { connect } from 'react-redux';
 
+// imports actions
 import getLocation from '../actions/action_geolocation';
 
-
-/* Redux Action Types
-const GET_LOCATION = 'GET_LOCATION';
-
-const getLocation = () => {
-  const geolocation = navigator.geolocation;
-  
-  const location = new Promise((resolve, reject) => {
-    if (!geolocation) {
-      reject(new Error('Not Supported'));
-    }
-    
-    geolocation.getCurrentPosition((position) => {
-      resolve(position);
-    }, () => {
-      reject (new Error('Permission denied'));
-    });
-  });
-  
-  return {
-    type: GET_LOCATION,
-    payload: location
-  }
-};
-
-/* const Header = (props) => {
-  return (
-    <header><h1>{props.title}</h1></header>
-  );
-}; */
+// imports gmap
+import GoogleMap from '../components/google_map';
 
 class Location extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.getLocation();
   }
+  renderWhenReady(){
+    var latitude = this.props.location.coords.latitude;
+    var longitude = this.props.location.coords.longitude;
+    if (latitude <= 0 && longitude <= 0) { 
+    console.log("Loading Geolocation...")   
+      return (
+        <div>
+        <p>Loading... your Location</p>
+        </div>
+      );
+    } 
 
+    else if (latitude > 1){
+      var lat = latitude;
+      var lon = longitude;
+      console.log(lat);
+      console.log(lon);
+      return (
+      <article className="card animated fadeInUp" key={latitude}>
+            <div className="card-block">
+                <h4 className="card-title animated fadeInDown">Your current location is...</h4>
+            </div>
+        <section id="geolocateMap">
+          <div className="mapContainer">           
+              <GoogleMap zoom={16} lon={lon} lat={lat}/>
+          </div> 
+          <div className="coordinates">
+          <h5 className="animated fadeInLeft lat">Latitude: <span>{lat}</span></h5>
+          <h5 className="animated fadeInRight lon">Longitude: <span>{lon}</span></h5>
+          </div>
+        </section>   
+      </article>        
+
+      );
+    }
+    else{
+        <div>
+          <p>Loading... your Location</p>
+        </div>
+    }
+  }
   render () {
-    const {coords: {latitude, longitude}} = this.props.location;
-    
     return (
       <div>
-        <div>Latitude: <span>{latitude}</span></div>
-        <div>Longitude: <span>{longitude}</span></div>
+        {this.renderWhenReady()}
       </div>
     );
   }
 }
 
-function mapStateToProps ({location}){
-  return {location};
+const mapStateToProps = (state) => {
+  return {location: state.location};
 };
 
 export default connect(mapStateToProps, {getLocation})(Location);
-
-/* const GeoLocate = () => {
-  return (
-    <div>
-      <Location />
-    </div>
-  );
-}; */
-
-/*
-Actions
-
-const INIT_STATE = {
-  coords: {
-    latitude: 0,
-    longitude: 0
-  }
-}
-
-const LocationReducer = (state = INIT_STATE, action) => {
-  switch(action.type) {
-  case GET_LOCATION:
-    return action.payload;
-  default:
-    return state
-  }
-} */
-
-/* 
-reducers
-
-const rootReducer = combineReducers ({
-  location: LocationReducer
-});
-
-/* simplified React Promise Middleware 
-function promiseMiddleware({dispatch}) {
-  function isPromise(val) {
-    return val && typeof val.then === 'function';
-  }
-
-  return next => action => {
-    return isPromise(action.payload)
-      ? action.payload.then(
-          result => dispatch({...action, payload: result}),
-          error => dispatch({...action, payload: error, error: true })
-        )
-      : next(action);
-  };
-}
-
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
-export default class RenderLocation extends Component{
-render(
-  <Provider store={createStoreWithMiddleware(rootReducer)}>
-    <GeoLocate />
-  </Provider>
-);
-} */

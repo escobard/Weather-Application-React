@@ -18,7 +18,7 @@ function LocationReducer (state = INIT_STATE, action) {
   case GET_LOCATION:
     return action.payload;
   default:
-    return state
+    return state;
   }
 };
 
