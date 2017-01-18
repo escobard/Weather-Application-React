@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // this is the actual action creator created in actions/index.js
-import { fetchWeather } from '../actions/index.js';
+import { fetchWeather } from '../actions/action_fetchweather';
 
 class SearchBar extends Component {
 
