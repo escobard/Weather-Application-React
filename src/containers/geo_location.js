@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Component} from 'react';
-import {render} from 'react-dom';
+import React, {Component} from 'react';
+import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
 
 // imports actions
@@ -16,15 +14,34 @@ class Location extends Component {
     this.props.getLocation();
   }
   renderWhenReady(){
-    const {coords: {latitude, longitude}} = this.props.location;
-    console.log(latitude);
-    console.log(longitude);
-    return (
-      <div>
-        <div>Latitude: <span>{latitude}</span></div>
-        <div>Longitude: <span>{longitude}</span></div>
-      </div>
-    );
+    var latitude = this.props.location.coords.latitude;
+    var longitude = this.props.location.coords.longitude;
+    if (latitude <= 0 && longitude <= 0) { 
+    console.log("SHIT")   
+      return (
+        <div>
+        <p>SHIT</p>
+        </div>
+      );
+    } 
+
+    else {
+      var lat = latitude;
+      var lon = longitude;
+      console.log(lat);
+      console.log(lon);
+      return (
+        <div>
+          <div>Latitude: <span>{lat}</span></div>
+          <div>Longitude: <span>{lon}</span></div>
+          <div>
+            <section className="animated fadeInUp mapContainer">
+              <GoogleMap lon={lon} lat={lat} />
+            </section>
+          </div>
+        </div>
+      );
+    }
   }
   render () {
     return (
