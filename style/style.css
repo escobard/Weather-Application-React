@@ -1,3 +1,4 @@
+
 /*===========================================================
 
     Main Application Styles
@@ -92,8 +93,11 @@ footer {
 ===========================================================*/
 
 .input-group{
+
     margin:20px 0px;
+
 }
+
 
 #searchInput {
     height: 50px;
@@ -126,6 +130,7 @@ footer {
     Weather Widget Styles
 
 ===========================================================*/
+
 article.card {
     background: rgb(0, 87, 162);
     margin: 25px 0 30px;
@@ -229,6 +234,7 @@ h5 {
     animation-delay: 2s;
 }
 
+
 /*===========================================================
 
     Responsive Styles
@@ -272,3 +278,4 @@ form.input-group {
     height: 130px;
 }
 }
+
