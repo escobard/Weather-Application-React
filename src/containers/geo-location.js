@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Component} from 'react';
+import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { applyMiddleware, createStore, combineReducers, bindActionCreators } from 'redux';
 
@@ -107,5 +109,5 @@ render(
   <Provider store={createStoreWithMiddleware(rootReducer)}>
     <App />
   </Provider>
-  , document.querySelector('#application')
+  , document.querySelector('.application')
 );
