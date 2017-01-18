@@ -15,6 +15,6 @@ if (!navigator.serviceWorker) {
     console.log('SW registered!');
     
     window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/src/components/service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
     });
 }
