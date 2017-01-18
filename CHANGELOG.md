@@ -1,8 +1,18 @@
 ** Changelog for Capstone project
 
+v0.8
+- prototype to add geolocation API and hook it up to weather API
+- prototype to test geolocation functionality
+
+v0.7
+- added offline capabilities
+- added manifest.json
+- added icons for manifest.json and changed favicon
+
 v0.6
-- prototype to apply responsive and mobile fixes
-- prototype to further clean up semantics
+- applied responsive styles and fixes
+- cleaned up semantics
+- enabled offline capability
 
 v0.55
 - added 3 types of charts to application

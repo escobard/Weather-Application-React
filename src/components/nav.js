@@ -1,3 +1,9 @@
+/* ===================================
+
+	nav.js
+
+======================================*/
+
 import React, { Component } from 'react';
 
 export default class Nav extends Component {
@@ -12,7 +18,7 @@ export default class Nav extends Component {
 
 		        <div className="navbar-toggleable-xs" id="collapseEx2">
 
-		            <h1 className="navbar-brand animated slideInDown">Weather Application - Capstone Project - v0.55</h1>
+		            <h1 className="navbar-brand animated slideInDown">Weather Application - v0.8</h1>
 
 		        </div>
 

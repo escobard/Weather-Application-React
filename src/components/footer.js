@@ -1,3 +1,9 @@
+/* ===================================
+
+    footer.js
+
+======================================*/
+
 import React, { Component } from 'react';
 
 export default class FooterComp extends Component {
