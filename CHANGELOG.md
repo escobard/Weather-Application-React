@@ -1,7 +1,7 @@
 ** Changelog for Capstone project
 
 v0.7
-- prototype to add offline capabilities
+- added offline capabilities
 - prototype to add manifest.json
 
 v0.6
