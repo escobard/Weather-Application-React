@@ -20,7 +20,7 @@ class Location extends Component {
     console.log("Loading Geolocation...")   
       return (
         <div>
-        <h3>Loading... your Location</h3>
+        <p>Loading... your Location</p>
         </div>
       );
     } 
@@ -50,7 +50,7 @@ class Location extends Component {
     }
     else{
         <div>
-          <h3>Geolocation failed!</h3>
+          <p>Loading... your Location</p>
         </div>
     }
   }
