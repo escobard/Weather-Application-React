@@ -39,10 +39,6 @@ class Location extends Component {
           <div className="mapContainer">           
               <GoogleMap zoom={16} lon={lon} lat={lat}/>
           </div> 
-          <div className="coordinates">
-          <h5 className="animated fadeInLeft lat">Latitude: <span>{lat}</span></h5>
-          <h5 className="animated fadeInRight lon">Longitude: <span>{lon}</span></h5>
-          </div>
         </section>   
       </article>        
 
