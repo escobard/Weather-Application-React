@@ -9,13 +9,13 @@ import axios from 'axios';
 
 // MIDDLEWARES have the ability to block, modify or just let pass through actions BEFORE they hit a reducer (which contains App.state data)
 // to re-iterate, we only change our application state through our reducers
-const API_KEY = '7588eeb65b45661378601702a0a9b7f1';
+var API_KEY = '7588eeb65b45661378601702a0a9b7f1';
 
 // this is the API base url
 // for EMC5 this will work : const ROOT_URL ='http://api.openweathermap.org/data/2.5/forecast?appid='+ API_KEY;
 // 
 // for EMC6 we can use the following: 
-const ROOT_URL =`http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+var ROOT_URL =`//api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
 
 // we are creating the type value as a variable, so we can export this
 // this is done to keep our action types consistent between our action creators and our reducers
@@ -38,6 +38,7 @@ export function fetchWeather(city){
 
 	// calls the ajax request with axios
 	// this returns a promise
+	
 	const request = axios.get(url);
 
 	console.log('Request: ', request);

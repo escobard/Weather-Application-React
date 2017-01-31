@@ -3,7 +3,28 @@
 This repository contains all the files for the capstone project of the [Udacity - Senior Web Developer Nanodegree - By Google](https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802) course with [Udacity](https://www.udacity.com/). 
 
 ## Project Criteria
-This application was created as a restaurant reviewer, with a special focus on screan reader and special needs accessibility. The application must be fully usable with the keyboard, and accessibility HTML semantics must be appropriately used to further ease accesibility.
+This application must meet the following criteria:
+
+### Responsive
+App is equally functional on mobile and dektop.
+
+### Inputs
+All form inputs have appropriate types, lables, plaholders
+
+### Offline functionality
+Implement Offline Functionality
+
+### Accessibility
+All images have alternative text, focus is appropriately managed, elements are semantically used appropriately.
+
+### Components
+If components are used, they are self-contained units of functionality and declaratively configurable.
+
+### Home Screen Installable
+The application is installable to user’s home screen.
+
+### Native Features
+Application uses native features, like push notifications, Bluetooth, geolocation, as appropriate for the application.
 
 ## Demo
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
@@ -42,6 +63,10 @@ To publish, minimize, and compile components for production use:
 $ npm build
 ```
 
+## To Do's
+- Give app offline functionality again (SSL enabled).
+- Add marker to maps
+- App on chrome 50+ wil
 
 ## Libraries, Frameworks, APIs
 
