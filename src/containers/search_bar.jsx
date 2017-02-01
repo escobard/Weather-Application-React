@@ -95,7 +95,7 @@ class SearchBar extends Component {
 // this binds the action creator fetch weather to our SearchBar component
 function mapDispatchToProps(dispatch){
 
-	return bindActionCreators({ fetchWeather }, {fetchGeocode}, dispatch);
+	return bindActionCreators({ fetchWeather, fetchGeocode }, dispatch);
 
 };
 
