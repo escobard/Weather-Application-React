@@ -1,6 +1,6 @@
 # Weather Application - React / Redux 
 
-This repository contains all the files for the capstone project of the [Udacity - Senior Web Developer Nanodegree - By Google](https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802) course with [Udacity](https://www.udacity.com/). 
+This repository contains all the files for the Capstone project of the [Udacity - Senior Web Developer Nanodegree - By Google](https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802) course with [Udacity](https://www.udacity.com/). 
 
 ## Project Criteria
 This application must meet the following criteria:
@@ -66,7 +66,9 @@ $ npm build
 ## To Do's
 - Give app offline functionality again (SSL enabled).
 - Add marker to maps
-- App on chrome 50+ wil
+- Revise mobile dimensions
+- Add validation to search form
+- Revise screen reader and keyboard-only accessibility 
 
 ## Libraries, Frameworks, APIs
 
