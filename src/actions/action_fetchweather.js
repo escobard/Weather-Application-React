@@ -7,6 +7,10 @@
 // includes our axios API
 import axios from 'axios';
 
+// new API call for darksky weather API
+// https://api.darksky.net/forecast/[key]/[latitude],[longitude]
+// https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
+
 // MIDDLEWARES have the ability to block, modify or just let pass through actions BEFORE they hit a reducer (which contains App.state data)
 // to re-iterate, we only change our application state through our reducers
 var API_KEY = '7588eeb65b45661378601702a0a9b7f1';
