@@ -63,12 +63,18 @@ To publish, minimize, and compile components for production use:
 $ npm build
 ```
 
+## Most Recent Update - v0.96
+- prototype to change weather application to allow SSL ajax requests.
+- prototype to change application to work on an apache http server.
+- prototype to update public process, will add gulp to application
+
 ## To Do's
-- Give app offline functionality again (SSL enabled).
 - Add marker to maps
 - Revise mobile dimensions
 - Add validation to search form
 - Revise screen reader and keyboard-only accessibility 
+- Refactor code to improve reusability
+- Push all ajax requested data into indexDB for offline usability
 
 ## Libraries, Frameworks, APIs
 
