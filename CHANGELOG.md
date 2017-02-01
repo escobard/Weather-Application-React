@@ -1,6 +1,6 @@
 ** Changelog for Capstone project
 
-v0.95
+v0.96
 - prototype to change weather application to allow SSL ajax requests.
 - prototype to change application to work on an apache http server.
 - prototype to update public process, will add gulp to application
