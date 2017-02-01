@@ -5,7 +5,7 @@
 // =============================================================
 
 // imports the action.type of our fetchWeather component
-import { FETCH_GEOCODE } from '../actions/action_fetchweather';
+import { FETCH_GEOCODE } from '../actions/action_fetch_geocode';
 
 // creates the reducer for our weather data post middleware
 function geocodeReducer(state = [], action){
