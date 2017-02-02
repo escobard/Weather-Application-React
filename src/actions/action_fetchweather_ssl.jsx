@@ -27,16 +27,12 @@ class FetchWeatherSSL extends Component {
 
 		this.state ={
 			coordinates: this.props.geocode.data.results[0]
-
+		};
 		this.fetchWeather = this.fetchWeather.bind(this);
-		}
 	}
 	
 	fetchWeather(){
 		const coordinates = this.state.coordinates;
-		
-		const latitude: coordinates.geometry.location.lat;
-		const longitude: coordinates.geometry.location.lng;
 		const url = `${ROOT_URL}/${latitude},${longitude}`;
 
 		// calls the ajax request with axios
@@ -77,4 +73,4 @@ class FetchWeatherSSL extends Component {
 
 // if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
 // since there are no actions here
-export connect(mapStateToProps)(FetchWeatherSSL);
+export default connect(mapStateToProps)(FetchWeatherSSL);
