@@ -11,27 +11,21 @@ import axios from 'axios';
 // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 // https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
 
+import React, { Component } from 'react';
+
 var API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
 var ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
-// we are creating the type value as a variable, so we can export this
-// this is done to keep our action types consistent between our action creators and our reducers
-// 
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
-// no need to create this in another file, as it's the main action of this application
-// also passing along an argument for the selected CITY
-// 
-// VERY important : WHEN EXPORTING MULTIPLE COMPONENTS, DO NOT SET A DEFAULT EXPORT, THIS CAUSES A BUG THAT DOES NOT ALLOW
-// ANYTHING TO BE EXPORTED
-// 
-export function fetchWeather(city(this needs to be COORDS)){
+//export class FetchWeather extends Component 
 
-	// this grabs the ROOT_URL placed above, which has our API and the base URL needed for the request
-	// it then places the city argument (which will be the result of the search string) into the url const
-	// creating our URL for the ajax request, more on this API's URL method here = https://openweathermap.org/forecast5
-	// the last thing is the country code, which for the purposes of this application we will leave as the US
+class fetchWeatherSSL extends Component {}
+
+function fetchWeather(city(this needs to be COORDS)){
+
+
 	const url = `${ROOT_URL}/${LATITUDE},${LONGITUDE}`;
 
 	// calls the ajax request with axios
@@ -58,7 +52,7 @@ export function fetchWeather(city(this needs to be COORDS)){
 }
 
 // we can also write it with EMC6 syntax
- function mapStateToProps({ weather }){
+ function mapStateToProps({ geocode }){
 
  	// this is how the function now looks
  	/*
@@ -66,9 +60,9 @@ export function fetchWeather(city(this needs to be COORDS)){
 
 	//this can be further condensed with ES6 like so:
 	// because both the key and the value object have the same identifier
-	return { weather };
+	return { geocode };
 }
 
 // if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
 // since there are no actions here
-export default connect(mapStateToProps)(WeatherList);
+export connect(mapStateToProps)(WeatherList);
