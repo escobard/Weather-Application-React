@@ -21,36 +21,48 @@ export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
 //export class FetchWeather extends Component 
 
-class fetchWeatherSSL extends Component {}
+class FetchWeatherSSL extends Component {
+	constructor(props){
+		super(props);
 
-function fetchWeather(city(this needs to be COORDS)){
+		this.state ={
+			coordinates: this.props.geocode.data.results[0]
 
-
-	const url = `${ROOT_URL}/${LATITUDE},${LONGITUDE}`;
-
-	// calls the ajax request with axios
-	// this returns a promise
+		this.fetchWeather = this.fetchWeather.bind(this);
+		}
+	}
 	
-	const request = axios.get(url);
-
-	console.log('Request: ', request);
-
-	// to avoid the convulted overkill application of jQuery for this small app, we will be using another library to generate our
-	// AJAX request called axios
-	// this library is made solely for making ajax requests to the browser
-	// again, need to make sure that syntax is correct within EVERYTHING, otherwise it will cause bugs when exporting to another component
-	// was missing commas in the object properties below, caused this component to be unfetchable as a result
-	return {
+	fetchWeather(){
+		const coordinates = this.state.coordinates;
 		
-		type: FETCH_WEATHER_SSL,
+		const latitude: coordinates.geometry.location.lat;
+		const longitude: coordinates.geometry.location.lng;
+		const url = `${ROOT_URL}/${latitude},${longitude}`;
+
+		// calls the ajax request with axios
+		// this returns a promise
 		
-		// now that we have the DevOps figured out for the AJAX request, we can create the payload key value for this action
-		// the request PROMISE is attached to this action creator's payload
-		payload: request
-	};
+		const request = axios.get(url);
+
+		console.log('Request - fetchweather_ssl: ', request);
+
+		// to avoid the convulted overkill application of jQuery for this small app, we will be using another library to generate our
+		// AJAX request called axios
+		// this library is made solely for making ajax requests to the browser
+		// again, need to make sure that syntax is correct within EVERYTHING, otherwise it will cause bugs when exporting to another component
+		// was missing commas in the object properties below, caused this component to be unfetchable as a result
+		return {
+			
+			type: FETCH_WEATHER_SSL,
+			
+			// now that we have the DevOps figured out for the AJAX request, we can create the payload key value for this action
+			// the request PROMISE is attached to this action creator's payload
+			payload: request
+		};
+
+	}
 
 }
-
 // we can also write it with EMC6 syntax
  function mapStateToProps({ geocode }){
 
@@ -65,4 +77,4 @@ function fetchWeather(city(this needs to be COORDS)){
 
 // if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
 // since there are no actions here
-export connect(mapStateToProps)(WeatherList);
+export connect(mapStateToProps)(FetchWeatherSSL);
