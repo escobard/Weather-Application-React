@@ -1,6 +1,6 @@
 // =============================================================
 // 
-// 	actions/fetchweather_ssl.jsx
+// 	actions/fetchweather.js
 //
 // =============================================================
 
@@ -11,20 +11,14 @@ import axios from 'axios';
 // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 // https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
 
-// MIDDLEWARES have the ability to block, modify or just let pass through actions BEFORE they hit a reducer (which contains App.state data)
-// to re-iterate, we only change our application state through our reducers
-var API_KEY = '7588eeb65b45661378601702a0a9b7f1';
+var API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
-// this is the API base url
-// for EMC5 this will work : const ROOT_URL ='http://api.openweathermap.org/data/2.5/forecast?appid='+ API_KEY;
-// 
-// for EMC6 we can use the following: 
-var ROOT_URL =`//api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+var ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 // we are creating the type value as a variable, so we can export this
 // this is done to keep our action types consistent between our action creators and our reducers
 // 
-export const FETCH_WEATHER ='FETCH_WEATHER';
+export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
 // no need to create this in another file, as it's the main action of this application
 // also passing along an argument for the selected CITY
@@ -32,13 +26,13 @@ export const FETCH_WEATHER ='FETCH_WEATHER';
 // VERY important : WHEN EXPORTING MULTIPLE COMPONENTS, DO NOT SET A DEFAULT EXPORT, THIS CAUSES A BUG THAT DOES NOT ALLOW
 // ANYTHING TO BE EXPORTED
 // 
-export function fetchWeather(city){
+export function fetchWeather(city(this needs to be COORDS)){
 
 	// this grabs the ROOT_URL placed above, which has our API and the base URL needed for the request
 	// it then places the city argument (which will be the result of the search string) into the url const
 	// creating our URL for the ajax request, more on this API's URL method here = https://openweathermap.org/forecast5
 	// the last thing is the country code, which for the purposes of this application we will leave as the US
-	const url = `${ROOT_URL}&q=${city}`;
+	const url = `${ROOT_URL}/${LATITUDE},${LONGITUDE}`;
 
 	// calls the ajax request with axios
 	// this returns a promise
@@ -54,7 +48,7 @@ export function fetchWeather(city){
 	// was missing commas in the object properties below, caused this component to be unfetchable as a result
 	return {
 		
-		type: FETCH_WEATHER,
+		type: FETCH_WEATHER_SSL,
 		
 		// now that we have the DevOps figured out for the AJAX request, we can create the payload key value for this action
 		// the request PROMISE is attached to this action creator's payload
@@ -62,3 +56,19 @@ export function fetchWeather(city){
 	};
 
 }
+
+// we can also write it with EMC6 syntax
+ function mapStateToProps({ weather }){
+
+ 	// this is how the function now looks
+ 	/*
+	return { weather: weather }; */
+
+	//this can be further condensed with ES6 like so:
+	// because both the key and the value object have the same identifier
+	return { weather };
+}
+
+// if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
+// since there are no actions here
+export default connect(mapStateToProps)(WeatherList);

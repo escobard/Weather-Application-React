@@ -16,6 +16,7 @@ class Location extends Component {
   renderWhenReady(){
     var latitude = this.props.location.coords.latitude;
     var longitude = this.props.location.coords.longitude;
+    
     if (latitude <= 0 && longitude <= 0) { 
     console.log("Loading Geolocation...")   
       return (
