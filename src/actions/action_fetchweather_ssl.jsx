@@ -20,22 +20,11 @@ const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
-//export class FetchWeather extends Component 
-
-export class FetchWeatherSSL extends Component {
-	constructor(props){
-		super(props);
-
-		this.state ={
-			coordinates: this.props.geocode.data.results[0]
-		};
-		this.fetchWeather = this.fetchWeather.bind(this);
-	}
-	
-	fetchWeather(){
-		var coordinates = this.state.coordinates;
+// handles coordinate data
+function fetchWeatherSSL(coordinateData){
+		var coordinates = coordinateData;
 		var latitude = coordinates.geometry.location.lat;
-		var latitude = coordinates.geometry.location.lng;
+		var longitude = coordinates.geometry.location.lng;
 		const url = `${ROOT_URL}/${latitude},${longitude}`;
 
 		// calls the ajax request with axios
@@ -50,8 +39,6 @@ export class FetchWeatherSSL extends Component {
 			type: FETCH_WEATHER_SSL,
 			payload: request
 		};
-
-	}
 
 }
 // we can also write it with EMC6 syntax
