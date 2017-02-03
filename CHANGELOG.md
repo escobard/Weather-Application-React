@@ -1,7 +1,12 @@
 ** Changelog for Capstone project
 
+v0.98
+- prototype to test offline functionality, and work 
+
 v0.97
 - prototype to update production process, will add gulp to application
+- prototype to refactor application content, to clean up file structuring
+- prototype to remove obsolete console.logs
 
 v0.96
 - prototype to change weather application to allow SSL ajax requests.
