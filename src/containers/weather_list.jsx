@@ -19,6 +19,7 @@ class WeatherList extends Component {
 		const lon = coords.map(coordData => coordData.geometry.location.lng);
 		console.log("Success! fetched - lat :", lat[0]);
 		console.log("Success! fetched - lat :", lon[0]);
+		fetchWeatherSSL(lat,lon)
 	}
 	renderWeather(cityData){
 		

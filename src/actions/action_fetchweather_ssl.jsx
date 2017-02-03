@@ -17,11 +17,10 @@ const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
-export function fetchWeatherSSL(coordinateData){
+export function fetchWeatherSSL(lat, lon){
 
-		var coordinates = coordinateData;
-		var latitude = coordinates.geometry.location.lat;
-		var longitude = coordinates.geometry.location.lng;
+		var latitude = lat;
+		var longitude = lon;
 		const url = `${ROOT_URL}/${latitude},${longitude}`;
 
 		// calls the ajax request with axios
