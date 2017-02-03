@@ -12,6 +12,7 @@ import axios from 'axios';
 // https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 var API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
@@ -21,7 +22,7 @@ export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
 //export class FetchWeather extends Component 
 
-class FetchWeatherSSL extends Component {
+export class FetchWeatherSSL extends Component {
 	constructor(props){
 		super(props);
 
@@ -42,17 +43,9 @@ class FetchWeatherSSL extends Component {
 
 		console.log('Request - fetchweather_ssl: ', request);
 
-		// to avoid the convulted overkill application of jQuery for this small app, we will be using another library to generate our
-		// AJAX request called axios
-		// this library is made solely for making ajax requests to the browser
-		// again, need to make sure that syntax is correct within EVERYTHING, otherwise it will cause bugs when exporting to another component
-		// was missing commas in the object properties below, caused this component to be unfetchable as a result
 		return {
 			
 			type: FETCH_WEATHER_SSL,
-			
-			// now that we have the DevOps figured out for the AJAX request, we can create the payload key value for this action
-			// the request PROMISE is attached to this action creator's payload
 			payload: request
 		};
 
@@ -73,4 +66,4 @@ class FetchWeatherSSL extends Component {
 
 // if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
 // since there are no actions here
-export default connect(mapStateToProps)(FetchWeatherSSL);
+connect(mapStateToProps)(FetchWeatherSSL);
