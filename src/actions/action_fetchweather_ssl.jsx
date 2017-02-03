@@ -33,7 +33,9 @@ export class FetchWeatherSSL extends Component {
 	}
 	
 	fetchWeather(){
-		const coordinates = this.state.coordinates;
+		var coordinates = this.state.coordinates;
+		var latitude = coordinates.geometry.location.lat;
+		var latitude = coordinates.geometry.location.lng;
 		const url = `${ROOT_URL}/${latitude},${longitude}`;
 
 		// calls the ajax request with axios

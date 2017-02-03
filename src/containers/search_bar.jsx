@@ -61,7 +61,7 @@ class SearchBar extends Component {
 
 		this.props.fetchGeocode(this.state.searchTerm);
 
-		this.props.fetchWeatherSSL(this.state.searchTerm);
+		this.props.FetchWeatherSSL(this.state.searchTerm);
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});
