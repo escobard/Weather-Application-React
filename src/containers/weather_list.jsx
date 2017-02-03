@@ -15,8 +15,10 @@ import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
 	fetchCoords(coords){
-		var coordinates = coords;
-		console.log("Success! fetched :", coordinates);
+		const lat = coords.map(coordData => coordData.geometry.location.lat);
+		const lon = coords.map(coordData => coordData.geometry.location.lng);
+		console.log("Success! fetched - lat :", lat[0]);
+		console.log("Success! fetched - lat :", lon[0]);
 	}
 	renderWeather(cityData){
 		

@@ -45,6 +45,7 @@ self.addEventListener('activate', function(event) {
   );
 });
 
+
 self.addEventListener('fetch', function(event) {
   
  // TODO: respond to requests for the root page with
