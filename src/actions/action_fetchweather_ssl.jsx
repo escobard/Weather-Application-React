@@ -11,9 +11,6 @@ import axios from 'axios';
 // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 // https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
 const API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;

@@ -6,12 +6,18 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeatherSSL } from '../actions/action_fetchweather_ssl';
 import ChartLines from '../components/chart_lines';
 import ChartBars from '../components/chart_bars';
 import ChartSpots from '../components/chart_spots';
 import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
+	fetchCoords(coords){
+		var coordinates = coords;
+		console.log("Success! fetched :", coordinates);
+	}
 	renderWeather(cityData){
 		
 		// this assigns a var to our cityData
@@ -72,6 +78,7 @@ class WeatherList extends Component {
 		return(
 			<div>
 				{this.props.weather.map(this.renderWeather)}
+				<div>{this.fetchCoords(this.props.geocode)}</div>
 		</div>
 			
 
@@ -80,13 +87,8 @@ class WeatherList extends Component {
 
 }
 
-// this is how it's usually written, to pass the state.weather object into this container
-/* function mapStateToProps(state){
-	return {weather: state.weather};
-} */
-
 // we can also write it with EMC6 syntax
- function mapStateToProps({ weather }){
+ function mapStateToProps({ weather, geocode }){
 
  	// this is how the function now looks
  	/*
@@ -94,9 +96,14 @@ class WeatherList extends Component {
 
 	//this can be further condensed with ES6 like so:
 	// because both the key and the value object have the same identifier
-	return { weather };
+	return { weather, geocode };
 }
 
-// if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
-// since there are no actions here
-export default connect(mapStateToProps)(WeatherList);
+// creates the function to join the action creator with the BookList component, to update the app's state
+// anything returned on this function, will end up as .props on the BookList container
+function mapDispatchToProps(dispatch) {
+
+	return bindActionCreators({ fetchWeatherSSL}, dispatch);
+
+}
+export default connect(mapStateToProps, mapDispatchToProps) (WeatherList);
