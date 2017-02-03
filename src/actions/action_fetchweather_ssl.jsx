@@ -20,8 +20,8 @@ const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
-// handles coordinate data
-function fetchWeatherSSL(coordinateData){
+export function fetchWeatherSSL(coordinateData){
+
 		var coordinates = coordinateData;
 		var latitude = coordinates.geometry.location.lat;
 		var longitude = coordinates.geometry.location.lng;
@@ -41,18 +41,3 @@ function fetchWeatherSSL(coordinateData){
 		};
 
 }
-// we can also write it with EMC6 syntax
- function mapStateToProps({ geocode }){
-
- 	// this is how the function now looks
- 	/*
-	return { weather: weather }; */
-
-	//this can be further condensed with ES6 like so:
-	// because both the key and the value object have the same identifier
-	return { geocode };
-}
-
-// if we are adding a reducer, we use mapstate to props, which is the first argument of connect, the second argument can be left empty
-// since there are no actions here
-connect(mapStateToProps)(FetchWeatherSSL);
