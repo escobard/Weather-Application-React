@@ -15,6 +15,7 @@ import { bindActionCreators } from 'redux';
 // this is the actual action creator created in actions/index.js
 import { fetchWeather } from '../actions/action_fetchweather';
 import { fetchGeocode } from '../actions/action_fetch_geocode';
+import { FetchWeatherSSL } from '../actions/action_fetchweather_ssl';
 class SearchBar extends Component {
 
 	// initiates the state of our component using the usual methods
@@ -60,6 +61,7 @@ class SearchBar extends Component {
 
 		this.props.fetchGeocode(this.state.searchTerm);
 
+		this.props.fetchWeatherSSL(this.state.searchTerm);
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});

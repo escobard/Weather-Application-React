@@ -14,9 +14,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-var API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
+const API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
-var ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
+const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
