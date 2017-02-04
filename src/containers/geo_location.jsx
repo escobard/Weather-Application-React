@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 // imports actions
 import getLocation from '../actions/action_geolocation';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
@@ -33,6 +34,10 @@ class Location extends Component {
           console.log("hourly summary=", hourlySummary);
           const hourlyTemp = data.hourly.data.map(weatherTemps => weatherTemps.temperature);
           console.log("hourly temp=", hourlyTemp)
+          const hourlyHum = data.hourly.data.map(weatherHum=> weatherHum.humidity);
+          console.log("hourly hum=", hourlyHum)
+          const hourlyPress = data.hourly.data.map(weatherHum=> weatherHum.pressure);
+          console.log("hourly press=", hourlyPress)
         };
     return;
   }

@@ -74,6 +74,7 @@ $ npm build
 - Revise screen reader and keyboard-only accessibility .
 - Refactor code to improve reusability.
 - Push all ajax requested data into indexDB for offline usability.
+- Add weather icons to app.
 
 ## Libraries, Frameworks, APIs
 
