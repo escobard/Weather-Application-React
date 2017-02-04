@@ -19,6 +19,13 @@ class Location extends Component {
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     this.handleData = this.handleData.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
+    this.state = {
+          alerts : '',
+          summary : '',
+          weather: '',
+          humidity : '',
+          pressure : ''
+    };
   }
   // sets the object data from the middleware into our ssl data reducer
   handleData(data){
@@ -27,23 +34,19 @@ class Location extends Component {
         }
         else {
           console.log('Fetch Weather SSL - Success!', data);
-
-          // sets up the render data objects, this process should be done via the reducer once custom middleware processes are applied
-          const alerts = data.alerts[0].description;
-          console.log("alerts =", alerts);
-
-          // hourly
-          const hourlySummary = data.hourly.summary;
-          console.log("hourly summary=", hourlySummary);
-          const hourlyTemp = data.hourly.data.map(weatherTemps => weatherTemps.temperature);
-          console.log("hourly temp=", hourlyTemp)
-          const hourlyHum = data.hourly.data.map(weatherHum=> weatherHum.humidity);
-          console.log("hourly hum=", hourlyHum)
-          const hourlyPress = data.hourly.data.map(weatherHum=> weatherHum.pressure);
-          console.log("hourly press=", hourlyPress)
+          const reducedData = { 
+                alerts : data.alerts[0].description,
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+          }
+          this.renderData(reducedData);
         };
   }
-  renderData(){}
+  renderData(reducedData){
+    console.log('reducedData= ', reducedData)
+  }
   renderWhenReady(){
 
     this.props.getLocation();
