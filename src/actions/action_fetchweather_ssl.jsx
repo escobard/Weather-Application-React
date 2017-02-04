@@ -31,11 +31,7 @@ export function fetchWeatherSSL(lat, lon){
 		// this returns a promise
 		const request = $.ajax({
 		  url: url,
-		  dataType: "jsonp",
-		  success: function (data) {
-		      console.log('here');
-		      console.log(data);
-		  }
+		  dataType: "jsonp"
 		});
 
 		console.log('Request - fetchweather_ssl: ', request);

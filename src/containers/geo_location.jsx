@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
+import { fetchWeatherSSL } from '../actions/action_fetchweather_ssl';
 
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -60,8 +61,20 @@ class Location extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {location: state.location};
-};
+// we can also write it with EMC6 syntax
+ function mapStateToProps({ location }){
 
-export default connect(mapStateToProps, {getLocation})(Location);
+  // this is how the function now looks
+  /*
+  return { weather: weather }; */
+
+  //this can be further condensed with ES6 like so:
+  // because both the key and the value object have the same identifier
+  return { location };
+}
+function mapDispatchToProps(dispatch) {
+
+  return bindActionCreators({getLocation, fetchWeatherSSL}, dispatch);
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Location);
