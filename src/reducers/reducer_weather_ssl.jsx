@@ -14,7 +14,7 @@ function sslWeatherReducer(state = [], action){
 		case FETCH_WEATHER_SSL:
 
 			return [ action.payload, ...state ]; 
-
+			console.log("Action - SSL -", action.payload);
 	};
 
 	return state;

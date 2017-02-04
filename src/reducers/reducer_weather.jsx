@@ -16,7 +16,7 @@ function weatherReducer(state = [], action){
 
 		// if the case returned is FETCH_WEATHER
 		case FETCH_WEATHER:
-
+			console.log("Action - SSL -", action.payload);
 			// returns the payload's relevant data, in this case its the .data object property of payload that we want to keep
 			// always have to make sure we are returning a new instance of state, not changing the current state with data. that messes up
 			// the application state entirely

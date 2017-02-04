@@ -37,6 +37,7 @@ class Location extends Component {
       
       // fetches the weather API based on geolocation
       fetchWeatherSSL(lat,lon);
+      console.log("Weather Data = ", this.props.weatherssl);
 
       return (
       <article className="card animated fadeInUp" key={lat}>
@@ -72,7 +73,7 @@ class Location extends Component {
 }
 
 // we can also write it with EMC6 syntax
- function mapStateToProps({ location }){
+ function mapStateToProps({ location, weatherssl }){
 
   // this is how the function now looks
   /*
@@ -80,7 +81,7 @@ class Location extends Component {
 
   //this can be further condensed with ES6 like so:
   // because both the key and the value object have the same identifier
-  return { location };
+  return { location, weatherssl };
 }
 function mapDispatchToProps(dispatch) {
 
