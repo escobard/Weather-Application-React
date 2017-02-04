@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import {postWeatherSSL} from '../actions/action_post_weather_ssl';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
@@ -13,10 +12,26 @@ import GoogleMap from '../components/google_map';
 class Location extends Component {
   constructor(props) {
     super(props);
-    this.props.getLocation();
+    // to bind .this to any specific function so it points to the constructor, we use the following method:
+    this.handleData = this.handleData.bind(this);
+
+    this.state ={
+      coordinates: ''
+    }
+  }
+  // sets the object data from the middlware into our ssl data reducer
+  handleData(data){
+        console.log('Fetch Weather SSL - Success!', data);
+        if (data == undefined){
+          return;
+        }
+        else {
+          console.log('DEFINED', data);
+        };
+    return;
   }
   renderWhenReady(){
-
+    this.props.getLocation();
     // sets coordinate variables
     var lat = this.props.location.coords.latitude;
     var lon = this.props.location.coords.longitude;
@@ -37,21 +52,9 @@ class Location extends Component {
       console.log(lat);
       console.log(lon);
       
-      // fetches the weather API based on geolocation
-      const retrieveWeather = fetchWeatherSSL(lat,lon, handleData);
-
-      function handleData(data){
-        console.log('Fetch Weather SSL - Success!', data);
-        if (data == undefined){
-          return;
-        }
-        else {
-          console.log('DEFINED');
-          return data;
-        };
-
-      }
-
+      // fetches the weather API AJAX middleware based on geolocation
+      fetchWeatherSSL(lat,lon, this.handleData);
+      // sets the object data from the middlware into our ssl data reducer
       return (
       <article className="card animated fadeInUp" key={lat}>
         
@@ -98,7 +101,7 @@ class Location extends Component {
 }
 function mapDispatchToProps(dispatch) {
 
-  return bindActionCreators({getLocation, postWeatherSSL}, dispatch);
+  return bindActionCreators({getLocation}, dispatch);
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

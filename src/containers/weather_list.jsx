@@ -12,7 +12,6 @@ import ChartLines from '../components/chart_lines';
 import ChartBars from '../components/chart_bars';
 import ChartSpots from '../components/chart_spots';
 import GoogleMap from '../components/google_map';
-import {postWeatherSSL} from '../actions/action_post_weather_ssl';
 
 
 class WeatherList extends Component {
@@ -105,9 +104,4 @@ class WeatherList extends Component {
 
 // creates the function to join the action creator with the BookList component, to update the app's state
 // anything returned on this function, will end up as .props on the BookList container
-function mapDispatchToProps(dispatch) {
-
-	return bindActionCreators({ postWeatherSSL}, dispatch);
-
-}
-export default connect(mapStateToProps, mapDispatchToProps) (WeatherList);
+export default connect(mapStateToProps) (WeatherList);

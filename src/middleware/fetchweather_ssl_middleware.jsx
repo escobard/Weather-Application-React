@@ -30,13 +30,12 @@ export function fetchWeatherSSL(lat, lon, handleData){
 		}
 		else {
 			// calls the ajax request with jQuery
-			// 
 			$.ajax({
 			  type: 'GET',
 			  url: url,
 			  dataType: "jsonp",
 			  success: handleData
 			 })
-
+			return;
 		}
 };
