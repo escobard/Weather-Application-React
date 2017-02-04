@@ -13,8 +13,7 @@ import ChartBars from './chart_bars';
 import ChartSpots from './chart_spots';
 import GoogleMap from '../google_map';
 
-
-export default class WeatherList extends Component {
+export default class Charts extends Component {
 	render(){
 
 		// sets our coordinate data

@@ -10,12 +10,15 @@ import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middle
 // imports gmap
 import GoogleMap from '../components/google_map';
 
+// imports charts
+import Charts from '../components/charts/charts';
+
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     this.handleData = this.handleData.bind(this);
-
+    this.renderWhenReady = this.renderWhenReady.bind(this);
   }
   // sets the object data from the middleware into our ssl data reducer
   handleData(data){
@@ -39,9 +42,10 @@ class Location extends Component {
           const hourlyPress = data.hourly.data.map(weatherHum=> weatherHum.pressure);
           console.log("hourly press=", hourlyPress)
         };
-    return;
   }
+  renderData(){}
   renderWhenReady(){
+
     this.props.getLocation();
     // sets coordinate variables
     var lat = this.props.location.coords.latitude;
@@ -49,12 +53,13 @@ class Location extends Component {
 
     // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
-    console.log("Loading Geolocation...")   
-      return (
-        <div>
-        <p>Loading... your Location</p>
-        </div>
-      );
+
+      console.log("Loading Geolocation...")   
+        return (
+          <div>
+          <p>Loading... your Location</p>
+          </div>
+        );
     } 
     
     // return this if coordinates are not empty
@@ -94,6 +99,7 @@ class Location extends Component {
     }
   }
 
+  // renders container
   render () {
 
     return (
