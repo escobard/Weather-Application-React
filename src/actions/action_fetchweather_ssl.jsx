@@ -13,8 +13,6 @@ import axios from 'axios';
 
 import jQuery from 'jquery';
 
-import $ from 'jquery';
-
 const API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
@@ -27,7 +25,7 @@ export function fetchWeatherSSL(lat, lon){
 		var latitude = lat;
 		var longitude = lon;
 		var data;
-		const url = `${ROOT_URL}/${latitude},${longitude}/`;
+		const url = `${ROOT_URL}/${latitude},${longitude}`;
 		
 		if (lat <= 0){
 			console.log('Fetch Weather SSL - Failed')
@@ -37,20 +35,13 @@ export function fetchWeatherSSL(lat, lon){
 
 			// calls the ajax request with jQuery
 			// 
-			const request = $.ajax({
+			jQuery.ajax({
 			  url: url,
 			  dataType: "jsonp"
 			}).success(function(data){
 				console.log('Fetch Weather SSL - Fetched! -', data);
 				return data = data;
-			});
+			})
 
-			console.log('Fetch Weather SSL - ', request);
-
-			return {
-				
-				type: FETCH_WEATHER_SSL,
-				payload: request
-			};
 		}
 }
