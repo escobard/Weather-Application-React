@@ -5,7 +5,7 @@
 ======================================*/
 
 
-// sets the cache name
+/* sets the cache name
 var staticCacheName = 'wa-static-v1.6';
 
 self.addEventListener('install', function(event) {
@@ -45,6 +45,7 @@ self.addEventListener('activate', function(event) {
   );
 });
 
+
 self.addEventListener('fetch', function(event) {
   
  // TODO: respond to requests for the root page with
@@ -77,3 +78,4 @@ self.addEventListener('message', function(event) {
     self.skipWaiting();
   }
 });
+*/

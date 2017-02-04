@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux';
 
 // this is the actual action creator created in actions/index.js
 import { fetchWeather } from '../actions/action_fetchweather';
-
+import { fetchGeocode } from '../actions/action_fetch_geocode';
 class SearchBar extends Component {
 
 	// initiates the state of our component using the usual methods
@@ -58,6 +58,8 @@ class SearchBar extends Component {
 		// this now fetches the weather action creator accordingly
 		this.props.fetchWeather(this.state.searchTerm);
 
+		this.props.fetchGeocode(this.state.searchTerm);
+
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});
@@ -93,7 +95,7 @@ class SearchBar extends Component {
 // this binds the action creator fetch weather to our SearchBar component
 function mapDispatchToProps(dispatch){
 
-	return bindActionCreators({ fetchWeather }, dispatch);
+	return bindActionCreators({ fetchWeather, fetchGeocode }, dispatch);
 
 };
 

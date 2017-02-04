@@ -1,24 +1,20 @@
 // =============================================================
 // 
-// 	reducer_weather.js
+// 	reducer_geocode.js
 //
 // =============================================================
 
 // imports the action.type of our fetchWeather component
-import { FETCH_WEATHER } from '../actions/action_fetchweather';
+import { FETCH_GEOCODE } from '../actions/action_fetch_geocode';
 
 // creates the reducer for our weather data post middleware
-function weatherReducer(state = [], action){
-
-	// this returns the RESOLVE state of the promise, thanks to the middleware 'redux-promise', which resolves the promise
-	// then returns the data response as our action payload
-	console.log('Action received', action);
+function geocodeReducer(state = [], action){
 
 	// creates the switch to handle the incoming data from the action
 	switch (action.type){
 
-		// if the case returned is FETCH_WEATHER
-		case FETCH_WEATHER:
+		// if the case returned is FETCH_GEOCODE
+		case FETCH_GEOCODE:
 
 			// returns the payload's relevant data, in this case its the .data object property of payload that we want to keep
 			// always have to make sure we are returning a new instance of state, not changing the current state with data. that messes up
@@ -27,7 +23,7 @@ function weatherReducer(state = [], action){
 			// 
 			// this is the accepted EMC6 method to do this:
 			// 
-			return [ action.payload.data, ...state ]; //[ city, city, city] NOT [city, [city, [city]]] which is BAD
+			return [ action.payload.data.results[0], ...state ]; //[ city, city, city] NOT [city, [city, [city]]] which is BAD
 			// the above explained below:
 			// [ create a new array
 			// put action.payload.data inside of it
@@ -43,4 +39,4 @@ function weatherReducer(state = [], action){
 	return state;
 };
 
-export default weatherReducer;
+export default geocodeReducer;
