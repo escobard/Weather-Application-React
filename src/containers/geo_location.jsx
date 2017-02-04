@@ -18,6 +18,8 @@ class Location extends Component {
 
     var lat = this.props.location.coords.latitude;
     var lon = this.props.location.coords.longitude;
+
+
     
     if (lat <= 0 && lon <= 0) { 
     console.log("Loading Geolocation...")   
@@ -32,17 +34,23 @@ class Location extends Component {
 
       console.log(lat);
       console.log(lon);
+      
+      // fetches the weather API based on geolocation
+      fetchWeatherSSL(lat,lon);
 
       return (
       <article className="card animated fadeInUp" key={lat}>
-            <div className="card-block">
-                <h4 className="card-title animated fadeInDown">Your current location is...</h4>
-            </div>
+        
+        <div className="card-block">
+          <h4 className="card-title animated fadeInDown">Your current location is...</h4>
+        </div>
+        
         <section id="geolocateMap">
           <div className="mapContainer">           
               <GoogleMap zoom={16} lon={lon} lat={lat}/>
           </div> 
-        </section>   
+        </section>  
+
       </article>        
 
       );
