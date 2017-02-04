@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
+import {postWeatherSSL} from '../actions/action_post_weather_ssl';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
@@ -45,8 +46,7 @@ class Location extends Component {
         }
         else {
           console.log('DEFINED');
-          data = objectData;
-          return objectData;
+          return data;
         };
 
       }
@@ -97,7 +97,7 @@ class Location extends Component {
 }
 function mapDispatchToProps(dispatch) {
 
-  return bindActionCreators({getLocation, fetchWeatherSSL}, dispatch);
+  return bindActionCreators({getLocation, postWeatherSSL}, dispatch);
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

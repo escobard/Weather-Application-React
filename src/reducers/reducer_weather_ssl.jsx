@@ -4,7 +4,7 @@
 //
 // =============================================================
 // 
-import { FETCH_WEATHER_SSL } from '../actions/action_fetchweather_ssl';
+import { FETCH_WEATHER_SSL } from '../actions/action_post_weather_ssl';
 
 
 function sslWeatherReducer(state = [], action){

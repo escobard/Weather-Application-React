@@ -7,11 +7,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchWeatherSSL } from '../actions/action_fetchweather_ssl';
+
 import ChartLines from '../components/chart_lines';
 import ChartBars from '../components/chart_bars';
 import ChartSpots from '../components/chart_spots';
 import GoogleMap from '../components/google_map';
+import {postWeatherSSL} from '../actions/action_post_weather_ssl';
+
 
 class WeatherList extends Component {
 	fetchCoords(coords){
@@ -19,7 +21,6 @@ class WeatherList extends Component {
 		const lon = coords.map(coordData => coordData.geometry.location.lng);
 		console.log("Success! fetched - lat :", lat[0]);
 		console.log("Success! fetched - lat :", lon[0]);
-		fetchWeatherSSL(lat,lon)
 	}
 	renderWeather(cityData){
 		
@@ -106,7 +107,7 @@ class WeatherList extends Component {
 // anything returned on this function, will end up as .props on the BookList container
 function mapDispatchToProps(dispatch) {
 
-	return bindActionCreators({ fetchWeatherSSL}, dispatch);
+	return bindActionCreators({ postWeatherSSL}, dispatch);
 
 }
 export default connect(mapStateToProps, mapDispatchToProps) (WeatherList);

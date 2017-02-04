@@ -18,7 +18,7 @@ const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
 
 
-export function fetchWeatherSSL(lat, lon){
+export function postWeatherSSL(lat, lon){
 
 		var latitude = lat;
 		var longitude = lon;
