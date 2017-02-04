@@ -15,18 +15,14 @@ class Location extends Component {
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     this.handleData = this.handleData.bind(this);
 
-    this.state ={
-      coordinates: ''
-    }
   }
   // sets the object data from the middlware into our ssl data reducer
   handleData(data){
-        console.log('Fetch Weather SSL - Success!', data);
         if (data == undefined){
           return;
         }
         else {
-          console.log('DEFINED', data);
+          console.log('Fetch Weather SSL - Success!', data);
         };
     return;
   }
@@ -54,7 +50,7 @@ class Location extends Component {
       
       // fetches the weather API AJAX middleware based on geolocation
       fetchWeatherSSL(lat,lon, this.handleData);
-      // sets the object data from the middlware into our ssl data reducer
+      
       return (
       <article className="card animated fadeInUp" key={lat}>
         
