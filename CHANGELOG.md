@@ -9,10 +9,9 @@ v0.97
 - prototype to remove obsolete console.logs
 
 v0.96
-- prototype to change weather application to allow SSL ajax requests.
-- prototype to change application to work on an apache https server.
+- application accepting HTTPS ajax requests, can run over HTTPS now. 
 
-v0.9
+v0.95
 - created a map with geolocation data, and posted coordinates
 - finalized and cleaned up offline functionality
 
