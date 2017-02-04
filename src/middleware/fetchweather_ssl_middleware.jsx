@@ -13,16 +13,16 @@ import jQuery from 'jquery';
 
 import $ from 'jquery';
 
-const API_KEY = 'b3bc903510184ddd38b76cd04bac96ed/';
+const API_KEY = 'b3bc903510184ddd38b76cd04bac96ed';
 
-const ROOT_URL ='https://api.darksky.net/forecast/'+API_KEY;
+const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 export function fetchWeatherSSL(lat, lon, handleData){
 
-		var latitude = lat+',';
+		var latitude = lat;
 		var longitude = lon;
 		var data;
-		const url = ROOT_URL+latitude+longitude;
+		const url = `${ROOT_URL}/${latitude},${longitude}`
 		
 		if (lat <= 0){
 			console.log('Fetch Weather SSL - Failed')

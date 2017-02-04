@@ -64,17 +64,16 @@ $ npm build
 ```
 
 ## Most Recent Update - v0.96
-- prototype to change weather application to allow SSL ajax requests.
-- prototype to change application to work on an apache http server.
+- changed weather API to an ssl provider, added google geocode api
 - prototype to update public process, will add gulp to application
 
 ## To Do's
-- Add marker to maps
-- Revise mobile dimensions
-- Add validation to search form
-- Revise screen reader and keyboard-only accessibility 
-- Refactor code to improve reusability
-- Push all ajax requested data into indexDB for offline usability
+- Revise mobile dimensions.
+- Refactor middleware ajax requests to integrate into actions / reducers.
+- Add validation to search form.
+- Revise screen reader and keyboard-only accessibility .
+- Refactor code to improve reusability.
+- Push all ajax requested data into indexDB for offline usability.
 
 ## Libraries, Frameworks, APIs
 
