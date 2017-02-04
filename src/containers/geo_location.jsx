@@ -15,10 +15,11 @@ class Location extends Component {
     this.props.getLocation();
   }
   renderWhenReady(){
-    var latitude = this.props.location.coords.latitude;
-    var longitude = this.props.location.coords.longitude;
+
+    var lat = this.props.location.coords.latitude;
+    var lon = this.props.location.coords.longitude;
     
-    if (latitude <= 0 && longitude <= 0) { 
+    if (lat <= 0 && lon <= 0) { 
     console.log("Loading Geolocation...")   
       return (
         <div>
@@ -27,13 +28,13 @@ class Location extends Component {
       );
     } 
 
-    else if (latitude > 1){
-      var lat = latitude;
-      var lon = longitude;
+    else if (lat > 1){
+
       console.log(lat);
       console.log(lon);
+
       return (
-      <article className="card animated fadeInUp" key={latitude}>
+      <article className="card animated fadeInUp" key={lat}>
             <div className="card-block">
                 <h4 className="card-title animated fadeInDown">Your current location is...</h4>
             </div>
@@ -49,6 +50,7 @@ class Location extends Component {
     else{
         <div>
           <p>Loading... your Location</p>
+          console.log("Geolocation failed.")           
         </div>
     }
   }
