@@ -17,11 +17,11 @@ class Location extends Component {
   }
   renderWhenReady(){
 
+    // sets coordinate variables
     var lat = this.props.location.coords.latitude;
     var lon = this.props.location.coords.longitude;
 
-
-    
+    // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
     console.log("Loading Geolocation...")   
       return (
@@ -30,7 +30,8 @@ class Location extends Component {
         </div>
       );
     } 
-
+    
+    // return this if coordinates are not empty
     else if (lat > 1){
 
       console.log(lat);
