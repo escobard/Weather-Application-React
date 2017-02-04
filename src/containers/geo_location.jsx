@@ -16,13 +16,23 @@ class Location extends Component {
     this.handleData = this.handleData.bind(this);
 
   }
-  // sets the object data from the middlware into our ssl data reducer
+  // sets the object data from the middleware into our ssl data reducer
   handleData(data){
         if (data == undefined){
           return;
         }
         else {
           console.log('Fetch Weather SSL - Success!', data);
+
+          // sets up the render data objects, this process should be done via the reducer once custom middleware processes are applied
+          const alerts = data.alerts[0].description;
+          console.log("alerts =", alerts);
+
+          // hourly
+          const hourlySummary = data.hourly.summary;
+          console.log("hourly summary=", hourlySummary);
+          const hourlyTemp = data.hourly.data.map(weatherTemps => weatherTemps.temperature);
+          console.log("hourly temp=", hourlyTemp)
         };
     return;
   }
@@ -52,22 +62,25 @@ class Location extends Component {
       fetchWeatherSSL(lat,lon, this.handleData);
       
       return (
-      <article className="card animated fadeInUp" key={lat}>
-        
-        <div className="card-block">
-          <h4 className="card-title animated fadeInDown">Your current location is...</h4>
-        </div>
-        
-        <section id="geolocateMap">
-          <div className="mapContainer">           
-              <GoogleMap zoom={16} lon={lon} lat={lat}/>
-          </div> 
-        </section>  
 
-      </article>        
+        <article className="card animated fadeInUp" key={lat}>
+          
+          <div className="card-block">
+            <h4 className="card-title animated fadeInDown">Your current location is...</h4>
+          </div>
+          
+          <section id="geolocateMap">
+            <div className="mapContainer">           
+                <GoogleMap zoom={16} lon={lon} lat={lat}/>
+            </div> 
+          </section>  
+
+        </article>        
 
       );
     }
+
+    // handle for geolocation failing
     else{
         <div>
           <p>Loading... your Location</p>
@@ -75,29 +88,25 @@ class Location extends Component {
         </div>
     }
   }
+
   render () {
+
     return (
+
       <div>
         {this.renderWhenReady()}
       </div>
+
     );
   }
 }
 
-// we can also write it with EMC6 syntax
- function mapStateToProps({ location, weatherssl }){
-
-  // this is how the function now looks
-  /*
-  return { weather: weather }; */
-
-  //this can be further condensed with ES6 like so:
-  // because both the key and the value object have the same identifier
+function mapStateToProps({ location, weatherssl }){
   return { location, weatherssl };
 }
+
 function mapDispatchToProps(dispatch) {
-
   return bindActionCreators({getLocation}, dispatch);
-
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Location);
