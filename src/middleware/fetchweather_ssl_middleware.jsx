@@ -11,35 +11,32 @@
 
 import jQuery from 'jquery';
 
-const API_KEY = '476d4cacd325216ea0fa53dc3b4fe5db';
+import $ from 'jquery';
 
-const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
+const API_KEY = 'b3bc903510184ddd38b76cd04bac96ed/';
 
-export const FETCH_WEATHER_SSL ='FETCH_WEATHER_SSL';
+const ROOT_URL ='https://api.darksky.net/forecast/'+API_KEY;
 
+export function fetchWeatherSSL(lat, lon, handleData){
 
-export function fetchWeatherSSL(lat, lon){
-
-		var latitude = lat;
+		var latitude = lat+',';
 		var longitude = lon;
 		var data;
-		const url = `${ROOT_URL}/${latitude},${longitude}`;
+		const url = ROOT_URL+latitude+longitude;
 		
 		if (lat <= 0){
 			console.log('Fetch Weather SSL - Failed')
 			return;
 		}
 		else {
-
 			// calls the ajax request with jQuery
 			// 
-			jQuery.ajax({
+			$.ajax({
+			  type: 'GET',
 			  url: url,
-			  dataType: "jsonp"
-			}).success(function(data){
-				console.log('Fetch Weather SSL - Fetched! -', data);
-				return data = data;
-			})
+			  dataType: "jsonp",
+			  success: handleData
+			 })
 
 		}
-}
+};

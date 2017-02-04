@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import { fetchWeatherSSL } from '../actions/action_fetchweather_ssl';
+import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -36,8 +36,20 @@ class Location extends Component {
       console.log(lon);
       
       // fetches the weather API based on geolocation
-      fetchWeatherSSL(lat,lon);
-      console.log("Weather Data = ", this.props.weatherssl);
+      const retrieveWeather = fetchWeatherSSL(lat,lon, handleData);
+
+      function handleData(data){
+        console.log('Fetch Weather SSL - Success!', data);
+        if (data == undefined){
+          return;
+        }
+        else {
+          console.log('DEFINED');
+          data = objectData;
+          return objectData;
+        };
+
+      }
 
       return (
       <article className="card animated fadeInUp" key={lat}>
