@@ -10,10 +10,6 @@ import { FETCH_GEOCODE } from '../actions/action_fetch_geocode';
 // creates the reducer for our weather data post middleware
 function geocodeReducer(state = [], action){
 
-	// this returns the RESOLVE state of the promise, thanks to the middleware 'redux-promise', which resolves the promise
-	// then returns the data response as our action payload
-	console.log('Action received - geocode', action);
-
 	// creates the switch to handle the incoming data from the action
 	switch (action.type){
 

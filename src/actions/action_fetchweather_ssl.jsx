@@ -26,20 +26,26 @@ export function fetchWeatherSSL(lat, lon){
 		var latitude = lat;
 		var longitude = lon;
 		const url = `${ROOT_URL}/${latitude},${longitude}/`;
+		
+		if (lat <= 0){
+			console.log('Fetch Weather SSL - Failed')
+			return;
+		}
+		else {
 
-		// calls the ajax request with axios
-		// this returns a promise
-		const request = $.ajax({
-		  url: url,
-		  dataType: "jsonp"
-		});
+			// calls the ajax request with axios
+			// this returns a promise
+			const request = $.ajax({
+			  url: url,
+			  dataType: "jsonp"
+			});
 
-		console.log('Request - fetchweather_ssl: ', request);
+			console.log('Fetch Weather SSL - ', request);
 
-		return {
-			
-			type: FETCH_WEATHER_SSL,
-			payload: request
-		};
-
+			return {
+				
+				type: FETCH_WEATHER_SSL,
+				payload: request
+			};
+		}
 }
