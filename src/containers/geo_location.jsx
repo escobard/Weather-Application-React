@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
+import fetchData from '../actions/action_fetch_ssl_data';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
@@ -30,6 +31,8 @@ class Location extends Component {
   }
   // sets the object data from the middleware into our ssl data reducer
   handleData(data){
+        var redData;
+        console.log('CHECKING DATA');
         if (data == undefined){
           return;
         }
@@ -42,19 +45,20 @@ class Location extends Component {
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
           }
-          this.renderData(reducedData);
-        };
+          redData = reducedData;
+        }
+        console.log('DATA RETURNED', redData);
+        this.props.fetchData(redData);
   }
-  renderData(reducedData){
-    console.log('reducedData = ', reducedData)
+  renderData(data){
+    console.log('reducedData = ', data)
   }
   renderWhenReady(){
-
     this.props.getLocation();
     // sets coordinate variables
     var lat = this.props.location.coords.latitude;
     var lon = this.props.location.coords.longitude;
-    
+    const STATE = this.state.pressure;
     // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
 
@@ -116,12 +120,12 @@ class Location extends Component {
   }
 }
 
-function mapStateToProps({ location, weatherssl }){
-  return { location, weatherssl };
+function mapStateToProps({ location, ssldata }){
+  return { location, ssldata };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({getLocation}, dispatch);
+  return bindActionCreators({getLocation, fetchData}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

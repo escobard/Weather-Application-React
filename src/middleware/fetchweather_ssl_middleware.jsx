@@ -36,6 +36,5 @@ export function fetchWeatherSSL(lat, lon, handleData){
 			  dataType: "jsonp",
 			  success: handleData
 			 })
-			return;
 		}
 };
