@@ -59,11 +59,14 @@ class Location extends Component {
 
       console.log(lat);
       console.log(lon);
+      var data;
       // fetches the weather API AJAX middleware based on geolocation
-      fetchWeatherSSL(lat,lon, handleData);
+      fetchWeatherSSL(lat,lon, data);
       // sets the object data from the middleware into our ssl data reducer
       var response = 0;
-      function handleData(data){
+
+
+      function handleData(doStuff){
             var reduced;
             if (data == undefined){
               return;
