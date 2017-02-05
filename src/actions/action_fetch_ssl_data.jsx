@@ -6,7 +6,7 @@
 
 export const FETCH_DATA ='FETCH_DATA';
 
-export function fetchData(data){
+function fetchSSLData(data){
 	const request = data;
 
 	console.log('Request: ', request);
@@ -26,3 +26,4 @@ export function fetchData(data){
 	};
 
 }
+export default fetchSSLData;

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import fetchData from '../actions/action_fetch_ssl_data';
+import fetchSSLData from '../actions/action_fetch_ssl_data';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
@@ -48,7 +48,8 @@ class Location extends Component {
           redData = reducedData;
         }
         console.log('DATA RETURNED', redData);
-        this.props.fetchData(redData);
+        // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
+        fetchSSLData(redData);
   }
   renderData(data){
     console.log('reducedData = ', data)
@@ -125,7 +126,7 @@ function mapStateToProps({ location, ssldata }){
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({getLocation, fetchData}, dispatch);
+  return bindActionCreators({fetchSSLData, getLocation}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);
