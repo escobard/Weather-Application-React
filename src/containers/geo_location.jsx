@@ -13,15 +13,13 @@ import GoogleMap from '../components/google_map';
 // imports charts
 import Charts from '../components/charts/charts';
 
-
-
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
+    this.handleData = this.handleData.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
-    this.props.getLocation();
     this.state = {
           alerts : '',
           summary : '',
@@ -30,19 +28,33 @@ class Location extends Component {
           pressure : ''
     };
   }
+  // sets the object data from the middleware into our ssl data reducer
+  handleData(data){
+        if (data == undefined){
+          return;
+        }
+        else {
+          console.log('Fetch Weather SSL - Success!', data);
+          const reducedData = { 
+                alerts : data.alerts[0].description,
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+          }
+          this.renderData(reducedData);
+        };
+  }
   renderData(reducedData){
-    console.log('reducedData = ', reducedData);
-    return (
-      <div>
-        <p>{reducedData.alerts}</p>
-      </div>
-    );
+    console.log('reducedData = ', reducedData)
   }
   renderWhenReady(){
+
+    this.props.getLocation();
     // sets coordinate variables
     var lat = this.props.location.coords.latitude;
     var lon = this.props.location.coords.longitude;
-
+    
     // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
 
@@ -59,34 +71,9 @@ class Location extends Component {
 
       console.log(lat);
       console.log(lon);
-      var data;
+      
       // fetches the weather API AJAX middleware based on geolocation
-      fetchWeatherSSL(lat,lon, data);
-      // sets the object data from the middleware into our ssl data reducer
-      var response = 0;
-
-
-      function handleData(doStuff){
-            var reduced;
-            if (data == undefined){
-              return;
-            }
-            else {
-              console.log('Fetch Weather SSL - Success!', data);
-              var reducedData = { 
-                    alerts : data.alerts[0].description,
-                    summary : data.hourly.summary,
-                    weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                    humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                    pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-              }
-              console.log('reducedData=', reducedData);
-              reduced = reducedData;
-            };
-            console.log('reduced=', reduced);
-            var Reducer = reduced;
-            return Reducer;
-      };
+      fetchWeatherSSL(lat,lon, this.handleData);
       
       return (
 
@@ -100,7 +87,6 @@ class Location extends Component {
             <div className="mapContainer">           
                 <GoogleMap zoom={16} lon={lon} lat={lat}/>
             </div> 
-            <div id="">{this.reducedData}</div>
           </section>  
 
         </article>        
