@@ -21,8 +21,6 @@ import _ from 'lodash';
 
 export var DataHandler = {};
 
-
-
 export function fetchWeatherSSL(lat, lon){
 
 		var latitude = lat;
@@ -47,32 +45,11 @@ export function fetchWeatherSSL(lat, lon){
 		}
 };
 
+// handles and reduces AJAX data
 function handleData(data){
         DataHandler = DataHandler;
-        if (data == undefined){
-          return;
-        }
-        else {
           console.log('Fetch Weather SSL - Success!', data);
-          if (data.alerts != undefined) {
-            var reducedData = { 
-                alerts : data.alerts[0].description,
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-            }
-          } else {
-              var reducedData = { 
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-          }
-          }
-
-        }
-        _.merge(DataHandler, reducedData);
+        _.merge(DataHandler, data);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
-    };
+ };

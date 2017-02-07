@@ -23,23 +23,36 @@ class Location extends Component {
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.props.getLocation();
     this.props.fetchSSLData(DataHandler);
+    this.state = {
+      data: DataHandler
+    }
   }
-  fetchWeather(){
-    const lat = this.props.location.coords.latitude;
-    const lon = this.props.location.coords.longitude;
+  fetchWeather(data){
+    /*
+                alerts : data.alerts[0].description,
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+                */
+    var lat = this.props.location.coords.latitude;
+    var lon = this.props.location.coords.longitude;
     fetchWeatherSSL(lat,lon);
-    console.log('DATA WITHIN', this.props.ssldata);
-    return(
-      <div>
-        <p>WWEWHE</p>
-      </div>
-    )
+    var data = data;
+    var summary = data.summary;
+        console.log('DATA', data);
+    return (
+    
+      <div key={data.key}><span>{summary}</span></div>
+
+    );
   }
   renderWhenReady(){
     // sets coordinate variables
 
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
+ 
 
     if (lat <= 0 && lon <= 0) { 
 
@@ -67,6 +80,7 @@ class Location extends Component {
             <div className="mapContainer">           
                 <GoogleMap zoom={16} lon={lon} lat={lat}/>
             </div> 
+            
           </section>  
 
         </article>        
@@ -90,7 +104,7 @@ class Location extends Component {
       <div>
         {this.renderWhenReady()}
         <div>
-          {this.fetchWeather()}
+          {this.fetchWeather(DataHandler)}
         </div>
       </div>
 
@@ -99,11 +113,11 @@ class Location extends Component {
 }
 
 function mapStateToProps({ location, ssldata }){
-  return { location, ssldata };
+  return {ssldata, location};
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchSSLData, getLocation}, dispatch);
+  return bindActionCreators({getLocation, fetchSSLData}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

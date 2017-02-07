@@ -8,7 +8,7 @@
 import { FETCH_DATA } from '../actions/action_fetch_ssl_data';
 import _ from 'lodash';
 
-function sslDataReducer(state = {}, action){
+function sslDataReducer(state = [], action){
 	switch (action.type){
 
 		case FETCH_DATA:
