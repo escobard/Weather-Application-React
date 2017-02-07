@@ -22,20 +22,29 @@ class Location extends Component {
     this.renderNew = this.renderNew.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
-    
     this.state = {
       data: this.props.ssldata
     }
   }
+  sendAction(){
+    var lat = this.props.location.coords.latitude;
+    if (lat === 0) {
+      console.log('TESTING LAT LESS THAN 0');
+    } else if (lat > 0) {
+      console.log('TESTING LAT MORE THAN 0');
+    }
+  }
   fetchWeather(data){
+          var Data = data;
+          var lat = this.props.location.coords.latitude;
+          var lon = this.props.location.coords.longitude;
+          fetchWeatherSSL(lat,lon);
+          console.log('here be the SSL', Data);
+          this.props.fetchSSLData(Data);
           return data.map((datas) => {
-          const dataLat = datas.latitude;    
-          console.log('HERE IS THE DATA', dataLat);  
-                var lat = this.props.location.coords.latitude;
-      var lon = this.props.location.coords.longitude;
-      fetchWeatherSSL(lat,lon);
-      console.log('here be the SSL', data);
-          })
+            const dataLat = datas.latitude;
+            console.log('HERE IS THE DATA', dataLat); 
+          });
     /*
                 alerts : data.alerts[0].description,
                 summary : data.hourly.summary,
