@@ -8,7 +8,7 @@
 import { FETCH_DATA } from '../actions/action_fetch_ssl_data';
 
 function sslDataReducer(state = [], action){
-	console.log('ACTION', action);
+	console.log('ACTION - SSL', action);
 	switch (action.type){
 
 		case FETCH_DATA:

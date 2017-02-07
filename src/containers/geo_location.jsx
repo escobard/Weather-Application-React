@@ -38,21 +38,36 @@ class Location extends Component {
         }
         else {
           console.log('Fetch Weather SSL - Success!', data);
-          const reducedData = { 
+          if (data.alerts != undefined) {
+            const reducedData = { 
                 alerts : data.alerts[0].description,
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+            }
+            redData = reducedData;
+          } else {
+              const reducedData = { 
                 summary : data.hourly.summary,
                 weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
           }
           redData = reducedData;
+          }
+
         }
         console.log('DATA RETURNED', redData);
+        this.renderData(redData);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
-        fetchSSLData(redData);
+            
   }
   renderData(data){
-    console.log('reducedData = ', data)
+    console.log('reducedData = ', data);
+    // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
+    // 
+    this.props.fetchSSLData(data);
   }
   renderWhenReady(){
     this.props.getLocation();
