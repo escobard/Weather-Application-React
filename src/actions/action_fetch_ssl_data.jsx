@@ -7,18 +7,13 @@
 export const FETCH_DATA ='FETCH_DATA';
 
 const fetchSSLData = (data) => {
-  const data = data;
+  const datas = data;
   
   const dataRetrieval = new Promise((resolve, reject) => {
-    if (!data) {
+    if (!datas) {
       reject(new Error('Not Supported'));
     }
-    
-    data.getCurrentData((datas) => {
-      resolve(datas);
-    }, () => {
-      reject (new Error('Permission denied'));
-    });
+    resolve(datas);
   });
 
 	console.log('Request: ', data);

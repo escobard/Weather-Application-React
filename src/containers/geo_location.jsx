@@ -63,11 +63,11 @@ class Location extends Component {
         console.log('DATA RETURNED - INSIDE', reducedData);
         DataHandler.push(reducedData);
         console.log('DATA RETURNED - INSIDE - 2', DataHandler);
-        // fetchSSLData(reducedData);
+
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
     }
-
+    // this.props.fetchSSLData(DataHandler);
     console.log('DATA RETURNED - OUTSIDE', DataHandler);
       return(
       <div>
