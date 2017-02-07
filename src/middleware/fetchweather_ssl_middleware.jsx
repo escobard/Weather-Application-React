@@ -17,7 +17,11 @@ const API_KEY = 'cf662e8028029c2cbc6e32997778e46a';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
-export var DataHandler = [];
+import _ from 'lodash';
+
+export var DataHandler = {};
+
+
 
 export function fetchWeatherSSL(lat, lon){
 
@@ -68,7 +72,7 @@ function handleData(data){
           }
 
         }
-        DataHandler.push(reducedData);
+        _.merge(DataHandler, reducedData);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
     };

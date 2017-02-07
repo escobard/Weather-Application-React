@@ -7,31 +7,28 @@ import { bindActionCreators } from 'redux';
 import getLocation from '../actions/action_geolocation';
 import fetchSSLData from '../actions/action_fetch_ssl_data';
 import {fetchWeatherSSL, DataHandler} from '../middleware/fetchweather_ssl_middleware';
-import _ from 'lodash';
+
 // imports gmap
 import GoogleMap from '../components/google_map';
 
 // imports charts
 import Charts from '../components/charts/charts';
 
-
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
-
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
+    this.props.getLocation();
     this.props.fetchSSLData(DataHandler);
-    this.state = {
-      data: this.props.ssldata
-    }
   }
   fetchWeather(){
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     fetchWeatherSSL(lat,lon);
+    console.log('DATA WITHIN', this.props.ssldata);
     return(
       <div>
         <p>WWEWHE</p>
@@ -40,11 +37,10 @@ class Location extends Component {
   }
   renderWhenReady(){
     // sets coordinate variables
-    this.props.getLocation();
+
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
 
-    // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
 
       console.log("Loading Geolocation...")   
@@ -55,15 +51,10 @@ class Location extends Component {
         );
     } 
     
-    // return this if coordinates are not empty
     else if (lat > 1){
 
       console.log(lat);
       console.log(lon);
-      
-      // fetches the weather API AJAX middleware based on geolocation
-      // 
-      
       return (
 
         <article className="card animated fadeInUp" key={lat}>
