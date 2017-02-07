@@ -17,7 +17,9 @@ const API_KEY = 'cf662e8028029c2cbc6e32997778e46a';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
-export function fetchWeatherSSL(lat, lon, handleData){
+export var DataHandler = [];
+
+export function fetchWeatherSSL(lat, lon){
 
 		var latitude = lat;
 		var longitude = lon;
@@ -40,3 +42,33 @@ export function fetchWeatherSSL(lat, lon, handleData){
 			 })
 		}
 };
+
+function handleData(data){
+        DataHandler = DataHandler;
+        if (data == undefined){
+          return;
+        }
+        else {
+          console.log('Fetch Weather SSL - Success!', data);
+          if (data.alerts != undefined) {
+            var reducedData = { 
+                alerts : data.alerts[0].description,
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+            }
+          } else {
+              var reducedData = { 
+                summary : data.hourly.summary,
+                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
+                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
+                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
+          }
+          }
+
+        }
+        DataHandler.push(reducedData);
+        // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
+            
+    };

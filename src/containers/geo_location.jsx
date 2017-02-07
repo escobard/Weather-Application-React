@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
 import fetchSSLData from '../actions/action_fetch_ssl_data';
-import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
+import {fetchWeatherSSL, DataHandler} from '../middleware/fetchweather_ssl_middleware';
 import _ from 'lodash';
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -14,8 +14,6 @@ import GoogleMap from '../components/google_map';
 // imports charts
 import Charts from '../components/charts/charts';
 
-// holds Ajax Data
-var DataHandler = [];
 
 class Location extends Component {
   constructor(props) {
@@ -25,19 +23,15 @@ class Location extends Component {
 
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
-    this.renderData = this.renderData.bind(this);
-    this.state= {
-      data : DataHandler
-    }
-    this.props.fetchSSLData(this.state.data);
+    this.props.fetchSSLData(DataHandler);
   }
   fetchWeather(){
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-    fetchWeatherSSL(lat,lon, handleData);
+    fetchWeatherSSL(lat,lon);
      // sets the object data from the middleware into our ssl data reducer
 
-    function handleData(data){
+    /*function handleData(data){
         DataHandler = DataHandler;
         console.log('CHECKING DATA - PRE LOAD', DataHandler);
         if (data == undefined){
@@ -69,22 +63,12 @@ class Location extends Component {
 
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
-    }
-
-    console.log('DATA RETURNED - OUTSIDE', DataHandler);
-    this.renderData(DataHandler);
+    }*/ 
       return(
       <div>
         <p>WWEWHE</p>
       </div>
     )
-  }
-  renderData(data){
-    console.log('reducedData = ', data);
-    console.log('state Data = ', this.state.data);
-    // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
-    // 
-    //this.props.fetchSSLData(data);
   }
   renderWhenReady(){
     // sets coordinate variables
