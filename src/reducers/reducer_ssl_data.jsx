@@ -8,15 +8,7 @@
 import { FETCH_DATA } from '../actions/action_fetch_ssl_data';
 import _ from 'lodash';
 
-const initialState = {
-	humidity: [],
-	summary: '',
-	pressure: [],
-	weather: []
-}
-
-function sslDataReducer(state = initialState, action){
-	console.log('ACTION - RECEIVED', action);
+function sslDataReducer(state = {}, action){
 	switch (action.type){
 
 		case FETCH_DATA:

@@ -16,7 +16,7 @@ const fetchSSLData = (data) => {
     resolve(datas);
   });
 
-	console.log('Request: ', data);
+	console.log('Action - Weather - Request: ', data);
 
 	// to avoid the convulted overkill application of jQuery for this small app, we will be using another library to generate our
 	// AJAX request called axios

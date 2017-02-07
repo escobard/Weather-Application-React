@@ -24,47 +24,15 @@ class Location extends Component {
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.props.fetchSSLData(DataHandler);
+    this.state = {
+      data: this.props.ssldata
+    }
   }
   fetchWeather(){
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     fetchWeatherSSL(lat,lon);
-     // sets the object data from the middleware into our ssl data reducer
-
-    /*function handleData(data){
-        DataHandler = DataHandler;
-        console.log('CHECKING DATA - PRE LOAD', DataHandler);
-        if (data == undefined){
-          return;
-        }
-        else {
-          console.log('Fetch Weather SSL - Success!', data);
-          if (data.alerts != undefined) {
-            var reducedData = { 
-                alerts : data.alerts[0].description,
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-            }
-          } else {
-              var reducedData = { 
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-          }
-          }
-
-        }
-        console.log('DATA RETURNED - INSIDE', reducedData);
-        DataHandler.push(reducedData);
-        console.log('DATA RETURNED - INSIDE - 2', DataHandler);
-
-        // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
-            
-    }*/ 
-      return(
+    return(
       <div>
         <p>WWEWHE</p>
       </div>
