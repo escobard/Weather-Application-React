@@ -17,18 +17,15 @@ import Charts from '../components/charts/charts';
 class Location extends Component {
   constructor(props) {
     super(props);
-    this.props.getLocation();
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
-    const lat = this.props.location.coords.latitude;
-    const lon = this.props.location.coords.longitude;
+
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
-    this.state = {
-        lon : lon,
-        lat: lat
-    };
+    this.state= {
+      data : []
+    }
     
   }
   fetchWeather(){
@@ -36,38 +33,40 @@ class Location extends Component {
     const lon = this.props.location.coords.longitude;
     fetchWeatherSSL(lat,lon, handleData);
      // sets the object data from the middleware into our ssl data reducer
+    var DataHandler = [];
     function handleData(data){
-        var redData;
-        console.log('CHECKING DATA');
+        DataHandler = DataHandler;
+        console.log('CHECKING DATA - PRE LOAD', DataHandler);
         if (data == undefined){
           return;
         }
         else {
           console.log('Fetch Weather SSL - Success!', data);
           if (data.alerts != undefined) {
-            const reducedData = { 
+            var reducedData = { 
                 alerts : data.alerts[0].description,
                 summary : data.hourly.summary,
                 weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
             }
-            redData = reducedData;
           } else {
-              const reducedData = { 
+              var reducedData = { 
                 summary : data.hourly.summary,
                 weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
           }
-          redData = reducedData;
           }
 
         }
-        console.log('DATA RETURNED', redData);
+        console.log('DATA RETURNED - INSIDE', reducedData);
+        DataHandler.push(reducedData);
+        console.log('DATA RETURNED - INSIDE - 2', DataHandler);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
-  }
+    }
+    console.log('DATA RETURNED - OUTSIDE', DataHandler);
       return(
       <div>
         <p>WWEWHE</p>
@@ -88,6 +87,7 @@ class Location extends Component {
   }
   renderWhenReady(){
     // sets coordinate variables
+    this.props.getLocation();
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
 
