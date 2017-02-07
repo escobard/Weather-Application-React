@@ -14,6 +14,9 @@ import GoogleMap from '../components/google_map';
 // imports charts
 import Charts from '../components/charts/charts';
 
+// holds Ajax Data
+var DataHandler = [];
+
 class Location extends Component {
   constructor(props) {
     super(props);
@@ -24,16 +27,16 @@ class Location extends Component {
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
     this.state= {
-      data : ''
+      data : DataHandler
     }
-    
+    this.props.fetchSSLData(this.state.data);
   }
   fetchWeather(){
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     fetchWeatherSSL(lat,lon, handleData);
      // sets the object data from the middleware into our ssl data reducer
-    var DataHandler = [];
+
     function handleData(data){
         DataHandler = DataHandler;
         console.log('CHECKING DATA - PRE LOAD', DataHandler);
@@ -67,25 +70,21 @@ class Location extends Component {
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
     }
-    // this.props.fetchSSLData(DataHandler);
+
     console.log('DATA RETURNED - OUTSIDE', DataHandler);
+    this.renderData(DataHandler);
       return(
       <div>
         <p>WWEWHE</p>
       </div>
     )
   }
- 
   renderData(data){
     console.log('reducedData = ', data);
+    console.log('state Data = ', this.state.data);
     // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
     // 
-    // 
-    return (
-      <div>
-        <p>SHIT</p>
-      </div>
-    );
+    //this.props.fetchSSLData(data);
   }
   renderWhenReady(){
     // sets coordinate variables
