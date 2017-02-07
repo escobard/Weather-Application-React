@@ -6,7 +6,7 @@
 
 import { GET_LOCATION } from '../actions/action_geolocation';
 
-const INIT_STATE = {
+var INIT_STATE = {
   coords: {
     latitude: 0,
     longitude: 0

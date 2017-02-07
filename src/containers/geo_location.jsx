@@ -19,15 +19,15 @@ class Location extends Component {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
+    this.renderNew = this.renderNew.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
-    this.props.getLocation();
-    this.props.fetchSSLData(DataHandler);
+    
     this.state = {
-      data: DataHandler
+      data: this.props.ssldata
     }
   }
-  fetchWeather(data){
+  fetchWeather(Data){
     /*
                 alerts : data.alerts[0].description,
                 summary : data.hourly.summary,
@@ -35,24 +35,17 @@ class Location extends Component {
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
                 */
-    var lat = this.props.location.coords.latitude;
-    var lon = this.props.location.coords.longitude;
-    fetchWeatherSSL(lat,lon);
-    var data = data;
-    var summary = data.summary;
-        console.log('DATA', data);
-    return (
-    
-      <div key={data.key}><span>{summary}</span></div>
+      var lat = this.props.location.coords.latitude;
+      var lon = this.props.location.coords.longitude;
+      fetchWeatherSSL(lat,lon);
+      // this.props.fetchSSLData(Data);
 
-    );
   }
   renderWhenReady(){
     // sets coordinate variables
 
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
- 
 
     if (lat <= 0 && lon <= 0) { 
 
@@ -96,15 +89,32 @@ class Location extends Component {
         </div>
     }
   }
-
+  renderNew(data){
+    var Data = DataHandler;
+    switch(data === 0) {
+    case true:
+        console.log('Coordinates have not been searched', data);
+        this.props.getLocation();
+        return;
+    case false:
+        console.log('Coordinates have been searched', data);
+        this.fetchWeather(Data);
+        return;
+    default:
+        return;
+    }
+  }
+  coordChange(){
+    console.log(this.props.location.coords.latitude)
+  }
   // renders container
   render () {
     return (
 
       <div>
         {this.renderWhenReady()}
+        {this.renderNew(this.props.location.coords.latitude)}
         <div>
-          {this.fetchWeather(DataHandler)}
         </div>
       </div>
 

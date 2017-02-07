@@ -19,14 +19,13 @@ const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
 import _ from 'lodash';
 
-export var DataHandler = {};
+export var DataHandler = [];
 
 export function fetchWeatherSSL(lat, lon){
 
 		var latitude = lat;
 		var longitude = lon;
-		var dataStore;
-		const url = `${ROOT_URL}/${latitude},${longitude}`
+		var url = `${ROOT_URL}/${latitude},${longitude}`
 		
 		if (lat <= 0){
 			console.log('Fetch Weather SSL - Failed')
@@ -49,7 +48,7 @@ export function fetchWeatherSSL(lat, lon){
 function handleData(data){
         DataHandler = DataHandler;
           console.log('Fetch Weather SSL - Success!', data);
-        _.merge(DataHandler, data);
+        DataHandler.push(data);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
  };
