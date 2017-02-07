@@ -24,7 +24,7 @@ class Location extends Component {
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
     this.state= {
-      data : []
+      data : ''
     }
     
   }
@@ -63,9 +63,11 @@ class Location extends Component {
         console.log('DATA RETURNED - INSIDE', reducedData);
         DataHandler.push(reducedData);
         console.log('DATA RETURNED - INSIDE - 2', DataHandler);
+        // fetchSSLData(reducedData);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
     }
+
     console.log('DATA RETURNED - OUTSIDE', DataHandler);
       return(
       <div>
@@ -78,7 +80,7 @@ class Location extends Component {
     console.log('reducedData = ', data);
     // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
     // 
-    // this.props.fetchSSLData(data);
+    // 
     return (
       <div>
         <p>SHIT</p>

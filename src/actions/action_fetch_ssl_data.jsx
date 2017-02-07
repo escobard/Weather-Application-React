@@ -6,10 +6,22 @@
 
 export const FETCH_DATA ='FETCH_DATA';
 
-function fetchSSLData(data){
-	const request = data;
+const fetchSSLData = (data) => {
+  const data = data;
+  
+  const dataRetrieval = new Promise((resolve, reject) => {
+    if (!data) {
+      reject(new Error('Not Supported'));
+    }
+    
+    data.getCurrentData((datas) => {
+      resolve(datas);
+    }, () => {
+      reject (new Error('Permission denied'));
+    });
+  });
 
-	console.log('Request: ', request);
+	console.log('Request: ', data);
 
 	// to avoid the convulted overkill application of jQuery for this small app, we will be using another library to generate our
 	// AJAX request called axios
@@ -22,8 +34,9 @@ function fetchSSLData(data){
 		
 		// now that we have the DevOps figured out for the AJAX request, we can create the payload key value for this action
 		// the request PROMISE is attached to this action creator's payload
-		payload: request
+		payload: data
 	};
+};
 
-}
+
 export default fetchSSLData;
