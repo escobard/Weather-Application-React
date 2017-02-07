@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import getLocation from '../actions/action_geolocation';
 import fetchSSLData from '../actions/action_fetch_ssl_data';
 import {fetchWeatherSSL, handleData} from '../middleware/fetchweather_ssl_middleware';
-
+import _ from 'lodash';
 // imports gmap
 import GoogleMap from '../components/google_map';
 
@@ -17,16 +17,14 @@ import Charts from '../components/charts/charts';
 class Location extends Component {
   constructor(props) {
     super(props);
+    this.props.getLocation();
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     this.handleData = this.handleData.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
     this.state = {
-          alerts : '',
-          summary : '',
-          weather: '',
-          humidity : '',
-          pressure : ''
+        lon : '',
+        lat: ''
     };
   }
   // sets the object data from the middleware into our ssl data reducer
@@ -68,13 +66,17 @@ class Location extends Component {
     // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
     // 
     this.props.fetchSSLData(data);
+    return (
+      <div>
+        <p>SHIT</p>
+      </div>
+    );
   }
   renderWhenReady(){
-    this.props.getLocation();
+
     // sets coordinate variables
-    var lat = this.props.location.coords.latitude;
-    var lon = this.props.location.coords.longitude;
-    const STATE = this.state.pressure;
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
     // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
 
@@ -93,7 +95,7 @@ class Location extends Component {
       console.log(lon);
       
       // fetches the weather API AJAX middleware based on geolocation
-      fetchWeatherSSL(lat,lon, this.handleData);
+      // 
       
       return (
 
@@ -125,11 +127,16 @@ class Location extends Component {
 
   // renders container
   render () {
-
+    // sets coordinate variables
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
     return (
 
       <div>
         {this.renderWhenReady()}
+        <div>
+          {fetchWeatherSSL(lat,lon, this.handleData)}
+        </div>
       </div>
 
     );

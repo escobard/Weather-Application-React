@@ -6,6 +6,7 @@
 
 // imports the action.type of our fetchWeather component
 import { FETCH_DATA } from '../actions/action_fetch_ssl_data';
+import _ from 'lodash';
 
 const initialState = {
 	humidity: [],
@@ -21,10 +22,8 @@ function sslDataReducer(state = initialState, action){
 		case FETCH_DATA:
 			console.log("Action - SSL - Weather Data", action.payload);
 			return action.payload;
-			break;
 		default: 
 			return state;
-			break;
 	};
 };
 
