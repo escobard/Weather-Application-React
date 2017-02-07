@@ -27,7 +27,15 @@ class Location extends Component {
       data: this.props.ssldata
     }
   }
-  fetchWeather(Data){
+  fetchWeather(data){
+          return data.map((datas) => {
+          const dataLat = datas.latitude;    
+          console.log('HERE IS THE DATA', dataLat);  
+                var lat = this.props.location.coords.latitude;
+      var lon = this.props.location.coords.longitude;
+      fetchWeatherSSL(lat,lon);
+      console.log('here be the SSL', data);
+          })
     /*
                 alerts : data.alerts[0].description,
                 summary : data.hourly.summary,
@@ -35,10 +43,6 @@ class Location extends Component {
                 humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
                 pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
                 */
-      var lat = this.props.location.coords.latitude;
-      var lon = this.props.location.coords.longitude;
-      fetchWeatherSSL(lat,lon);
-      // this.props.fetchSSLData(Data);
 
   }
   renderWhenReady(){
@@ -91,15 +95,18 @@ class Location extends Component {
   }
   renderNew(data){
     var Data = DataHandler;
+
     switch(data === 0) {
     case true:
         console.log('Coordinates have not been searched', data);
+        console.log('Current Data', DataHandler);
         this.props.getLocation();
         return;
     case false:
         console.log('Coordinates have been searched', data);
-        this.fetchWeather(Data);
-        return;
+        console.log('Current Data', DataHandler);
+        var DataReady = Data;
+        this.fetchWeather(DataReady);
     default:
         return;
     }

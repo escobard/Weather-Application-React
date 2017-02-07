@@ -13,7 +13,7 @@ import jQuery from 'jquery';
 
 import $ from 'jquery';
 
-const API_KEY = 'cf662e8028029c2cbc6e32997778e46a';
+const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
