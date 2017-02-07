@@ -22,7 +22,7 @@ class Location extends Component {
     // sets coordinate variables
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-    this.handleData = this.handleData.bind(this);
+    this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
     this.state = {
@@ -34,15 +34,9 @@ class Location extends Component {
   fetchWeather(){
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-    fetchWeatherSSL(lat,lon, this.handleData);
-    return(
-      <div>
-        <p>WWEWHE</p>
-      </div>
-    )
-  }
-  // sets the object data from the middleware into our ssl data reducer
-  handleData(data){
+    fetchWeatherSSL(lat,lon, handleData);
+     // sets the object data from the middleware into our ssl data reducer
+    function handleData(data){
         var redData;
         console.log('CHECKING DATA');
         if (data == undefined){
@@ -71,10 +65,16 @@ class Location extends Component {
 
         }
         console.log('DATA RETURNED', redData);
-        this.renderData(redData);
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
   }
+      return(
+      <div>
+        <p>WWEWHE</p>
+      </div>
+    )
+  }
+ 
   renderData(data){
     console.log('reducedData = ', data);
     // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
