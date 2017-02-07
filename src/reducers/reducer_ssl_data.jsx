@@ -7,15 +7,24 @@
 // imports the action.type of our fetchWeather component
 import { FETCH_DATA } from '../actions/action_fetch_ssl_data';
 
-function sslDataReducer(state = [], action){
-	console.log('ACTION - SSL', action);
+const initialState = {
+	humidity: [],
+	summary: '',
+	pressure: [],
+	weather: []
+}
+
+function sslDataReducer(state = initialState, action){
+	console.log('ACTION - RECEIVED', action);
 	switch (action.type){
 
 		case FETCH_DATA:
-			console.log("Action - SSL -", action.payload);
+			console.log("Action - SSL - Weather Data", action.payload);
 			return action.payload;
+			break;
 		default: 
 			return state;
+			break;
 	};
 };
 

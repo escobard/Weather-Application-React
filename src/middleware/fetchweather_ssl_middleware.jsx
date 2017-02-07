@@ -21,7 +21,7 @@ export function fetchWeatherSSL(lat, lon, handleData){
 
 		var latitude = lat;
 		var longitude = lon;
-		var data;
+		var dataStore;
 		const url = `${ROOT_URL}/${latitude},${longitude}`
 		
 		if (lat <= 0){
@@ -34,7 +34,9 @@ export function fetchWeatherSSL(lat, lon, handleData){
 			  type: 'GET',
 			  url: url,
 			  dataType: "jsonp",
-			  success: handleData
+			  success: function(data){
+				handleData(data);
+			  }
 			 })
 		}
 };
