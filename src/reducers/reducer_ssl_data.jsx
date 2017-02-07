@@ -20,7 +20,7 @@ function sslDataReducer(state = initialState, action){
 	switch (action.type){
 
 		case FETCH_DATA:
-			console.log("Action - SSL - Weather Data", action.payload);
+			console.log("Reducer - SSL - Weather Data", action.payload);
 			return action.payload;
 		default: 
 			return state;
