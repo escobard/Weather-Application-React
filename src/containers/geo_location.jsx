@@ -19,13 +19,27 @@ class Location extends Component {
     super(props);
     this.props.getLocation();
     // to bind .this to any specific function so it points to the constructor, we use the following method:
+    // sets coordinate variables
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
     this.handleData = this.handleData.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.renderData = this.renderData.bind(this);
     this.state = {
-        lon : '',
-        lat: ''
+        lon : lon,
+        lat: lat
     };
+    
+  }
+  fetchWeather(){
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
+    fetchWeatherSSL(lat,lon, this.handleData);
+    return(
+      <div>
+        <p>WWEWHE</p>
+      </div>
+    )
   }
   // sets the object data from the middleware into our ssl data reducer
   handleData(data){
@@ -65,7 +79,7 @@ class Location extends Component {
     console.log('reducedData = ', data);
     // actions working, need to fix it so that the action only runs ONCE, need to set up a middleware
     // 
-    this.props.fetchSSLData(data);
+    // this.props.fetchSSLData(data);
     return (
       <div>
         <p>SHIT</p>
@@ -73,10 +87,10 @@ class Location extends Component {
     );
   }
   renderWhenReady(){
-
     // sets coordinate variables
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
+
     // handle for empty coordinates
     if (lat <= 0 && lon <= 0) { 
 
@@ -127,15 +141,12 @@ class Location extends Component {
 
   // renders container
   render () {
-    // sets coordinate variables
-    const lat = this.props.location.coords.latitude;
-    const lon = this.props.location.coords.longitude;
     return (
 
       <div>
         {this.renderWhenReady()}
         <div>
-          {fetchWeatherSSL(lat,lon, this.handleData)}
+          {this.fetchWeather()}
         </div>
       </div>
 
