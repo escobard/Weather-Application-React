@@ -44,26 +44,19 @@ class Location extends Component {
     // sets coordinate variables
     this.fetchLocal = this.fetchLocal.bind(this);
     this.renderNew = this.renderNew.bind(this);
-    this.sendAction = this.sendAction.bind(this);
-    this.renderData = this.renderData.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
       coords: ''
-    }
-    setTimeout(this.sendAction(COORDS), 100);
+    };
   }
   fetchLocal(){
+    var coords = this.props.location.coords;
+    var lat = coords.latitude;
+    var lon = coords.longitude;
     console.log('IT BIN FETCHED');
-  }
-  renderData(data){
-      console.log('FETCHED DATA', data);
-      return;
-  }
-  sendAction(coords){
-    var coords = coords[0];
-    console.log('THESE ARE THE COORDS', coords);
-    // sets global lat / lon
+    console.log('THESE BE THE COORDS', lat, lon);
+    this.setState({coords: coords});
   }
   fetchWeather(data){
           var Data = data;
@@ -125,7 +118,7 @@ class Location extends Component {
     }
 
     // handle for geolocation failing
-    else{
+    else {
         <div>
           <p>Loading... your Location</p>
           console.log("Geolocation failed.")           
@@ -150,7 +143,6 @@ class Location extends Component {
         COORDS.push(data);
         console.log('LATITUDE', COORDS);
         this.fetchWeather(Data);
-        Data.map(this.renderData);
     default:
         return;
     }
