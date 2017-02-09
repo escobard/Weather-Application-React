@@ -40,11 +40,10 @@ var COORDS = [];
 class Location extends Component {
   constructor(props) {
     super(props);
+    this.props.getLocation();
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
     this.fetchLocal = this.fetchLocal.bind(this);
-    this.renderNew = this.renderNew.bind(this);
-    this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
       coords: ''
@@ -56,26 +55,8 @@ class Location extends Component {
     var lon = coords.longitude;
     console.log('IT BIN FETCHED');
     console.log('THESE BE THE COORDS', lat, lon);
-    this.setState({coords: coords});
-  }
-  fetchWeather(data){
-          var Data = data;
-          var lat = this.props.location.coords.latitude;
-          var lon = this.props.location.coords.longitude;
-          fetchWeatherSSL(lat,lon);
-          console.log('here be the SSL', Data);
-          return data.map((datas) => {
-            const dataLat = datas.latitude;
-            console.log('HERE IS THE DATA', dataLat); 
-          });
-    /*
-                alerts : data.alerts[0].description,
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-                */
-
+    fetchWeatherSSL(lat,lon);
+    console.log('here be the SSL', Data);
   }
   renderWhenReady(){
     // sets coordinate variables
@@ -124,28 +105,7 @@ class Location extends Component {
           console.log("Geolocation failed.")           
         </div>
     }
-  }
-  renderNew(data){
-    console.log(data);
-    var Data = DataHandler;
-    var lat = data.latitude;
-    var lon = data.longitude;
-    switch(lat === 0) {
-    case true:
-        console.log('Coordinates have not been searched', data);
-        console.log('Current Data', DataHandler);
-        this.props.getLocation();
-        return;
-    case false:
-        console.log('Coordinates have been searched', data);
-        console.log('Current Data', DataHandler);
-        console.log('LATITUDE', COORDS);
-        COORDS.push(data);
-        console.log('LATITUDE', COORDS);
-        this.fetchWeather(Data);
-    default:
-        return;
-    }
+
   }
   // renders container
   render () {
@@ -153,7 +113,6 @@ class Location extends Component {
 
       <div>
         {this.renderWhenReady()}
-        {this.renderNew(this.props.location.coords)}
         <div>
         </div>
       </div>
