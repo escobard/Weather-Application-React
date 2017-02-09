@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import fetchSSLWeather from '../actions/action_fetch_ssl_data';
+import {fetchSSLWeather} from '../actions/action_fetch_ssl_data';
 import {fetchWeatherSSL, DataHandler} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
