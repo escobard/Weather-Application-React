@@ -46,7 +46,7 @@ class Location extends Component {
     this.fetchLocal = this.fetchLocal.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
-      coords: ''
+      data: []
     };
   }
   fetchLocal(){
@@ -56,7 +56,11 @@ class Location extends Component {
     console.log('IT BIN FETCHED');
     console.log('THESE BE THE COORDS', lat, lon);
     fetchWeatherSSL(lat,lon);
-    console.log('here be the SSL', Data);
+    var data = DataHandler;
+    console.log(data);
+    this.setState({data: this.state.data.push(DataHandler)});
+    console.log(this.state);
+
   }
   renderWhenReady(){
     // sets coordinate variables
