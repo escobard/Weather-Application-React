@@ -5,7 +5,6 @@
 // =============================================================
 
 // includes our axios API
-import axios from 'axios';
 import fetchJsonp from 'fetch-jsonp';
 // new API call for darksky weather API
 // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
