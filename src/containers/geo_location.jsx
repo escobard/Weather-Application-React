@@ -37,29 +37,33 @@ function dataTest(lat, lon){
 
 var COORDS = [];
 
-
-
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
+    this.fetchLocal = this.fetchLocal.bind(this);
     this.renderNew = this.renderNew.bind(this);
+    this.sendAction = this.sendAction.bind(this);
     this.renderData = this.renderData.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
-      data: this.props.ssldata
+      coords: ''
     }
-    setTimeout(this.sendAction(COORDS), 3000);
+    setTimeout(this.sendAction(COORDS), 100);
+  }
+  fetchLocal(){
+    console.log('IT BIN FETCHED');
   }
   renderData(data){
       console.log('FETCHED DATA', data);
       return;
   }
   sendAction(coords){
-    var coords = coords;
+    var coords = coords[0];
     console.log('THESE ARE THE COORDS', coords);
+    // sets global lat / lon
   }
   fetchWeather(data){
           var Data = data;
@@ -112,7 +116,7 @@ class Location extends Component {
             <div className="mapContainer">           
                 <GoogleMap zoom={16} lon={lon} lat={lat}/>
             </div> 
-            
+            <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
 
         </article>        
@@ -129,6 +133,7 @@ class Location extends Component {
     }
   }
   renderNew(data){
+    console.log(data);
     var Data = DataHandler;
     var lat = data.latitude;
     var lon = data.longitude;
