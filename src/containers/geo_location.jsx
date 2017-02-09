@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
@@ -34,24 +35,24 @@ function dataTest(lat, lon){
 
 };
 
-var LATITUDE;
-var LONGITUDE;
+var COORDS= [];
 
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
-    var lat = this.props.location.coords.latitude;
-    var lon = this.props.location.coords.longitude;
-    const dataSet = dataTest(lat, lon);
     this.renderNew = this.renderNew.bind(this);
+    this.renderData = this.renderData.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
       data: this.props.ssldata
     }
-    this.sendAction(lat);
+  }
+  renderData(data){
+      console.log('FETCHED DATA', data);
+      return;
   }
   sendAction(lat){
     var lat = lat;
@@ -145,8 +146,9 @@ class Location extends Component {
   }
   renderNew(data){
     var Data = DataHandler;
-
-    switch(data === 0) {
+    var lat = data.latitude;
+    var lon = data.longitude;
+    switch(lat === 0) {
     case true:
         console.log('Coordinates have not been searched', data);
         console.log('Current Data', DataHandler);
@@ -155,15 +157,14 @@ class Location extends Component {
     case false:
         console.log('Coordinates have been searched', data);
         console.log('Current Data', DataHandler);
-        console.log('LATITUDE', LATITUDE);
-        console.log('LONGITUDE', LONGITUDE);
+        console.log('LATITUDE', COORDS);
+        LATITUDE.push(data);
+        console.log('LATITUDE', COORDS);
         this.fetchWeather(Data);
+        Data.map(this.renderData);
     default:
         return;
     }
-  }
-  coordChange(){
-    console.log(this.props.location.coords.latitude)
   }
   // renders container
   render () {
@@ -171,7 +172,7 @@ class Location extends Component {
 
       <div>
         {this.renderWhenReady()}
-        {this.renderNew(this.props.location.coords.latitude)}
+        {this.renderNew(this.props.location.coords)}
         <div>
         </div>
       </div>
