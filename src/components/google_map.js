@@ -21,7 +21,6 @@ export default (props) => {
 
 		googleMapElement={
 			<GoogleMap 
-				ref={(map) => console.log(map)} 
 				defaultZoom={props.zoom} 
 				defaultCenter={{lat: props.lat, lng: props.lon}} 
 				

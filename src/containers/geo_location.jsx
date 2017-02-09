@@ -14,25 +14,43 @@ import GoogleMap from '../components/google_map';
 // imports charts
 import Charts from '../components/charts/charts';
 
+// runs functions at start
+function dataTest(lat, lon){
+      var lat = lat;
+      var lon = lon;
+      console.log('THIS IS LAT', lat);
+      console.log('THIS IS LON', lon);
+
+};
+
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
+    const dataSet = dataTest(lat, lon);
     this.renderNew = this.renderNew.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
     this.state = {
       data: this.props.ssldata
     }
+    
+
   }
-  sendAction(){
-    var lat = this.props.location.coords.latitude;
-    if (lat === 0) {
+  sendAction(lat){
+    var lat = lat;
+    console.log(lat);
+    return function bindData(){
+    if (lat === 1) {
       console.log('TESTING LAT LESS THAN 0');
-    } else if (lat > 0) {
+    } else if (lat > 1) {
       console.log('TESTING LAT MORE THAN 0');
+      this.props.fetchSSLData(Data);
     }
+    }();
   }
   fetchWeather(data){
           var Data = data;
@@ -40,7 +58,6 @@ class Location extends Component {
           var lon = this.props.location.coords.longitude;
           fetchWeatherSSL(lat,lon);
           console.log('here be the SSL', Data);
-          this.props.fetchSSLData(Data);
           return data.map((datas) => {
             const dataLat = datas.latitude;
             console.log('HERE IS THE DATA', dataLat); 
