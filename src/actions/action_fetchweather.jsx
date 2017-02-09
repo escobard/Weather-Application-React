@@ -19,7 +19,7 @@ var API_KEY = '7588eeb65b45661378601702a0a9b7f1';
 // for EMC5 this will work : const ROOT_URL ='http://api.openweathermap.org/data/2.5/forecast?appid='+ API_KEY;
 // 
 // for EMC6 we can use the following: 
-var ROOT_URL =`//api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+var ROOT_URL =`http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
 
 // we are creating the type value as a variable, so we can export this
 // this is done to keep our action types consistent between our action creators and our reducers
