@@ -1,26 +1,36 @@
 // =============================================================
 // 
-// 	actions/fetchweather.js
+// 	actions/fetch_ssl_data.js
 //
 // =============================================================
 
+// includes our axios API
+import fetchJsonp from 'fetch-jsonp';
+
+const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
+
+const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
+
 export const FETCH_DATA ='FETCH_DATA';
 
-const fetchSSLData = (data) => {
-  const datas = data;
-  
-  const dataRetrieval = new Promise((resolve, reject) => {
-    if (!datas) {
-      reject(new Error('Not Supported'));
-    }
-    resolve(datas);
-  });
-	console.log('Action - Weather - Request: ', data);
+export function fetchSSLWeather(lat, lon){
+
+	const url = `${ROOT_URL}/${lat},${lon}`;
+	
+	const request = fetchJsonp(url)
+	  .then(function(response) {
+	    return response.json()
+	  }).then(function(json) {
+	    return json;
+	  }).catch(function(ex) {
+	    console.log('parsing failed', ex);
+	});
+
+	console.log('Request: ', request);
+	
 	return {
 		type: FETCH_DATA,
-		payload: data
+		payload: request
 	};
-};
 
-
-export default fetchSSLData;
+}

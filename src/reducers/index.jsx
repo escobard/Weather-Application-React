@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   
   // adds the reducer data to our App.state
   weather: weatherReducer,
-  ssldata: sslDataReducer,
+  sslweather: sslDataReducer,
   geocode: geocodeReducer,
   location: LocationReducer
 });

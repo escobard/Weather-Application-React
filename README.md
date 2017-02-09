@@ -29,19 +29,13 @@ Application uses native features, like push notifications, Bluetooth, geolocatio
 ## Demo
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
 
-###Desktop
-![desktop image - main](https://onlinedevelopers.ca/udacity/restaurant-reviewer/img/read-me/Udacity-project-3-demo-1.jpg)
-
-###Mobile
-![mobile image - main](https://onlinedevelopers.ca/udacity/restaurant-reviewer/img/read-me/Udacity-project-3-demo-3.jpg)
-
-To download, please follow the instructions below.
+To download and install, please follow the instructions below.
 
 ## Installation
 
 Clone the repository from: 
 ```
-$ git clone https://github.com/escobard/udacity-srwebdev-project3-restaurant.git
+$ git clone https://github.com/escobard/udacity-srwebdev-project5-capstone.git
 ```
 
 Install NPM dependencies:

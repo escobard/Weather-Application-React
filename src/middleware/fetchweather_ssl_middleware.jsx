@@ -13,7 +13,7 @@ import jQuery from 'jquery';
 
 import $ from 'jquery';
 
-const API_KEY = 'cf662e8028029c2cbc6e32997778e46a';
+const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
@@ -21,14 +21,11 @@ import _ from 'lodash';
 
 export var DataHandler = {};
 
-
-
 export function fetchWeatherSSL(lat, lon){
 
 		var latitude = lat;
 		var longitude = lon;
-		var dataStore;
-		const url = `${ROOT_URL}/${latitude},${longitude}`
+		var url = `${ROOT_URL}/${latitude},${longitude}`
 		
 		if (lat <= 0){
 			console.log('Fetch Weather SSL - Failed')
@@ -47,32 +44,11 @@ export function fetchWeatherSSL(lat, lon){
 		}
 };
 
+// handles and reduces AJAX data
 function handleData(data){
         DataHandler = DataHandler;
-        if (data == undefined){
-          return;
-        }
-        else {
           console.log('Fetch Weather SSL - Success!', data);
-          if (data.alerts != undefined) {
-            var reducedData = { 
-                alerts : data.alerts[0].description,
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-            }
-          } else {
-              var reducedData = { 
-                summary : data.hourly.summary,
-                weather : data.hourly.data.map(weatherTemps => weatherTemps.temperature),
-                humidity : data.hourly.data.map(weatherHum=> weatherHum.humidity),
-                pressure : data.hourly.data.map(weatherHum=> weatherHum.pressure)
-          }
-          }
-
-        }
-        _.merge(DataHandler, reducedData);
+        _.assign(DataHandler, data)
         // need to find a way to stop the data from flooding the reducer, or just transfer the data onto another fucking function to use here
             
-    };
+ };

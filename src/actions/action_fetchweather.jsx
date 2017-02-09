@@ -5,8 +5,7 @@
 // =============================================================
 
 // includes our axios API
-import axios from 'axios';
-
+import fetchJsonp from 'fetch-jsonp';
 // new API call for darksky weather API
 // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 // https://api.darksky.net/forecast/476d4cacd325216ea0fa53dc3b4fe5db/53.5444389,-113.4909267
@@ -19,7 +18,7 @@ var API_KEY = '7588eeb65b45661378601702a0a9b7f1';
 // for EMC5 this will work : const ROOT_URL ='http://api.openweathermap.org/data/2.5/forecast?appid='+ API_KEY;
 // 
 // for EMC6 we can use the following: 
-var ROOT_URL =`//api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+var ROOT_URL =`http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
 
 // we are creating the type value as a variable, so we can export this
 // this is done to keep our action types consistent between our action creators and our reducers
@@ -43,7 +42,14 @@ export function fetchWeather(city){
 	// calls the ajax request with axios
 	// this returns a promise
 	
-	const request = axios.get(url);
+	const request = fetchJsonp(url)
+		  .then(function(response) {
+		    return response.json()
+		  }).then(function(json) {
+		    return json;
+		  }).catch(function(ex) {
+		    console.log('request failed', ex);
+		  });
 
 	console.log('Request: ', request);
 

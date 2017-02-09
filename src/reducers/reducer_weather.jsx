@@ -24,7 +24,7 @@ function weatherReducer(state = [], action){
 			// 
 			// this is the accepted EMC6 method to do this:
 			// 
-			return [ action.payload.data, ...state ]; //[ city, city, city] NOT [city, [city, [city]]] which is BAD
+			return [ action.payload, ...state ]; //[ city, city, city] NOT [city, [city, [city]]] which is BAD
 			// the above explained below:
 			// [ create a new array
 			// put action.payload.data inside of it
