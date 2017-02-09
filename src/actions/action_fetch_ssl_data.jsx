@@ -11,9 +11,11 @@ const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
 
 const ROOT_URL =`https://api.darksky.net/forecast/${API_KEY}`;
 
-export function fetchWeatherSSL(lat, lon){
+export const FETCH_DATA ='FETCH_DATA';
 
-	const url = `${ROOT_URL}/${lat},${lon}`
+export default function fetchSSLWeather(lat, lon){
+
+	const url = `${ROOT_URL}/${lat},${lon}`;
 	
 	const request = fetchJsonp(url)
 	  .then(function(response) {
@@ -26,10 +28,10 @@ export function fetchWeatherSSL(lat, lon){
 	});
 
 	console.log('Request: ', request);
+	
 	return {
 		type: FETCH_DATA,
 		payload: request
 	};
 
-
-};
+}
