@@ -60,7 +60,6 @@ class Location extends Component {
     console.log(data);
     this.setState({data: this.state.data.push(DataHandler)});
     console.log(this.state.data[0]);
-
   }
   renderWhenReady(){
     // sets coordinate variables
