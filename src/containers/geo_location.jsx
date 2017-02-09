@@ -35,7 +35,9 @@ function dataTest(lat, lon){
 
 };
 
-var COORDS= [];
+var COORDS = [];
+
+
 
 class Location extends Component {
   constructor(props) {
@@ -49,33 +51,15 @@ class Location extends Component {
     this.state = {
       data: this.props.ssldata
     }
+    setTimeout(this.sendAction(COORDS), 3000);
   }
   renderData(data){
       console.log('FETCHED DATA', data);
       return;
   }
-  sendAction(lat){
-    var lat = lat;
-    console.log(lat);
-    function bindData(){
-    switch(lat === 0) {
-    case true:
-        console.log('lat is', lat);
-        return;
-    case false:
-        console.log('lat is', lat);
-        return;
-    default:
-        console.log('lat is', lat);
-        return;
-    }
-    if (lat === 1) {
-      console.log('TESTING LAT LESS THAN 0');
-    } else if (lat > 1) {
-      console.log('TESTING LAT MORE THAN 0');
-      this.props.fetchSSLData(Data);
-    }
-    };
+  sendAction(coords){
+    var coords = coords;
+    console.log('THESE ARE THE COORDS', coords);
   }
   fetchWeather(data){
           var Data = data;
@@ -158,7 +142,7 @@ class Location extends Component {
         console.log('Coordinates have been searched', data);
         console.log('Current Data', DataHandler);
         console.log('LATITUDE', COORDS);
-        LATITUDE.push(data);
+        COORDS.push(data);
         console.log('LATITUDE', COORDS);
         this.fetchWeather(Data);
         Data.map(this.renderData);
