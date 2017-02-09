@@ -31,7 +31,7 @@ class Location extends Component {
     console.log('IT BIN FETCHED');
     console.log('THESE BE THE COORDS', lat, lon);
     this.props.fetchSSLWeather(lat, lon);
-    console.log(this.props.sslweather);
+    console.log(this.props.ssldata);
     /*fetchWeatherSSL(lat,lon);
     var data = DataHandler;
     console.log(data);
@@ -41,7 +41,7 @@ class Location extends Component {
   }
   renderWhenReady(){
     // sets coordinate variables
-        console.log(this.props.sslweather);
+        console.log(this.props.ssldata);
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     if (lat <= 0 && lon <= 0) { 
