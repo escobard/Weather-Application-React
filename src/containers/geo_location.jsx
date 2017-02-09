@@ -59,7 +59,7 @@ class Location extends Component {
     var data = DataHandler;
     console.log(data);
     this.setState({data: this.state.data.push(DataHandler)});
-    console.log(this.state);
+    console.log(this.state.data[0]);
 
   }
   renderWhenReady(){
