@@ -46,10 +46,9 @@ export function fetchWeather(city){
 		  .then(function(response) {
 		    return response.json()
 		  }).then(function(json) {
-		    console.log('parsed json', json);
 		    return json;
 		  }).catch(function(ex) {
-		    console.log('parsing failed', ex);
+		    console.log('request failed', ex);
 		  });
 
 	console.log('Request: ', request);
