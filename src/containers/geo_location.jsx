@@ -20,16 +20,30 @@ function dataTest(lat, lon){
       var lon = lon;
       console.log('THIS IS LAT', lat);
       console.log('THIS IS LON', lon);
+          switch(lat === 0) {
+    case true:
+        console.log('lat is', lat);
+        return;
+    case false:
+        console.log('lat is', lat);
+        return;
+    default:
+        console.log('lat is', lat);
+        return;
+    }
 
 };
+
+var LATITUDE;
+var LONGITUDE;
 
 class Location extends Component {
   constructor(props) {
     super(props);
     // to bind .this to any specific function so it points to the constructor, we use the following method:
     // sets coordinate variables
-    const lat = this.props.location.coords.latitude;
-    const lon = this.props.location.coords.longitude;
+    var lat = this.props.location.coords.latitude;
+    var lon = this.props.location.coords.longitude;
     const dataSet = dataTest(lat, lon);
     this.renderNew = this.renderNew.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
@@ -37,20 +51,30 @@ class Location extends Component {
     this.state = {
       data: this.props.ssldata
     }
-    
-
+    this.sendAction(lat);
   }
   sendAction(lat){
     var lat = lat;
     console.log(lat);
-    return function bindData(){
+    function bindData(){
+    switch(lat === 0) {
+    case true:
+        console.log('lat is', lat);
+        return;
+    case false:
+        console.log('lat is', lat);
+        return;
+    default:
+        console.log('lat is', lat);
+        return;
+    }
     if (lat === 1) {
       console.log('TESTING LAT LESS THAN 0');
     } else if (lat > 1) {
       console.log('TESTING LAT MORE THAN 0');
       this.props.fetchSSLData(Data);
     }
-    }();
+    };
   }
   fetchWeather(data){
           var Data = data;
@@ -131,8 +155,9 @@ class Location extends Component {
     case false:
         console.log('Coordinates have been searched', data);
         console.log('Current Data', DataHandler);
-        var DataReady = Data;
-        this.fetchWeather(DataReady);
+        console.log('LATITUDE', LATITUDE);
+        console.log('LONGITUDE', LONGITUDE);
+        this.fetchWeather(Data);
     default:
         return;
     }
