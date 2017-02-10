@@ -30,7 +30,7 @@ class Location extends Component {
 
     // initiates the fetch weather action
     this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
-    console.log('weather data loaded', this.props.sslweather);
+    // console.log('weather data loaded', this.props.sslweather);
 
     // sets variables to handle animation transitions
     var local = document.querySelector('#localWeather');

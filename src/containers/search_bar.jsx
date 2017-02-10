@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchWeather } from '../actions/action_fetchweather';
+import { fetchSSLWeather } from '../actions/action_fetch_ssl_data';
 import { fetchGeocode } from '../actions/action_fetch_geocode';
 
 class SearchBar extends Component {
@@ -37,7 +38,7 @@ class SearchBar extends Component {
 		this.props.fetchWeather(this.state.searchTerm);
 
 		this.props.fetchGeocode(this.state.searchTerm);
-
+		
 		this.setState({ searchTerm: ''});
 	}
 
@@ -64,11 +65,15 @@ class SearchBar extends Component {
 
 };
 
+function mapStateToProps({ sslweather, geocode }){
+  return {sslweather, geocode };
+}
+
 function mapDispatchToProps(dispatch){
 
-	return bindActionCreators({ fetchWeather, fetchGeocode }, dispatch);
+	return bindActionCreators({ fetchWeather, fetchGeocode, fetchSSLWeather }, dispatch);
 
 };
 
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
