@@ -7,7 +7,7 @@ v0.98
 
 v0.97
 - prototype to remove obsolete console.logs
-- prototype to program geolocation and weather data to appear via the new API
+- geolocation and weather data working with new chained SSL API's
 - prototype to clean up styling
 
 v0.96
