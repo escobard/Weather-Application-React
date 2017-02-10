@@ -15,11 +15,8 @@ import GoogleMap from '../components/google_map';
 
 
 class WeatherList extends Component {
-	fetchCoords(coords){
-		const lat = coords.map(coordData => coordData.geometry.location.lat);
-		const lon = coords.map(coordData => coordData.geometry.location.lng);
-		console.log("Success! fetched - lat :", lat[0]);
-		console.log("Success! fetched - lat :", lon[0]);
+	fetchCoords(weather){
+		console.log('DIS IS THE WEATHER', weather[0]);
 	}
 	renderWeather(cityData){
 		
@@ -81,7 +78,7 @@ class WeatherList extends Component {
 		return(
 			<div>
 				{this.props.weather.map(this.renderWeather)}
-				<div>{this.fetchCoords(this.props.geocode)}</div>
+				<div>{this.fetchCoords(this.props.sslweather)}</div>
 		</div>
 			
 
@@ -91,7 +88,7 @@ class WeatherList extends Component {
 }
 
 // we can also write it with EMC6 syntax
- function mapStateToProps({ weather, geocode }){
+ function mapStateToProps({ weather, geocode, sslweather }){
 
  	// this is how the function now looks
  	/*
@@ -99,7 +96,7 @@ class WeatherList extends Component {
 
 	//this can be further condensed with ES6 like so:
 	// because both the key and the value object have the same identifier
-	return { weather, geocode };
+	return { weather, geocode, sslweather };
 }
 
 // creates the function to join the action creator with the BookList component, to update the app's state
