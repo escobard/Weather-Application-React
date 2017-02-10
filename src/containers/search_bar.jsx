@@ -54,26 +54,30 @@ class SearchBar extends Component {
 		// this now fetches the weather action creator accordingly
 		this.props.fetchWeather(this.state.searchTerm);
 
-		this.props.fetchGeocode(this.state.searchTerm);
-	    this.fetchData(this.props.geocode);
+		// creates the promise chain to set the action creators
+		this.props.fetchGeocode(this.state.searchTerm).then(function(test){
+			var geocode = test;
+			console.log('geocode', geocode.payload);
+		});
+		var geocode = this.props.geocode;
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});
 	}
-	fetchData(){
-		var fetchData = new Promise(
+	fetchData(coords){
+		console.log('COORDS', geocode);
+		/*var fetchData = new Promise(
 	        function(resolve, reject) {
 			resolve(this.props.fetchGeocode(this.state.searchTerm));
 			reject('ERROR');
 	        }
-	    );		
+	    );*/ 		
 	}
 	render(){
 
 		// this is going to be a controlled field
 		// controlled field is a form element where the value is set by the STATE of the component 
 		// 
-
 		return (
 		
 			<form onSubmit={this.onFormSubmit} className="input-group">
