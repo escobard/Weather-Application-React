@@ -14,7 +14,13 @@ import ChartSpots from './chart_spots';
 
 export default class Charts extends Component {
 	render(){
-	
+		var alerts = this.props.alerts;
+		// checks for empty alert array
+        if (alerts == undefined) {
+          var alerts = 'There are no weather alerts in your area';
+        } else {
+          var alerts = alerts;
+        } 
 		return(
 			<article className="card animated fadeInDown" key={this.props.key}>
 					
@@ -29,7 +35,7 @@ export default class Charts extends Component {
 						<div className="chartContainer third animated fadeInUp">
 							<ChartSpots chartData={this.props.wind} color="#FF6E00" units="Meters per second"/>
 						</div>
-					<div id="alerts"><p>{this.props.alert}</p></div>
+					<div id="alerts"><p>{alerts}</p></div>
 					</section>		
 			</article>
 		);
