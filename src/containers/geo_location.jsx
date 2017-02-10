@@ -23,9 +23,7 @@ class Location extends Component {
     this.renderWhenReady = this.renderWhenReady.bind(this);
   }
   fetchLocal(){
-    const lat = this.props.location.coords.latitude;
-    const lon = this.props.location.coords.longitude;
-    this.props.fetchSSLWeather(lat, lon);
+    this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
     console.log('weather data loaded', this.props.sslweather);
   }
   renderWhenReady(){
@@ -49,7 +47,7 @@ class Location extends Component {
     
       console.log(lat);
       console.log(lon);
-
+      console.log(this.props.location);
       // checks for the status of the weather data
       if (weatherData == undefined) {
         console.log('weather data empty');
@@ -59,7 +57,7 @@ class Location extends Component {
         const alerts = weatherData.alerts.map(alertData => alertData.description);
         console.log(alerts);
         const summary = weatherData.hourly.summary;
-
+        console.log(summary);
         const temp = weatherData.hourly.data.map(temps => temps.temperature);
         console.log(temp);
 
@@ -84,7 +82,9 @@ class Location extends Component {
             </div> 
             <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
-
+          <section>
+            
+          </section>  
         </article>        
 
       );
