@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 // imports actions
 import getLocation from '../actions/action_geolocation';
 import {fetchSSLWeather} from '../actions/action_fetch_ssl_data';
-import {fetchWeatherSSL, DataHandler} from '../middleware/fetchweather_ssl_middleware';
 
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -35,6 +34,7 @@ class Location extends Component {
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     console.log('weather data initial', weatherData);
+
     if (lat <= 0 && lon <= 0) { 
 
       console.log("Loading Geolocation...")   
@@ -49,18 +49,27 @@ class Location extends Component {
     
       console.log(lat);
       console.log(lon);
-      const alerts = weatherData.alerts.map(alertData => alertData.description);
-      console.log(alerts);
-      const summary = weatherData.hourly.summary;
 
-      const temp = weatherData.hourly.data.map(temps => temps.temperature);
-      console.log(temp);
+      // checks for the status of the weather data
+      if (weatherData == undefined) {
+        console.log('weather data empty');
+      } 
+      else {
+        console.log('weather data fetched');
+        const alerts = weatherData.alerts.map(alertData => alertData.description);
+        console.log(alerts);
+        const summary = weatherData.hourly.summary;
 
-      const humi = weatherData.hourly.data.map(humis => humis.humidity);
-      console.log(humi);
+        const temp = weatherData.hourly.data.map(temps => temps.temperature);
+        console.log(temp);
 
-      const wind = weatherData.hourly.data.map(winds => winds.windSpeed);
-      console.log(wind);      
+        const humi = weatherData.hourly.data.map(humis => humis.humidity);
+        console.log(humi);
+
+        const wind = weatherData.hourly.data.map(winds => winds.windSpeed);
+        console.log(wind);  
+      }
+    
       return (
       
         <article className="card animated fadeInUp" key={lat}>
