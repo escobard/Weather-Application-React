@@ -22,11 +22,18 @@ class WeatherList extends Component {
 
 	renderWeather(geocode){
 	const city = geocode.formatted_address;
+	const weather = this.props.sslweather;
 	console.log('CITY', city);
+	console.log('WEATHER', weather);
 	if (city == undefined) {
 		return;
 	} else {
-		/*var alert;
+		if (weather == undefined) {
+			return
+		} else {
+		
+		/* 
+		var alert;
 		if (weather.alerts == undefined) {
           alert = undefined;
         } else {
@@ -38,10 +45,10 @@ class WeatherList extends Component {
 
 		const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
 		const humi = weather.daily.data.map(humis => humis.humidity);
-		const wind = weather.daily.data.map(winds => winds.windSpeed);
-		*/
+		const wind = weather.daily.data.map(winds => winds.windSpeed); 
+		 */
 		console.log('CURRENT GEO', city);
-		// console.log('CURRENT WEATHER', weather);
+		console.log('CURRENT WEATHER', weather); 
 		
 			return(
 				<article className="card animated fadeInDown" key={city}>
@@ -51,7 +58,8 @@ class WeatherList extends Component {
 
 				</article>
 			);
-	} 
+		}
+	}
 	}
 	
 	render(){
