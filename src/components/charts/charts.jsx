@@ -21,10 +21,8 @@ export default class Charts extends Component {
         } else {
           var alerts = alerts;
         } 
-		return(
-			<article className="card animated fadeInDown" key={this.props.key}>
-					
-					<section className="charts">
+		return(	
+				<section className="charts animated fadeInDown" key={this.props.key}>
 					<div id="summary"><h4 className="card-title animated fadeInDown">{this.props.summary}</h4></div>
 						<div className="chartContainer first animated fadeInUp">
 							<ChartLines chartData={this.props.temp} color="#FF5200" units="Celcius"/>
@@ -33,11 +31,10 @@ export default class Charts extends Component {
 							<ChartBars chartData={this.props.humi} color="#00FF6A" units="%"/>
 						</div>
 						<div className="chartContainer third animated fadeInUp">
-							<ChartSpots chartData={this.props.wind} color="#FF6E00" units="Meters per second"/>
+							<ChartSpots chartData={this.props.wind} color="#FF6E00" units="M/s"/>
 						</div>
 					<div id="alerts"><p>{alerts}</p></div>
-					</section>		
-			</article>
+				</section>		
 		);
 	}
 
