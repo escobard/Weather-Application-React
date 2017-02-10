@@ -20,19 +20,17 @@ class WeatherList extends Component {
 		this.renderWeather = this.renderWeather.bind(this);
 	}
 
-	renderWeather(geocode){
-	var city = geocode[0];
-	if (city == undefined) {
+	renderWeather(weather){
+	var weather = weather[0];
+	var city = this.props.geocode[0];
+	if (weather == undefined) {
 		return;
 	} else {
-
-		city = geocode[0].formatted_address;
-		var weather = this.props.sslweather[0];
-		var alerts = weather.alerts;
-		if (alerts == undefined) {
-          alerts = undefined;
+		var alert;
+		if (weather.alerts == undefined) {
+          alert = undefined;
         } else {
-          alerts = weather.alerts.map(alertData => alertData.description);
+          alert = weather.alerts.map(alertData => alertData.description);
         }
 
 		var summary = weather.daily.summary;
@@ -40,15 +38,16 @@ class WeatherList extends Component {
 		var temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
 		var humi = weather.daily.data.map(humis => humis.humidity);
 		var wind = weather.daily.data.map(winds => winds.windSpeed);
-
+		
 		console.log('CURRENT GEO', city);
 		console.log('CURRENT WEATHER', weather);
 		
 			return(
 				<article className="card animated fadeInDown">
 					    <div className="card-block">
-					        <h4 className="card-title animated fadeInDown">Forecast for {city}</h4>
+					        <h4 className="card-title animated fadeInDown">Forecast for</h4>
 					    </div>
+
 				</article>
 			);
 	}
@@ -57,7 +56,7 @@ class WeatherList extends Component {
 	render(){
 		return(
 			<div>
-				{this.renderWeather(this.props.geocode)}
+				{this.renderWeather(this.props.sslweather)}
 		</div>
 			
 
