@@ -8,68 +8,28 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ChartLines from '../components/charts/chart_lines';
-import ChartBars from '../components/charts/chart_bars';
-import ChartSpots from '../components/charts/chart_spots';
+// imports charts
+import Charts from '../components/charts/charts';
 import GoogleMap from '../components/google_map';
 
 
 class WeatherList extends Component {
-	fetchCoords(weather){
-		console.log('DIS IS THE WEATHER', weather);
+	constructor(props){
+		super(props);
+
+		this.renderWeather = this.renderWeather.bind(this);
 	}
-	renderWeather(cityData){
+
+	renderWeather(weather){
+	console.log('CURRENT WEATHER', weather[0]);
+	console.log('CURRENT GEO', this.props.geocode);
 		
-		// this assigns a var to our cityData
-		const cityName = cityData.city.name;
-
-		// for our sparklines charts to work, we basically just need an array of numbers, which is what is passed into the temps const
-		// after mapping the correct data
-		// 
-		// this basically grabs the cityData.list object, then maps out every child array with a function
-		const temps = cityData.list.map(weatherTemps => 
-			// this then grabs all the VALUES of the temp array, which contains the city's temperature for the next 5 days
-			weatherTemps.main.temp);
-		console.log(temps);
-
-		// sets up the variable to map each pressure array and generate our chart 
-		const pressures = cityData.list.map(weatherPress => weatherPress.main.pressure);
-		console.log(pressures);
-
-		// sets up the variable to map each humidity array and generate our chart 
-		const humidities = cityData.list.map(weatherHumi => weatherHumi.main.humidity);
-		console.log(humidities);
-
-		/* this is the ES5 way of grabbing the data
-		// sets up the variable to grab the .lon array from cityData
-		const lon = cityData.city.coord.lon;
-
-		// sets up the variable to grab the .lat array from cityData
-		const lat = cityData.city.coord.lat;
-		*/
-	
-		// this is the ES6 way of grabbing the lon / lat data
-		const { lon, lat } = cityData.city.coord;
 
 		return(
-			<article className="card animated fadeInDown" key={cityName}>
+			<article className="card animated fadeInDown">
 				    <div className="card-block">
-				        <h4 className="card-title animated fadeInDown">Forecast for {cityName}</h4>
+				        <h4 className="card-title animated fadeInDown">Forecast for </h4>
 				    </div>
-				    <section className="animated fadeInUp mapContainer">
-				    	<GoogleMap zoom={12} lon={lon} lat={lat} />
-				    </section>
-					<section className="charts">
-						<div className="chartContainer first animated fadeInUp">
-							<ChartLines chartData={temps} color="#FF5200" units="Kelvin"/>
-						</div>
-						<div className="chartContainer second animated fadeInUp">
-							<ChartBars chartData={humidities} color="#00FF6A" units="%"/>
-						</div>
-						<div className="chartContainer third animated fadeInUp">
-							<ChartSpots chartData={pressures} color="#FF6E00" units="%"/>
-						</div>
-					</section>		
 			</article>
 		);
 	}
@@ -77,8 +37,7 @@ class WeatherList extends Component {
 	render(){
 		return(
 			<div>
-				{this.props.weather.map(this.renderWeather)}
-				<div>{this.fetchCoords(this.props.sslweather)}</div>
+				{this.props.geocode.map(this.renderWeather)}
 		</div>
 			
 
