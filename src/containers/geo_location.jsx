@@ -17,6 +17,7 @@ class Location extends Component {
   constructor(props) {
     
     super(props);
+    // initiates the getLocation action
     this.props.getLocation();
 
     // sets coordinate variables
@@ -27,13 +28,18 @@ class Location extends Component {
 
   fetchLocal(){
 
+    // initiates the fetch weather action
     this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
     console.log('weather data loaded', this.props.sslweather);
+
+    // sets variables to handle animation transitions
     var local = document.querySelector('#localWeather');
     var button = document.querySelector('#fetchWeather');
-    
+    var container = document.querySelector('#geolocate');
+
     button.classList.add('hidden');
     local.classList.remove('hidden');
+    container.classList.add('buttonClicked');
   }
 
   renderWhenReady(){
@@ -87,7 +93,7 @@ class Location extends Component {
 
       return (
       
-        <article className="card animated fadeInUp" key={lat}>
+        <article id="geolocate" className="card animated fadeInUp" key={lat}>
           
           <div className="card-block">
             <h4 className="card-title animated fadeInDown">Your current location is...</h4>

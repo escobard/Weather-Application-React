@@ -75,6 +75,16 @@ footer {
     Geolocate Styles
 
 ===========================================================*/
+#geolocate {
+    max-height: 572px;
+    transition: max-height 0.55s ease-out;
+    overflow: hidden;
+}
+#geolocate.buttonClicked {
+    max-height: 1040px;
+    transition: max-height 0.55s ease-out;
+    overflow: hidden;
+}
 #geolocateMap {
     text-align: center;
     padding-bottom: 1rem;
@@ -103,11 +113,8 @@ footer {
 #fetchWeather {
     padding: 1rem 2rem;
     margin-top: 2rem;
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    -ms-animation-delay: 1s;
-    animation-delay: 1s;
 }
+
 #fetchWeather:hover {
     cursor: pointer;
 }
@@ -169,6 +176,7 @@ article.card {
     -moz-animation-duration: 0.5s;
     -ms-animation-duration: 0.5s;
     animation-duration: 0.5s;
+    height: auto;
 }
 .card-title {
     text-align: center;
