@@ -27,10 +27,16 @@ class WeatherList extends Component {
 	} else {
 
 		city = geocode[0].formatted_address;
-		
 		var weather = this.props.sslweather[0];
 		var alerts = weather.alerts;
+		if (alerts == undefined) {
+          alerts = undefined;
+        } else {
+          alerts = weather.alerts.map(alertData => alertData.description);
+        }
+
 		var summary = weather.daily.summary;
+
 		var temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
 		var humi = weather.daily.data.map(humis => humis.humidity);
 		var wind = weather.daily.data.map(winds => winds.windSpeed);
