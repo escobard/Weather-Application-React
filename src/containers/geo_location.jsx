@@ -36,7 +36,8 @@ class Location extends Component {
     var local = document.querySelector('#localWeather');
     var button = document.querySelector('#fetchWeather');
     var container = document.querySelector('#geolocate');
-
+    
+    // sets handle classes for animation elements
     button.classList.add('hidden');
     local.classList.remove('hidden');
     container.classList.add('buttonClicked');
@@ -48,11 +49,11 @@ class Location extends Component {
     const weatherData = this.props.sslweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-    console.log('weather data initial', weatherData);
+    // console.log('weather data initial', weatherData);
 
     if (lat <= 0 && lon <= 0) { 
 
-      console.log("Loading Geolocation...")   
+      // console.log("Loading Geolocation...")   
         return (
           <div>
           <p>Loading... your Location</p>
@@ -62,12 +63,13 @@ class Location extends Component {
     
     else if (lat > 1){
     
-      console.log(lat);
-      console.log(lon);
-      console.log(this.props.location);
+      // console.log(lat);
+      // console.log(lon);
+      // console.log(this.props.location);
 
       if (weatherData == undefined) {
-        console.log('weather data empty');
+        
+        // console.log('weather data empty');
         var alerts;
         var summary;
         var temp=[];
@@ -76,19 +78,23 @@ class Location extends Component {
       }
 
       else {
+        
         console.log('weather data fetched');
+        
         var alerts = weatherData.alerts.map(alertData => alertData.description);
-        console.log(alerts);
+        // console.log(alerts);
+        
         var summary = weatherData.hourly.summary;
-        console.log(summary);
+        // console.log(summary);
+        
         var temp = weatherData.hourly.data.map(temps => temps.temperature);
-        console.log(temp);
+        // console.log(temp);
 
         var humi = weatherData.hourly.data.map(humis => humis.humidity);
-        console.log(humi);
+        // console.log(humi);
 
         var wind = weatherData.hourly.data.map(winds => winds.windSpeed);
-        console.log(wind);
+        // console.log(wind);
       }
 
       return (
