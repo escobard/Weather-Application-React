@@ -16,7 +16,7 @@ import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
 	fetchCoords(weather){
-		console.log('DIS IS THE WEATHER', weather[0]);
+		console.log('DIS IS THE WEATHER', weather);
 	}
 	renderWeather(cityData){
 		
