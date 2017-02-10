@@ -20,43 +20,44 @@ class WeatherList extends Component {
 		this.renderWeather = this.renderWeather.bind(this);
 	}
 
-	renderWeather(weather){
-	var weather = weather[0];
-	var city = this.props.geocode[0];
-	if (weather == undefined) {
+	renderWeather(geocode){
+	const city = geocode.formatted_address;
+	console.log('CITY', city);
+	if (city == undefined) {
 		return;
 	} else {
-		var alert;
+		/*var alert;
 		if (weather.alerts == undefined) {
           alert = undefined;
         } else {
           alert = weather.alerts.map(alertData => alertData.description);
         }
+		const lat = weather.lat;
+		const lon = weather.lon;
+		const summary = weather.daily.summary;
 
-		var summary = weather.daily.summary;
-
-		var temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
-		var humi = weather.daily.data.map(humis => humis.humidity);
-		var wind = weather.daily.data.map(winds => winds.windSpeed);
-		
+		const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
+		const humi = weather.daily.data.map(humis => humis.humidity);
+		const wind = weather.daily.data.map(winds => winds.windSpeed);
+		*/
 		console.log('CURRENT GEO', city);
-		console.log('CURRENT WEATHER', weather);
+		// console.log('CURRENT WEATHER', weather);
 		
 			return(
-				<article className="card animated fadeInDown">
+				<article className="card animated fadeInDown" key={city}>
 					    <div className="card-block">
-					        <h4 className="card-title animated fadeInDown">Forecast for</h4>
+					        <h4 className="card-title animated fadeInDown">Forecast for {city}</h4>
 					    </div>
 
 				</article>
 			);
-	}
+	} 
 	}
 	
 	render(){
 		return(
 			<div>
-				{this.renderWeather(this.props.sslweather)}
+				{this.props.geocode.map(this.renderWeather)}
 		</div>
 			
 
