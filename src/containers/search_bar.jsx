@@ -15,6 +15,8 @@ import { bindActionCreators } from 'redux';
 // this is the actual action creator created in actions/index.js
 import { fetchWeather } from '../actions/action_fetchweather';
 import { fetchGeocode } from '../actions/action_fetch_geocode';
+import {fetchSSLWeather} from '../actions/action_fetch_ssl_data';
+
 class SearchBar extends Component {
 
 	// initiates the state of our component using the usual methods
@@ -24,15 +26,9 @@ class SearchBar extends Component {
 		// this create the state of this component, for the search term
 		this.state = { searchTerm: '' }
 
-		// to bind .this to any specific function so it points to the constructor, we use the following method:
 		this.onInputChange = this.onInputChange.bind(this);
-		// broken down below
-		// this. = the SearchBar class
-		// onInputChange = the function within the SearchBar class called onInputChange
-		// .bind(this) = binds the SearchBar class to the this. parameter within the onInputChange function as a result
-		// 
-		// same thing is done on onFormSubmit for the .this value
 		this.onFormSubmit = this.onFormSubmit.bind(this);
+		this.fetchData = this.fetchData.bind(this);
 	}
 
 	// interesting to remember, all event handlers create a standard event object, which contains the actual event action
@@ -59,12 +55,19 @@ class SearchBar extends Component {
 		this.props.fetchWeather(this.state.searchTerm);
 
 		this.props.fetchGeocode(this.state.searchTerm);
-
+	    this.fetchData(this.props.geocode);
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});
 	}
-
+	fetchData(){
+		var fetchData = new Promise(
+	        function(resolve, reject) {
+			resolve(this.props.fetchGeocode(this.state.searchTerm));
+			reject('ERROR');
+	        }
+	    );		
+	}
 	render(){
 
 		// this is going to be a controlled field
@@ -91,19 +94,13 @@ class SearchBar extends Component {
 	}
 
 };
-
-// this binds the action creator fetch weather to our SearchBar component
+function mapStateToProps({ sslweather, geocode}){
+  return {sslweather, geocode};
+}
 function mapDispatchToProps(dispatch){
 
-	return bindActionCreators({ fetchWeather, fetchGeocode }, dispatch);
+	return bindActionCreators({ fetchWeather, fetchGeocode, fetchSSLWeather }, dispatch);
 
 };
 
-// this connects the fetchWeather action creator to the SearchBar component, allowing it to be called within the SearchBar function
-// null is set as the first argument, because action creators MUST always be the second argument of the connect function
-// since in this case we do not have a reducer (because we are using middlewaare to fetch state data) the argument must be set as null
-// since there is no reducer attached to the fetchWeather action creator
-// 
-// to summarize, this gives us access to SearchBar.props.fetchWeather or within the SearchBar class, to this.props.fetchWeather
-// 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
