@@ -17,15 +17,18 @@ class Location extends Component {
   constructor(props) {
     super(props);
     this.props.getLocation();
-    // to bind .this to any specific function so it points to the constructor, we use the following method:
+
     // sets coordinate variables
     this.fetchLocal = this.fetchLocal.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
+
   }
+
   fetchLocal(){
     this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
     console.log('weather data loaded', this.props.sslweather);
   }
+
   renderWhenReady(){
     // sets coordinate variables
     const weatherData = this.props.sslweather[0];
@@ -49,7 +52,6 @@ class Location extends Component {
       console.log(lon);
       console.log(this.props.location);
 
-      // checks for the status of the weather data
       if (weatherData == undefined) {
         console.log('weather data empty');
         var alerts;
@@ -87,7 +89,7 @@ class Location extends Component {
             <div className="mapContainer">           
                 <GoogleMap zoom={16} lon={lon} lat={lat}/>
             </div> 
-            <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
+            <button id="fetchWeather" className="btn btn-primary animated fadeInUp" onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
           <div id="localWeather">
             <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind} alerts={alerts}/>
