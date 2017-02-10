@@ -28,7 +28,6 @@ class SearchBar extends Component {
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
-		this.fetchData = this.fetchData.bind(this);
 	}
 
 	// interesting to remember, all event handlers create a standard event object, which contains the actual event action
@@ -50,23 +49,25 @@ class SearchBar extends Component {
 		// prevents default on the form submit (or when a user clicks submit / presses enter)
 		// this is the default HTML form behavior
 		event.preventDefault();
-
+		var props = this.props;
+		console.log('PROPS', props);
 		// this now fetches the weather action creator accordingly
 		this.props.fetchWeather(this.state.searchTerm);
-
-		// creates the promise chain to set the action creators
-		this.props.fetchGeocode(this.state.searchTerm).then(function(test){
-			var lat = test.payload.data.results[0].geometry.location.lat;
-			var lon = test.payload.data.results[0].geometry.location.lng;
-			console.log('geocode', lat, lon);
-		});
 		var geocode = this.props.geocode;
+		// creates the promise chain to set the action creators
+		var coords = this.props.fetchGeocode(this.state.searchTerm).then(function(result){
+			var lat = result.payload.data.results[0].geometry.location.lat
+			var lon = result.payload.data.results[0].geometry.location.lng;
+			console.log('COORDINATES', lat, lon);
+			props.fetchSSLWeather(lat, lon);
+		});
+		this.fetchData(coords);
 		// then for user convinience (if the want to search the weather for something else) 
 		// we clear out the searchTerm string
 		this.setState({ searchTerm: ''});
 	}
 	fetchData(coords){
-		console.log('COORDS', geocode);
+		console.log('COORDS', coords);
 		/*var fetchData = new Promise(
 	        function(resolve, reject) {
 			resolve(this.props.fetchGeocode(this.state.searchTerm));
