@@ -75,7 +75,7 @@ footer {
 ===========================================================*/
 #geolocateMap {
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 #geolocateMap h3{
     color: #0275d8;
@@ -105,6 +105,19 @@ footer {
     -moz-animation-delay: 1s;
     -ms-animation-delay: 1s;
     animation-delay: 1s;
+}
+#fetchWeather:hover {
+    cursor: pointer;
+}
+.charts h4 {
+    padding: 0 0 2rem;
+}
+
+#alerts {
+    margin-top: 1rem;
+    display: inline-block;
+    color: #fff;
+    padding: 0 1rem;
 }
 /*===========================================================
 
