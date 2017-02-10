@@ -51,20 +51,25 @@ class Location extends Component {
       // checks for the status of the weather data
       if (weatherData == undefined) {
         console.log('weather data empty');
+        var alerts;
+        var summary;
+        var temp=[];
+        var humi=[];
+        var wind=[];
       } 
       else {
         console.log('weather data fetched');
-        const alerts = weatherData.alerts.map(alertData => alertData.description);
+        var alerts = weatherData.alerts.map(alertData => alertData.description);
         console.log(alerts);
-        const summary = weatherData.hourly.summary;
+        var summary = weatherData.hourly.summary;
         console.log(summary);
-        const temp = weatherData.hourly.data.map(temps => temps.temperature);
+        var temp = weatherData.hourly.data.map(temps => temps.temperature);
         console.log(temp);
 
-        const humi = weatherData.hourly.data.map(humis => humis.humidity);
+        var humi = weatherData.hourly.data.map(humis => humis.humidity);
         console.log(humi);
 
-        const wind = weatherData.hourly.data.map(winds => winds.windSpeed);
+        var wind = weatherData.hourly.data.map(winds => winds.windSpeed);
         console.log(wind);  
       }
     
@@ -82,8 +87,8 @@ class Location extends Component {
             </div> 
             <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
-          <section>
-            
+          <section id="localWeather">
+            <Charts key={lat} temp={temp} humi={humi} wind={wind}/>
           </section>  
         </article>        
 
