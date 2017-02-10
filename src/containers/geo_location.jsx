@@ -15,6 +15,7 @@ import Charts from '../components/charts/charts';
 
 class Location extends Component {
   constructor(props) {
+    
     super(props);
     this.props.getLocation();
 
@@ -25,11 +26,18 @@ class Location extends Component {
   }
 
   fetchLocal(){
+
     this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
     console.log('weather data loaded', this.props.sslweather);
+    var local = document.querySelector('#localWeather');
+    var button = document.querySelector('#fetchWeather');
+    
+    button.classList.add('hidden');
+    local.classList.remove('hidden');
   }
 
   renderWhenReady(){
+    
     // sets coordinate variables
     const weatherData = this.props.sslweather[0];
     const lat = this.props.location.coords.latitude;
@@ -91,7 +99,7 @@ class Location extends Component {
             </div> 
             <button id="fetchWeather" className="btn btn-primary animated fadeInUp" onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
-          <div id="localWeather">
+          <div id="localWeather" className="hidden">
             <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind} alerts={alerts}/>
             
           </div>  
@@ -102,10 +110,14 @@ class Location extends Component {
 
     // handle for geolocation failing
     else {
+     
         <div>
+     
           <p>Loading... your Location</p>
           console.log("Geolocation failed.")           
+     
         </div>
+    
     }
 
   }
@@ -114,9 +126,9 @@ class Location extends Component {
     return (
 
       <div>
+    
         {this.renderWhenReady()}
-        <div>
-        </div>
+      
       </div>
 
     );

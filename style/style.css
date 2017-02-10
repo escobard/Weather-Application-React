@@ -55,7 +55,9 @@ footer {
 .navbar {
     padding-bottom: 0 !important;
 }
-
+.hidden {
+    display: none !important;
+}
 /*===========================================================
 
     Offline Styles
@@ -293,16 +295,16 @@ h5 {
     width: 100% !important;
     display: block;
     position: absolute;
-}
-button#subButton {
-    float: left;
-    width: 100%;
-    position: absolute;
-    margin: 53px 0 0 0;
-    display: inline-block;
-}
+    }
+    button#subButton {
+        float: left;
+        width: 100%;
+        position: absolute;
+        margin: 53px 0 0 0;
+        display: inline-block;
+    }
 
-form.input-group {
-    height: 130px;
-}
+    form.input-group {
+        height: 130px;
+    }
 }
