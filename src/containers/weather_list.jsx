@@ -26,11 +26,22 @@ class WeatherList extends Component {
 		return;
 	} else {
 
+		city = geocode[0].formatted_address;
+		
+		var weather = this.props.sslweather[0];
+		var alerts = weather.alerts;
+		var summary = weather.daily.summary;
+		var temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
+		var humi = weather.daily.data.map(humis => humis.humidity);
+		var wind = weather.daily.data.map(winds => winds.windSpeed);
+
 		console.log('CURRENT GEO', city);
+		console.log('CURRENT WEATHER', weather);
+		
 			return(
 				<article className="card animated fadeInDown">
 					    <div className="card-block">
-					        <h4 className="card-title animated fadeInDown">Forecast for </h4>
+					        <h4 className="card-title animated fadeInDown">Forecast for {city}</h4>
 					    </div>
 				</article>
 			);

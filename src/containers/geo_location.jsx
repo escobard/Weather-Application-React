@@ -46,7 +46,7 @@ class Location extends Component {
   renderWhenReady(){
     
     // sets coordinate variables
-    const weatherData = this.props.sslweather.slice(-1)[0];
+    const weatherData = this.props.sslweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     // console.log('weather data initial', weatherData);
@@ -81,7 +81,12 @@ class Location extends Component {
         
         console.log('weather data fetched');
         
-        var alerts = weatherData.alerts.map(alertData => alertData.description);
+        if (weatherData.alerts == undefined) {
+          alerts = undefined;
+        } else {
+          alerts = weatherData.alerts.map(alertData => alertData.description);
+        }
+        
         // console.log(alerts);
         
         var summary = weatherData.hourly.summary;
