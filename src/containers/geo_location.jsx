@@ -72,9 +72,15 @@ class Location extends Component {
         console.log(humi);
 
         var wind = weatherData.hourly.data.map(winds => winds.windSpeed);
-        console.log(wind); 
-      }
+        console.log(wind);
 
+        // checks for empty alert array
+        if (alerts == undefined) {
+          var alerts = 'There are no weather alerts in your area';
+        } else {
+          var alerts = alerts;
+        } 
+      }
 
       return (
       
@@ -90,10 +96,10 @@ class Location extends Component {
             </div> 
             <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
-          <section id="localWeather">
+          <div id="localWeather">
             <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind}/>
             <div id="alerts"><p>{alerts}</p></div>
-          </section>  
+          </div>  
         </article>        
 
       );
