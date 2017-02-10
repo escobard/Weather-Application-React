@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _ from 'lodash';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
@@ -25,24 +24,17 @@ class Location extends Component {
     this.renderWhenReady = this.renderWhenReady.bind(this);
   }
   fetchLocal(){
-    var coords = this.props.location.coords;
-    var lat = coords.latitude;
-    var lon = coords.longitude;
-    console.log('IT BIN FETCHED');
-    console.log('THESE BE THE COORDS', lat, lon);
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
     this.props.fetchSSLWeather(lat, lon);
     console.log('weather data loaded', this.props.sslweather);
-    /*fetchWeatherSSL(lat,lon);
-    var data = DataHandler;
-    console.log(data);
-    this.setState({data: this.state.data.push(DataHandler)});
-    console.log(this.state.data[0]);*/
-
   }
   renderWhenReady(){
     // sets coordinate variables
+    const weatherData = this.props.sslweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
+    console.log('weather data initial', weatherData);
     if (lat <= 0 && lon <= 0) { 
 
       console.log("Loading Geolocation...")   
@@ -57,8 +49,20 @@ class Location extends Component {
     
       console.log(lat);
       console.log(lon);
-      return (
+      const alerts = weatherData.alerts.map(alertData => alertData.description);
+      console.log(alerts);
+      const summary = weatherData.hourly.summary;
 
+      const temp = weatherData.hourly.data.map(temps => temps.temperature);
+      console.log(temp);
+
+      const humi = weatherData.hourly.data.map(humis => humis.humidity);
+      console.log(humi);
+
+      const wind = weatherData.hourly.data.map(winds => winds.windSpeed);
+      console.log(wind);      
+      return (
+      
         <article className="card animated fadeInUp" key={lat}>
           
           <div className="card-block">
