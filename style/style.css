@@ -42,7 +42,15 @@ footer {
     -ms-animation-duration: 0.5s;
     animation-duration: 0.5s;
 }
+.navbar-brand img {
+    width: 50px;
+    margin-right: 12px;
+    margin-top: -8px;
+}
 
+.navbar {
+    padding-bottom: 0 !important;
+}
 
 /*===========================================================
 
