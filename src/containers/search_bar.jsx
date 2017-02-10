@@ -56,8 +56,9 @@ class SearchBar extends Component {
 
 		// creates the promise chain to set the action creators
 		this.props.fetchGeocode(this.state.searchTerm).then(function(test){
-			var geocode = test;
-			console.log('geocode', geocode.payload);
+			var lat = test.payload.data.results[0].geometry.location.lat;
+			var lon = test.payload.data.results[0].geometry.location.lng;
+			console.log('geocode', lat, lon);
 		});
 		var geocode = this.props.geocode;
 		// then for user convinience (if the want to search the weather for something else) 
