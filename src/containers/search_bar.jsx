@@ -76,12 +76,8 @@ class SearchBar extends Component {
 	}
 };
 
-function mapStateToProps({ sslweather, geocode}){
-  return {sslweather, geocode};
-}
-
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchWeather, fetchGeocode, fetchSSLWeather }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);
