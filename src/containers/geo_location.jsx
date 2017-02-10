@@ -48,6 +48,7 @@ class Location extends Component {
       console.log(lat);
       console.log(lon);
       console.log(this.props.location);
+
       // checks for the status of the weather data
       if (weatherData == undefined) {
         console.log('weather data empty');
@@ -56,7 +57,8 @@ class Location extends Component {
         var temp=[];
         var humi=[];
         var wind=[];
-      } 
+      }
+
       else {
         console.log('weather data fetched');
         var alerts = weatherData.alerts.map(alertData => alertData.description);
@@ -71,18 +73,9 @@ class Location extends Component {
 
         var wind = weatherData.hourly.data.map(winds => winds.windSpeed);
         console.log(wind); 
-
-        // checks if there are weather alerts
-        function displayAlerts(alerts){
-            var alerts = alerts;
-            if (alerts == undefined) {
-              return;
-            } else {
-              return alerts;
-            }
-        }; 
       }
-    
+
+
       return (
       
         <article className="card animated fadeInUp" key={lat}>
@@ -98,9 +91,8 @@ class Location extends Component {
             <button onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
           </section>  
           <section id="localWeather">
-            <div id="summary">{summary}</div>
-            <Charts key={lat} temp={temp} humi={humi} wind={wind}/>
-            <div id="alerts">{this.displayAlerts(alerts)}</div>
+            <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind}/>
+            <div id="alerts"><p>{alerts}</p></div>
           </section>  
         </article>        
 

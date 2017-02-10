@@ -14,11 +14,12 @@ import ChartSpots from './chart_spots';
 
 export default class Charts extends Component {
 	render(){
-
+	
 		return(
 			<article className="card animated fadeInDown" key={this.props.key}>
-
+					
 					<section className="charts">
+					<div id="summary"><h4 className="card-title animated fadeInDown">{this.props.summary}</h4></div>
 						<div className="chartContainer first animated fadeInUp">
 							<ChartLines chartData={this.props.temp} color="#FF5200" units="Celcius"/>
 						</div>
@@ -28,6 +29,7 @@ export default class Charts extends Component {
 						<div className="chartContainer third animated fadeInUp">
 							<ChartSpots chartData={this.props.wind} color="#FF6E00" units="Meters per second"/>
 						</div>
+					<div id="alerts"><p>{this.props.alert}</p></div>
 					</section>		
 			</article>
 		);
