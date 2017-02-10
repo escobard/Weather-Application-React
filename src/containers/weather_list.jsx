@@ -20,24 +20,27 @@ class WeatherList extends Component {
 		this.renderWeather = this.renderWeather.bind(this);
 	}
 
-	renderWeather(weather){
-	console.log('CURRENT WEATHER', weather[0]);
-	console.log('CURRENT GEO', this.props.geocode);
-		
+	renderWeather(geocode){
+	var city = geocode[0];
+	if (city == undefined) {
+		return;
+	} else {
 
-		return(
-			<article className="card animated fadeInDown">
-				    <div className="card-block">
-				        <h4 className="card-title animated fadeInDown">Forecast for </h4>
-				    </div>
-			</article>
-		);
+		console.log('CURRENT GEO', city);
+			return(
+				<article className="card animated fadeInDown">
+					    <div className="card-block">
+					        <h4 className="card-title animated fadeInDown">Forecast for </h4>
+					    </div>
+				</article>
+			);
+	}
 	}
 	
 	render(){
 		return(
 			<div>
-				{this.props.geocode.map(this.renderWeather)}
+				{this.renderWeather(this.props.geocode)}
 		</div>
 			
 
@@ -55,7 +58,7 @@ class WeatherList extends Component {
 
 	//this can be further condensed with ES6 like so:
 	// because both the key and the value object have the same identifier
-	return { weather, geocode, sslweather };
+	return { geocode, sslweather };
 }
 
 // creates the function to join the action creator with the BookList component, to update the app's state
