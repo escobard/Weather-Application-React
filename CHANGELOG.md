@@ -3,8 +3,8 @@
 v0.98
 - prototype to test offline functionality, and work 
 - prototype to update production process, will add gulp to application
-- prototype to refactor application content, to clean up file structuring
-- prototype to remove obsolete console.logs
+- cleaned up file structure, all relevant app content in /src
+- removed obsolete console.logs, added relevant user console.logs
 - added validation to search form
 
 v0.97
