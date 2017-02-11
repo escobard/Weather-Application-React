@@ -25,7 +25,7 @@ export default class Charts extends Component {
 				<section className="charts animated fadeInDown" key={this.props.key}>
 					<div id="summary"><h4 className="card-title animated fadeInDown">{this.props.summary}</h4></div>
 						<div className="chartContainer first animated fadeInUp">
-							<ChartLines chartData={this.props.temp} color="#FF5200" units="Celcius"/>
+							<ChartLines chartData={this.props.temp} color="#FF5200" units="Fahrenheit"/>
 						</div>
 						<div className="chartContainer second animated fadeInUp">
 							<ChartBars chartData={this.props.humi} color="#00FF6A" units="%"/>

@@ -5,26 +5,13 @@ This repository contains all the files for the Capstone project of the [Udacity 
 ## Project Criteria
 This application must meet the following criteria:
 
-### Responsive
-App is equally functional on mobile and dektop.
-
-### Inputs
-All form inputs have appropriate types, lables, plaholders
-
-### Offline functionality
-Implement Offline Functionality
-
-### Accessibility
-All images have alternative text, focus is appropriately managed, elements are semantically used appropriately.
-
-### Components
-If components are used, they are self-contained units of functionality and declaratively configurable.
-
-### Home Screen Installable
-The application is installable to user’s home screen.
-
-### Native Features
-Application uses native features, like push notifications, Bluetooth, geolocation, as appropriate for the application.
+- Responsive - App is equally functional on mobile and dektop.
+- Inputs - All form inputs have appropriate types, lables, plaholders
+- Offline functionality - Application must function offline.
+- Accessibility - All images have alternative text, focus is appropriately managed, elements are semantically used appropriately.
+- Components - If components are used, they are self-contained units of functionality and declaratively configurable.
+- Home Screen Installable - The application is installable to user’s home screen.
+- Native Features - Application uses native features, like push notifications, Bluetooth, geolocation, as appropriate for the application.
 
 ## Demo
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
@@ -57,9 +44,9 @@ To publish, minimize, and compile components for production use:
 $ npm build
 ```
 
-## Most Recent Update - v0.96
-- changed weather API to an ssl provider, added google geocode api
-- prototype to update public process, will add gulp to application
+## Most Recent Update - v0.97
+- changed weather API to an ssl provider, added google geocode api.
+- refactored core components to be more scalable.
 
 ## To Do's
 - Revise mobile dimensions.
@@ -81,7 +68,7 @@ $ npm build
 
 [FLATICON - for the favicon] (http://www.flaticon.com/)
 
-[OpenWeatherMap] (https://openweathermap.org/)
+[Dark Sky API] (https://darksky.net/)
 
 [Google Maps] (https://www.google.ca/maps)
 
