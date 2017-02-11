@@ -47,8 +47,6 @@ To publish, minimize, and compile components for production use:
 $ gulp build
 ```
 
-Then, delete the styles in the header within dist/index.html, and replace with all.css.
-
 ## Most Recent Update - v0.97
 - changed weather API to an ssl provider, added google geocode api.
 - refactored core components to be more scalable.

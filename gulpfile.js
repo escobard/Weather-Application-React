@@ -32,14 +32,14 @@ gulp.task('bundle-jsSW', function() {
 // copies ALL html over from root to the public folder. This can be used for json / template files
 // USE THIS to setup these two tasks in the future when json files are in the right place
 gulp.task('bundle-html', function() {
-	gulp.src('index.html')
+	gulp.src('src/dist-assets/index.html')
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest('./dist'));
 });
 
 // copies SW over from root to the public folder. 
 gulp.task('bundle-sw', function() {
-	gulp.src('service-worker.js')
+	gulp.src('src/dist-assets/service-worker.js')
 		.pipe(gulp.dest('./dist'));
 });
 
