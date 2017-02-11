@@ -46,7 +46,7 @@ class WeatherList extends Component {
         
 		console.log('CURENT WEATHER', weather);
 		return (
-			<article className="card animated fadeInDown" key={lat}>
+			<article className="card animated fadeInDown searchWeather" key={lat}>
 						    <div className="card-block">
 						        <h4 className="card-title animated fadeInDown">Forecast for ... </h4>
 						    </div>

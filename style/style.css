@@ -1,3 +1,4 @@
+
 /*===========================================================
 
     Main Application Styles
@@ -135,8 +136,11 @@ footer {
 ===========================================================*/
 
 .input-group{
+
     margin:20px 0px;
+
 }
+
 
 #searchInput {
     height: 50px;
@@ -169,6 +173,7 @@ footer {
     Weather Widget Styles
 
 ===========================================================*/
+
 article.card {
     background: rgb(0, 87, 162);
     margin: 25px 0 30px;
@@ -294,6 +299,7 @@ h5 {
     animation-delay: 2s;
 }
 
+
 /*===========================================================
 
     Responsive Styles
@@ -303,6 +309,20 @@ h5 {
     main.container {
         width: 90%;
         max-width: none;
+    }
+    .navbar-brand span#versionNum {
+    display: none;
+    }
+    #geolocate {
+    max-height: 470px;
+    margin-top: 0;
+    }
+    #geolocate.buttonClicked {
+    max-height: 1700px;
+    }
+    button#fetchWeather {
+        padding: 0.5rem;
+        width: 90%;
     }
     .chartContainer {
     width: 98%;
@@ -318,7 +338,7 @@ h5 {
     }
     .navbar-brand {
         font-size: 18px !important;
-
+        margin: 0 !important;
     }
     input#searchInput {
     width: 100% !important;
@@ -332,8 +352,7 @@ h5 {
         margin: 53px 0 0 0;
         display: inline-block;
     }
-
     form.input-group {
-        height: 130px;
+        height: 110px;
     }
 }

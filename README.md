@@ -14,6 +14,9 @@ This application must meet the following criteria:
 - Native Features - Application uses native features, like push notifications, Bluetooth, geolocation, as appropriate for the application.
 
 ## Demo
+
+![desktop image](https://onlinedevelopers.ca/udacity/restaurant-reviewer/img/read-me/proj5-collage.jpg)
+
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
 
 To download and install, please follow the instructions below.
@@ -51,6 +54,7 @@ $ npm build
 ## To Do's
 - Revise mobile dimensions.
 - Add city names to titles again; need to reverse-eng Geocode API within a render loop.
+- Convert temperature's array from Farenheit to Celcius
 - Revise screen reader and keyboard-only accessibility .
 - Refactor code to improve reusability.
 - Push all ajax requested data into indexDB for offline usability.
