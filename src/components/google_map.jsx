@@ -1,13 +1,11 @@
 // =============================================================
 // 
-// 	google_map.js
+// 	google_map.jsx
 //
 // =============================================================
-
-// imports react main 
+ 
 import React from 'react';
 
-// imports google maps component, more on that here : https://github.com/tomchentw/react-google-maps
 import {GoogleMap, GoogleMapLoader, Marker} from 'react-google-maps';
 
 export default (props) => {
