@@ -1,4 +1,7 @@
 ** Changelog for Capstone project
+v0.99
+- prototype to add scroll to top
+- prototype to fix application icon on mobile.
 
 v0.98
 - offline functionality completed.
