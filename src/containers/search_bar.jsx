@@ -25,6 +25,7 @@ class SearchBar extends Component {
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
+		this.validation = this.validation.bind(this);
 	}
 
 	onInputChange(event) {
@@ -42,9 +43,17 @@ class SearchBar extends Component {
 		
 		// binds this.props to a variable that is usable within this scope
 		var props = this.props;
-		
+		var searchTerm = this.state.searchTerm;
+
+		// checks for empty search strings
+		if (searchTerm == '') {
+			this.validation('show');
+		} else {
+			this.validation('hide');
+		}
+
 		// sets up promise to fetch the data for the geocode based on the city name and the weather data
-		var fetchCityWeather = this.props.fetchGeocode(this.state.searchTerm).then(function(result){
+		var fetchCityWeather = this.props.fetchGeocode(searchTerm).then(function(result){
 			var lat = result.payload.data.results[0].geometry.location.lat
 			var lon = result.payload.data.results[0].geometry.location.lng;
 			console.log('COORDINATES', lat, lon);
@@ -52,7 +61,16 @@ class SearchBar extends Component {
 		});
 		this.setState({ searchTerm: ''});
 	}
-
+	validation(status){
+		var status = status;
+		var error = document.querySelector('#searchError');
+		switch(status) {
+		    case 'show':
+		        error.classList.remove('hidden');
+		    case 'hide':
+		        error.classList.add('hidden');
+		}
+	}
 	render(){
 
 		return (
@@ -66,7 +84,7 @@ class SearchBar extends Component {
 					onChange={this.onInputChange}
 				/>
 					<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
-
+				<span id="searchError" className="hidden">Please make sure to enter a valid city name.</span>
 			</form>
 
 		);
