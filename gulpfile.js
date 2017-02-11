@@ -19,7 +19,6 @@ gulp.task('bundle', [
 	'bundle-jsSW',
 	'bundle-minify',
 	'bundle-styles',
-	'bundle-offline',
 	'bundle-fonts'
 ]
 );
@@ -32,7 +31,7 @@ gulp.task('bundle-jsSW', function() {
 // copies ALL html over from root to the public folder. This can be used for json / template files
 // USE THIS to setup these two tasks in the future when json files are in the right place
 gulp.task('bundle-html', function() {
-	gulp.src('src/dist-assets/index.html')
+	gulp.src('index.html')
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest('./dist'));
 });
@@ -56,10 +55,6 @@ gulp.task('bundle-fonts', function() {
 	gulp.src('src/style/font/**')
 		.pipe(gulp.dest('./dist/src/style/font'));
 });
-gulp.task('bundle-offline', function() {
-	gulp.src('dist/style/all.css')
-		.pipe(gulp.dest('./src/style/'));
-});
 gulp.task('bundle-minify', function() {
 	gulp.src('bundle.js')
 		.pipe(uglify())
@@ -71,7 +66,6 @@ gulp.task('bundle-minify', function() {
 gulp.task('bundle-styles', function() {
 	gulp.src('src/style/*.css')
 		.pipe(cleanCSS())
-    	.pipe(concat('all.js'))
     	.pipe(gulp.dest('./dist/src/style'));
 });
  

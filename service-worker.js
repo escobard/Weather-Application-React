@@ -12,16 +12,16 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
-      '/',
-      '/src/style/bootstrap.min.css',
-      '/src/style/font-awesome.min.css',
-      '/src/style/mdb.min.css',
-      '/src/style/style.css',
-      '/src/img/clouds-192.png',
-      '/src/img/clouds.png',
-      '/src/img/gears.gif',
-      '/src/img/clouds-favicon.png',
-      '/bundle.js'
+      './',
+      './src/style/bootstrap.min.css',
+      './src/style/font-awesome.min.css',
+      './src/style/mdb.min.css',
+      './src/style/style.css',
+      './src/img/clouds-192.png',
+      './src/img/clouds.png',
+      './src/img/gears.gif',
+      './src/img/clouds-favicon.png',
+      './bundle.js'
       ]);
     }).then(function(){
       return self.skipWaiting();
