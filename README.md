@@ -6,7 +6,7 @@ This repository contains all the files for the Capstone project of the [Udacity 
 This application must meet the following criteria:
 
 - Responsive - App is equally functional on mobile and dektop.
-- Inputs - All form inputs have appropriate types, lables, plaholders
+- Inputs - All form inputs have appropriate types, lables, placeholders, and validators.
 - Offline functionality - Application must function offline.
 - Accessibility - All images have alternative text, focus is appropriately managed, elements are semantically used appropriately.
 - Components - If components are used, they are self-contained units of functionality and declaratively configurable.
