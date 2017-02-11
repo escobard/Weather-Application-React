@@ -310,9 +310,12 @@ h5 {
         width: 90%;
         max-width: none;
     }
+    .navbar-brand span#versionNum {
+    display: none;
+    }
     #geolocate {
     max-height: 470px;
-    margin-top: 8rem;
+    margin-top: 0;
     }
     #geolocate.buttonClicked {
     max-height: 1700px;
@@ -349,21 +352,7 @@ h5 {
         margin: 53px 0 0 0;
         display: inline-block;
     }
-
-<<<<<<< HEAD
     form.input-group {
         height: 130px;
     }
 }
-||||||| merged common ancestors
-form.input-group {
-    height: 130px;
-}
-}
-=======
-form.input-group {
-    height: 130px;
-}
-}
-
->>>>>>> 15c701fb969b3c63ea1ada95462c5438bad33bd8
