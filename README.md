@@ -33,9 +33,9 @@ Install NPM dependencies:
 $ npm install
 ```
 
-## Web Pack Commands
+## Usage
 
-To run this application locally use the following commands:
+To run this application locally for development, use the following commands:
 
 ```
 $ npm start
@@ -44,21 +44,25 @@ $ npm start
 To publish, minimize, and compile components for production use:
 
 ```
-$ npm build
+$ gulp create-bundle
+$ gulp build
 ```
 
-## Most Recent Update - v0.97
-- changed weather API to an ssl provider, added google geocode api.
-- refactored core components to be more scalable.
+## Most Recent Update - v0.98
+- offline functionality completed.
+- distribution bundling completed with gulp.
+- cleaned up file structure, all relevant app content in /src.
+- removed obsolete console.logs, added relevant user console.logs.
+- added validation to search form.
 
 ## To Do's
 - Revise mobile dimensions.
 - Add city names to titles again; need to reverse-eng Geocode API within a render loop.
 - Convert temperature's array from Farenheit to Celcius
 - Revise screen reader and keyboard-only accessibility .
-- Refactor code to improve reusability.
-- Push all ajax requested data into indexDB for offline usability.
-- Add weather icons to app.
+- Push all async requested data into indexDB for offline usability.
+- Add weather forecast icons to app forecast display.
+- Streamline gulp build process to work with a single command
 
 ## Libraries, Frameworks, APIs
 
@@ -91,4 +95,4 @@ Feel free to contribute to this repository. All files in this repository are pro
 For commercial or educational use, please paste a link to this repository to give proper credit.
 
 ## License
-As of October 31st, 2016, these files are open for all to use and contribute to. This repository is protected under the [MIT License](http://choosealicense.com/licenses/mit/).
+As of February 11th, 2017, these files are open for all to use and contribute to. This repository is protected under the [MIT License](http://choosealicense.com/licenses/mit/).

@@ -71,6 +71,52 @@ footer {
     margin-top: 30px;
 }
 .offline-text img {width: 20%;margin: 3% auto;display: block;float: none;}
+
+/*===========================================================
+
+    Search Widget Styles
+
+===========================================================*/
+
+.input-group{
+
+    margin:20px 0px;
+
+}
+
+
+#searchInput {
+    height: 50px;
+    border-radius: 0.25rem;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+#subButton {
+    height: 50px;
+    padding: 14px 70px;
+    margin: 3px 6px 1px;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+#searchError {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: #e61000;
+    font-weight: bold;
+}
 /*===========================================================
 
     Geolocate Styles
@@ -129,45 +175,9 @@ footer {
     color: #fff;
     padding: 0 1rem;
 }
-/*===========================================================
-
-    Search Widget Styles
-
-===========================================================*/
-
-.input-group{
-
-    margin:20px 0px;
-
+#geoError {
+    color: #ff1100;
 }
-
-
-#searchInput {
-    height: 50px;
-    border-radius: 0.25rem;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-duration: 0.5s;
-    -moz-animation-duration: 0.5s;
-    -ms-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-}
-#subButton {
-    height: 50px;
-    padding: 14px 70px;
-    margin: 3px 6px 1px;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-}
-
 /*===========================================================
 
     Weather Widget Styles
@@ -310,17 +320,20 @@ h5 {
         width: 90%;
         max-width: none;
     }
-    .navbar-brand span#versionNum {
+    .navbar-brand span {
     display: none;
     }
+    #searchError {
+    margin-bottom: 2rem;
+    }
     #geolocate {
-    max-height: 470px;
+    max-height: 560px;
     margin-top: 0;
     }
     #geolocate.buttonClicked {
     max-height: 1700px;
     }
-    button#fetchWeather {
+    #fetchWeather {
         padding: 0.5rem;
         width: 90%;
     }
@@ -340,12 +353,12 @@ h5 {
         font-size: 18px !important;
         margin: 0 !important;
     }
-    input#searchInput {
+    #searchInput {
     width: 100% !important;
     display: block;
     position: absolute;
     }
-    button#subButton {
+    #subButton {
         float: left;
         width: 100%;
         position: absolute;

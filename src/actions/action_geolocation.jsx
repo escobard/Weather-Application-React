@@ -1,10 +1,9 @@
 // =============================================================
 // 
-// 	actions/geolocation.js
+// 	action_geolocation.jsx
 //
 // =============================================================
 
-// Redux Action Types
 export const GET_LOCATION = 'GET_LOCATION';
 
 const getLocation = () => {

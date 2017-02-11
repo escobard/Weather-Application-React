@@ -1,6 +1,6 @@
 /* ===================================
 
-    footer.js
+    footer.jsx
 
 ======================================*/
 
@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 
 export default class FooterComp extends Component {
   render() {
+    console.log('Application Loaded.')
     return (
             <div className="footer-copyright">
                 <div className="container-fluid animated slideInUp">

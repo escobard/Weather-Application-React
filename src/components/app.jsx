@@ -1,12 +1,15 @@
+/* ===================================
+
+    app.jsx
+
+======================================*/
+
 import React, { Component } from 'react';
 
-// custom components
 import Nav from './nav';
 import FooterComp from './footer';
 
-// offline handler
-import OfflineHandle from './offline-handle';
-
+import StateHandle from './state_handle';
 
 export default class App extends Component {
   render() {
@@ -14,13 +17,17 @@ export default class App extends Component {
     <div>
       <Nav />
     <main className="container">
+
       <section className="widgetContainer">
-        <OfflineHandle />
+        <StateHandle />
       </section>
+
      </main>
+
      <footer className="page-footer blue center-on-small-only">
        <FooterComp />
      </footer>
+
     </div>
     );
   }

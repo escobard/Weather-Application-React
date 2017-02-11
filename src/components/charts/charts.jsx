@@ -1,6 +1,6 @@
 // =============================================================
 // 
-// 	charts/charts.jsx
+// 	charts.jsx
 //
 // =============================================================
 
@@ -17,7 +17,7 @@ export default class Charts extends Component {
 		var alerts = this.props.alerts;
 		// checks for empty alert array
         if (alerts == undefined) {
-          var alerts = 'There are no weather alerts in your area';
+          var alerts = 'There are no weather alerts in your area.';
         } else {
           var alerts = alerts;
         } 

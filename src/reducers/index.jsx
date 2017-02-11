@@ -1,6 +1,6 @@
 // =============================================================
 // 
-// 	reducers/index.js
+// 	index.jsx
 //
 // =============================================================
 
@@ -13,8 +13,7 @@ import LocationReducer from './reducer_geolocation';
 import geocodeReducer from './reducer_geocode';
 
 const rootReducer = combineReducers({
-  
-  // adds the reducer data to our App.state
+
   geoweather: geocodeWeather,
   searchweather: weatherData,
   geocode: geocodeReducer,

@@ -1,26 +1,27 @@
+// =============================================================
+// 
+//  geo_location.jsx
+//
+// =============================================================
+
 import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// imports actions
 import getLocation from '../actions/action_geolocation';
 import {fetchGeocodeWeather} from '../actions/action_fetch_geocode_weather_data';
 
-// imports gmap
 import GoogleMap from '../components/google_map';
 
-// imports charts
 import Charts from '../components/charts/charts';
 
 class Location extends Component {
   constructor(props) {
     
-    super(props);
-    // initiates the getLocation action
+    super(props)
     this.props.getLocation();
 
-    // sets coordinate variables
     this.fetchLocal = this.fetchLocal.bind(this);
     this.renderWhenReady = this.renderWhenReady.bind(this);
 
@@ -28,35 +29,30 @@ class Location extends Component {
 
   fetchLocal(){
 
-    // initiates the fetch weather action
     this.props.fetchGeocodeWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
-    // console.log('weather data loaded', this.props.geoweather);
 
-    // sets variables to handle animation transitions
     var local = document.querySelector('#localWeather');
     var button = document.querySelector('#fetchWeather');
     var container = document.querySelector('#geolocate');
-    
-    // sets handle classes for animation elements
+
     button.classList.add('hidden');
     local.classList.remove('hidden');
     container.classList.add('buttonClicked');
+
   }
 
   renderWhenReady(){
     
-    // sets coordinate variables
     const weatherData = this.props.geoweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-    // console.log('weather data initial', weatherData);
 
     if (lat <= 0 && lon <= 0) { 
 
       // console.log("Loading Geolocation...")   
         return (
           <div>
-          <p>Loading... your Location</p>
+          <p className="animated fadeInLeft">Loading... your Location</p>
           </div>
         );
     } 
@@ -79,7 +75,7 @@ class Location extends Component {
 
       else {
         
-        console.log('weather data fetched');
+        console.log('Geolocation weather data fetched! - ', weatherData);
         
         if (weatherData.alerts == undefined) {
           alerts = undefined;
@@ -130,7 +126,7 @@ class Location extends Component {
      
         <div>
      
-          <p>Loading... your Location</p>
+          <p className="geoError animated shake">Loading... your Location</p>
           console.log("Geolocation failed.")           
      
         </div>
@@ -138,7 +134,7 @@ class Location extends Component {
     }
 
   }
-  // renders container
+
   render () {
     return (
 

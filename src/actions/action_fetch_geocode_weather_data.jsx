@@ -1,10 +1,9 @@
 // =============================================================
 // 
-// 	actions/fetch_ssl_data.js
+// 	action_fetch_geocode_weather_data.jsx
 //
 // =============================================================
 
-// includes our axios API
 import fetchJsonp from 'fetch-jsonp';
 
 const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
@@ -26,7 +25,7 @@ export function fetchGeocodeWeather(lat, lon){
 	    console.log('parsing failed', ex);
 	});
 
-	console.log('Request: ', request);
+	// console.log('Request: ', request);
 	
 	return {
 		type: FETCH_GEOCODE_DATA,
