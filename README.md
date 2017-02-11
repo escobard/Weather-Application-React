@@ -35,7 +35,7 @@ $ npm install
 
 ## Usage
 
-To run this application locally use the following commands:
+To run this application locally for development, use the following commands:
 
 ```
 $ npm start
@@ -44,6 +44,7 @@ $ npm start
 To publish, minimize, and compile components for production use:
 
 ```
+$ gulp create-bundle
 $ gulp build
 ```
 

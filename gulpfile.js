@@ -38,7 +38,7 @@ gulp.task('bundle-html', function() {
 
 // copies SW over from root to the public folder. 
 gulp.task('bundle-sw', function() {
-	gulp.src('src/dist-assets/service-worker.js')
+	gulp.src('service-worker.js')
 		.pipe(gulp.dest('./dist'));
 });
 
