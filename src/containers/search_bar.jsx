@@ -1,18 +1,15 @@
 // =============================================================
 // 
-// 	search_bar.js
+// 	search_bar.jsx
 //
 // =============================================================
 
 import React, { Component } from 'react';
 
-// this is done to connect the action creator reducer with this component 
 import { connect } from 'react-redux';
 
-// this is to bind the action creator itself to this component
 import { bindActionCreators } from 'redux';
 
-// this is the actual action creator created in actions/index.js
 import { fetchGeocode } from '../actions/action_fetch_geocode';
 import { fetchSearchWeather } from '../actions/action_fetch_weather_data';
 
@@ -33,10 +30,6 @@ class SearchBar extends Component {
 		this.setState({ searchTerm: event.target.value})
 	}
 	
-	// need to add a function to PREVENT form submit on enter, causing issues within single-page apps
-	// 
-	// this is done with the onFormSubmit function 
-	// 
 	onFormSubmit(event) {
 
 		event.preventDefault();
@@ -64,6 +57,7 @@ class SearchBar extends Component {
 		});
 		this.setState({ searchTerm: ''});
 	}
+
 	validation(status){
 		var status = status;
 		var error = document.querySelector('#searchError');
@@ -82,6 +76,7 @@ class SearchBar extends Component {
 		        return;
 		}
 	}
+	
 	render(){
 
 		return (
