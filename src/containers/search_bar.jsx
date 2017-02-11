@@ -49,6 +49,7 @@ class SearchBar extends Component {
 		if (searchTerm == '') {
 			console.log('ERROR');
 			this.validation('show');
+			return;
 		} else {
 			console.log('WORKING');
 			this.validation('hide');
@@ -68,7 +69,8 @@ class SearchBar extends Component {
 		var error = document.querySelector('#searchError');
 		switch(status) {
 		    case 'show':
-		        error.classList.remove('hidden');
+		        error.classList.remove('hidden','fadeOutUp');
+		        error.classList.add('shake');
 		        return;
 		    case 'hide':
 		    	error.classList.remove('shake');
