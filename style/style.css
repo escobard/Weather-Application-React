@@ -320,7 +320,7 @@ h5 {
         width: 90%;
         max-width: none;
     }
-    .navbar-brand span#versionNum {
+    .navbar-brand span {
     display: none;
     }
     #geolocate {
