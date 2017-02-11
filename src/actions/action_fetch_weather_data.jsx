@@ -25,7 +25,7 @@ export function fetchSearchWeather(lat, lon){
 	    console.log('parsing failed', ex);
 	});
 
-	console.log('Request: ', request);
+	// console.log('Request: ', request);
 	
 	return {
 		type: FETCH_DATA,

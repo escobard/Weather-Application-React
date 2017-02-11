@@ -77,7 +77,7 @@ class SearchBar extends Component {
 		    	error.classList.add('fadeOutUp');
 		    	setTimeout(function(){
 		    		error.classList.add('hidden');
-		    	},5000)
+		    	},500)
 		        
 		        return;
 		}
