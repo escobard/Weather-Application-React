@@ -63,8 +63,7 @@ $ npm build
 
 ## To Do's
 - Revise mobile dimensions.
-- Refactor middleware ajax requests to integrate into actions / reducers.
-- Add validation to search form.
+- Add city names to titles again; need to reverse-eng Geocode API within a render loop.
 - Revise screen reader and keyboard-only accessibility .
 - Refactor code to improve reusability.
 - Push all ajax requested data into indexDB for offline usability.

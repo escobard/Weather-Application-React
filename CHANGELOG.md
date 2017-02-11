@@ -4,11 +4,13 @@ v0.98
 - prototype to test offline functionality, and work 
 - prototype to update production process, will add gulp to application
 - prototype to refactor application content, to clean up file structuring
+- prototype to remove obsolete console.logs
+- Add validation to search form.
 
 v0.97
-- prototype to remove obsolete console.logs
 - geolocation and weather data working with new chained SSL API's
-- prototype to clean up styling
+- cleaned up animation styling
+- created unique reducers depending on weather data
 
 v0.96
 - application accepting HTTPS ajax requests, can run over HTTPS now. 
