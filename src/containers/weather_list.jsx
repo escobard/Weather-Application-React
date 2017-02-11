@@ -66,8 +66,7 @@ class WeatherList extends Component {
 		return(
 			<div>
 				{this.renderWeather(this.props.searchweather)}
-		</div>
-			
+		</div>		
 
 		);
 	}

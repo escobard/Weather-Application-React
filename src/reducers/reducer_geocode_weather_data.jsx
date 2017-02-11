@@ -1,40 +1,20 @@
 // =============================================================
 // 
-// 	reducer_ssl_weather.js
+// 	reducer_geocode_weather_data.jsx
 //
 // =============================================================
 
-// imports the action.type of our fetchWeather component
 import { FETCH_GEOCODE_DATA } from '../actions/action_fetch_geocode_weather_data';
 
-// creates the reducer for our weather data post middleware
 function sslDataReducer(state = [], action){
 
-
-	// creates the switch to handle the incoming data from the action
 	switch (action.type){
 
-		// if the case returned is FETCH_WEATHER
 		case FETCH_GEOCODE_DATA:
-			console.log("Action - SSL Weather -", action.payload);
-			// returns the payload's relevant data, in this case its the .data object property of payload that we want to keep
-			// always have to make sure we are returning a new instance of state, not changing the current state with data. that messes up
-			// the application state entirely
-			// this is the accepted EMC5 method to do this : return state.concat([ action.payload.data ]); 
-			// 
-			// this is the accepted EMC6 method to do this:
-			// 
-			return [ action.payload, ...state ]; //[ city, city, city] NOT [city, [city, [city]]] which is BAD
-			// the above explained below:
-			// [ create a new array
-			// put action.payload.data inside of it
-			// take this new arrray and insert it inside the following array, state by using :
-			// ...state
-			// essentially it pushes the new array into an exsisting array which is defined by the variable after the ...
+			// console.log("Action - SSL Weather -", action.payload);
 
-			// state.push([ action.payload.data ]); = DO NOT DO THIS, AS IT CHANGES ALL THE EXSISTING STATE TO THIS DATA, BAD BAD BAD
-			// state.concat([ action.payload.data ]); = pushes a new array with the data, into the exsisting state, this is the accepted way
-			// to add data to the application state
+			return [ action.payload, ...state ];
+
 	};
 
 	return state;
