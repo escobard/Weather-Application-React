@@ -338,7 +338,7 @@ h5 {
     }
     .navbar-brand {
         font-size: 18px !important;
-
+        margin: 0 !important;
     }
     input#searchInput {
     width: 100% !important;
