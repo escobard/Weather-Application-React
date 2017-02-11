@@ -47,8 +47,10 @@ class SearchBar extends Component {
 
 		// checks for empty search strings
 		if (searchTerm == '') {
+			console.log('ERROR');
 			this.validation('show');
 		} else {
+			console.log('WORKING');
 			this.validation('hide');
 		}
 
@@ -67,26 +69,28 @@ class SearchBar extends Component {
 		switch(status) {
 		    case 'show':
 		        error.classList.remove('hidden');
+		        return;
 		    case 'hide':
 		        error.classList.add('hidden');
+		        return;
 		}
 	}
 	render(){
 
 		return (
-		
-			<form onSubmit={this.onFormSubmit} className="input-group">
-				<input 
-					id="searchInput"
-					placeholder="Get a five-day forecast in your favorite cities"
-					className="form-control animated fadeInLeft"
-					value={this.state.searchTerm}
-					onChange={this.onInputChange}
-				/>
-					<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
+			<div>
+				<form onSubmit={this.onFormSubmit} className="input-group">
+					<input 
+						id="searchInput"
+						placeholder="Get a five-day forecast in your favorite cities"
+						className="form-control animated fadeInLeft"
+						value={this.state.searchTerm}
+						onChange={this.onInputChange}
+					/>
+						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
+				</form>
 				<span id="searchError" className="hidden">Please make sure to enter a valid city name.</span>
-			</form>
-
+			</div>
 		);
 	}
 };

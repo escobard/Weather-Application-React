@@ -167,7 +167,13 @@ footer {
     -ms-animation-delay: 0.5s;
     animation-delay: 0.5s;
 }
-
+span#searchError {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: #e61000;
+    font-weight: bold;
+}
 /*===========================================================
 
     Weather Widget Styles
