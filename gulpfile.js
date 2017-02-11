@@ -11,7 +11,7 @@ var gutil = require('gulp-util');
 var WebpackCluster = require('webpack-cluster');
 
 //publishes content, calls tasks that copy content over
-gulp.task('bundle', [
+gulp.task('build', [
 	'bundle-html',
 	'bundle-png',
 	'bundle-gif',
