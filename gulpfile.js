@@ -14,24 +14,24 @@ var WebpackCluster = require('webpack-cluster');
 gulp.task('bundle', [
 	'bundle-html',
 	'bundle-png',
+	'bundle-gif',
 	'bundle-sw',
 	'bundle-jsSW',
-	'create-bundle',
 	'bundle-minify',
-	'bundle-styles'
+	'bundle-styles',
+	'bundle-fonts'
 ]
 );
 
 // copies over js SW files
 gulp.task('bundle-jsSW', function() {
-	gulp.src('sw-register')
+	gulp.src('sw-register.js')
 		.pipe(gulp.dest('./dist'));
 });
 // copies ALL html over from root to the public folder. This can be used for json / template files
 // USE THIS to setup these two tasks in the future when json files are in the right place
 gulp.task('bundle-html', function() {
 	gulp.src('index.html')
-		.pipe(minifyInline())
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest('./dist'));
 });
@@ -51,10 +51,14 @@ gulp.task('bundle-gif', function() {
 	gulp.src('src/img/*.gif')
 		.pipe(gulp.dest('./dist/src/img'));
 });
+gulp.task('bundle-fonts', function() {
+	gulp.src('src/style/font/**')
+		.pipe(gulp.dest('./dist/src/styles/font'));
+});
 gulp.task('bundle-minify', function() {
-	gulp.src('dist/bundle.js')
+	gulp.src('bundle.js')
 		.pipe(uglify())
-		.pipe(gulp.dest('./dist/src/img'));
+		.pipe(gulp.dest('./dist/'));
 });
 
 
