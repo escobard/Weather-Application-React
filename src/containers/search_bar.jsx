@@ -71,7 +71,12 @@ class SearchBar extends Component {
 		        error.classList.remove('hidden');
 		        return;
 		    case 'hide':
-		        error.classList.add('hidden');
+		    	error.classList.remove('shake');
+		    	error.classList.add('fadeOutUp');
+		    	setTimeout(function(){
+		    		error.classList.add('hidden');
+		    	},5000)
+		        
 		        return;
 		}
 	}
@@ -89,7 +94,7 @@ class SearchBar extends Component {
 					/>
 						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
 				</form>
-				<span id="searchError" className="hidden">Please make sure to enter a valid city name.</span>
+				<span id="searchError" className="hidden animated shake">Please make sure to enter a valid city name.</span>
 			</div>
 		);
 	}
