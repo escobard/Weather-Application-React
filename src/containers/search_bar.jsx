@@ -40,11 +40,11 @@ class SearchBar extends Component {
 
 		// checks for empty search strings
 		if (searchTerm == '') {
-			console.log('ERROR');
+			// console.log('ERROR');
 			this.validation('show');
 			return;
 		} else {
-			console.log('WORKING');
+			// console.log('WORKING');
 			this.validation('hide');
 		}
 
@@ -52,7 +52,7 @@ class SearchBar extends Component {
 		var fetchCityWeather = this.props.fetchGeocode(searchTerm).then(function(result){
 			var lat = result.payload.data.results[0].geometry.location.lat
 			var lon = result.payload.data.results[0].geometry.location.lng;
-			console.log('COORDINATES', lat, lon);
+			// console.log('COORDINATES', lat, lon);
 			props.fetchSearchWeather(lat, lon);
 		});
 		this.setState({ searchTerm: ''});

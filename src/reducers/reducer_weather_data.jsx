@@ -11,7 +11,7 @@ function weatherData(state = [], action){
 	switch (action.type){
 
 		case FETCH_DATA:
-			console.log("Action - SSL Weather -", action.payload);
+			// console.log("Action - SSL Weather -", action.payload);
 
 			return [ action.payload, ...state ]; 
 
