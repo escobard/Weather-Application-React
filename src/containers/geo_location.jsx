@@ -56,7 +56,7 @@ class Location extends Component {
       // console.log("Loading Geolocation...")   
         return (
           <div>
-          <p>Loading... your Location</p>
+          <p className="animated fadeInLeft">Loading... your Location</p>
           </div>
         );
     } 
@@ -130,7 +130,7 @@ class Location extends Component {
      
         <div>
      
-          <p>Loading... your Location</p>
+          <p className="geoError animated shake">Loading... your Location</p>
           console.log("Geolocation failed.")           
      
         </div>

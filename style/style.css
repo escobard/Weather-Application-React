@@ -71,6 +71,52 @@ footer {
     margin-top: 30px;
 }
 .offline-text img {width: 20%;margin: 3% auto;display: block;float: none;}
+
+/*===========================================================
+
+    Search Widget Styles
+
+===========================================================*/
+
+.input-group{
+
+    margin:20px 0px;
+
+}
+
+
+#searchInput {
+    height: 50px;
+    border-radius: 0.25rem;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+#subButton {
+    height: 50px;
+    padding: 14px 70px;
+    margin: 3px 6px 1px;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+span#searchError {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: #e61000;
+    font-weight: bold;
+}
 /*===========================================================
 
     Geolocate Styles
@@ -129,50 +175,8 @@ footer {
     color: #fff;
     padding: 0 1rem;
 }
-/*===========================================================
-
-    Search Widget Styles
-
-===========================================================*/
-
-.input-group{
-
-    margin:20px 0px;
-
-}
-
-
-#searchInput {
-    height: 50px;
-    border-radius: 0.25rem;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-duration: 0.5s;
-    -moz-animation-duration: 0.5s;
-    -ms-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-}
-#subButton {
-    height: 50px;
-    padding: 14px 70px;
-    margin: 3px 6px 1px;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-    -webkit-animation-delay: 0.5s;
-    -moz-animation-delay: 0.5s;
-    -ms-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-}
-span#searchError {
-    text-align: center;
-    width: 100%;
-    display: block;
-    color: #e61000;
-    font-weight: bold;
+#geoError {
+    color: #ff1100;
 }
 /*===========================================================
 
