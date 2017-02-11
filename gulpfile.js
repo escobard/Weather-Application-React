@@ -111,18 +111,9 @@ var webpackCluster = new WebpackCluster({
     }
 });
  
-gulp.task('run', [], callback => {
+gulp.task('create-bundle', [], callback => {
     webpackCluster.run([
         './webpack.config.js'
-    ]).then(callback).catch(err => {
-        callback(new gutil.PluginError('webpack-cluster', err));
-    });
+    ]);
 });
  
-gulp.task('watch', [], callback => {
-    webpackCluster.watch([
-        './webpack.config.js'
-    ]).then(callback).catch(err => {
-        callback(new gutil.PluginError('webpack-cluster', err));
-    });
-});
