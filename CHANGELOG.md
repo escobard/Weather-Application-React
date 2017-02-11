@@ -5,7 +5,7 @@ v0.98
 - prototype to update production process, will add gulp to application
 - prototype to refactor application content, to clean up file structuring
 - prototype to remove obsolete console.logs
-- prototype to add validation to search form.
+- added validation to search form
 
 v0.97
 - geolocation and weather data working with new chained SSL API's

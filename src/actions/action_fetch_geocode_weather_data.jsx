@@ -1,10 +1,9 @@
 // =============================================================
 // 
-// 	actions/fetch_ssl_data.js
+// 	action_fetch_geocode_weather_data.jsx
 //
 // =============================================================
 
-// includes our axios API
 import fetchJsonp from 'fetch-jsonp';
 
 const API_KEY = 'a078200d2fe7ea7267d2ddd3d461cb72';
