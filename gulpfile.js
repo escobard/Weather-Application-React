@@ -54,7 +54,7 @@ gulp.task('bundle-gif', function() {
 });
 gulp.task('bundle-fonts', function() {
 	gulp.src('src/style/font/**')
-		.pipe(gulp.dest('./dist/src/styles/font'));
+		.pipe(gulp.dest('./dist/src/style/font'));
 });
 gulp.task('bundle-offline', function() {
 	gulp.src('dist/style/all.css')
@@ -72,7 +72,7 @@ gulp.task('bundle-styles', function() {
 	gulp.src('src/style/*.css')
 		.pipe(cleanCSS())
     	.pipe(concat('all.js'))
-    	.pipe(gulp.dest('./dist/src/styles'));
+    	.pipe(gulp.dest('./dist/src/style'));
 });
  
 var webpackCluster = new WebpackCluster({

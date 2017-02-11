@@ -6,14 +6,17 @@
 
 
 // sets the cache name
-var staticCacheName = 'wa-static-v1.7';
+var staticCacheName = 'wa-static-v2.0';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
       '/',
-      '/src/style/all.css',
+      '/src/style/bootstrap.min.css',
+      '/src/style/font-awesome.min.css',
+      '/src/style/mdb.min.css',
+      '/src/style/style.css',
       '/src/img/clouds-192.png',
       '/src/img/clouds.png',
       '/src/img/gears.gif',
@@ -58,7 +61,7 @@ self.addEventListener('fetch', function(event) {
     if (requestURL.pathname ==='/') {
       // and if so, responds with the /skeleton URL instead
       // grabs the /skeleton URL straight, from the cache
-      event.respondWith(caches.match('/public'));
+      event.respondWith(caches.match('/'));
       // no need to go the network as a fallback if this fails, as /skeleton is cached no matter what during the sw install
       return;
     }

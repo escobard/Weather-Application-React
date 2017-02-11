@@ -17,7 +17,7 @@ export default class StateHandle extends Component {
 	    	<article className="offline-text animated fadeInDown">
 				<h3>The application is offline!</h3>
 				<h3>Please connect to the internet to search the Weather.</h3>
-				<img src="img/gears.gif" alt="application is offline" />
+				<img src="src/img/gears.gif" alt="application is offline" />
 			</article>
 	    );
 	}
