@@ -33,7 +33,7 @@ Install NPM dependencies:
 $ npm install
 ```
 
-## Web Pack Commands
+## Usage
 
 To run this application locally use the following commands:
 
@@ -44,8 +44,10 @@ $ npm start
 To publish, minimize, and compile components for production use:
 
 ```
-$ npm build
+$ gulp build
 ```
+
+Then, delete the styles in the header within dist/index.html, and replace with all.css.
 
 ## Most Recent Update - v0.97
 - changed weather API to an ssl provider, added google geocode api.
@@ -59,6 +61,7 @@ $ npm build
 - Refactor code to improve reusability.
 - Push all ajax requested data into indexDB for offline usability.
 - Add weather icons to app.
+- Streamline bundle process to work with a single command
 
 ## Libraries, Frameworks, APIs
 
