@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import {fetchSSLWeather} from '../actions/action_fetch_ssl_data';
+import {fetchSearchWeather} from '../actions/action_fetch_weather_data';
 
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -157,7 +157,7 @@ function mapStateToProps({ sslweather, location}){
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchSSLWeather, getLocation}, dispatch);
+  return bindActionCreators({fetchSearchWeather, getLocation}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

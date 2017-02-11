@@ -13,9 +13,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // this is the actual action creator created in actions/index.js
-import { fetchWeather } from '../actions/action_fetchweather';
 import { fetchGeocode } from '../actions/action_fetch_geocode';
-import {fetchSSLWeather} from '../actions/action_fetch_ssl_data';
+import { fetchSearchWeather } from '../actions/action_fetch_weather_data';
 
 class SearchBar extends Component {
 
@@ -49,7 +48,7 @@ class SearchBar extends Component {
 			var lat = result.payload.data.results[0].geometry.location.lat
 			var lon = result.payload.data.results[0].geometry.location.lng;
 			console.log('COORDINATES', lat, lon);
-			props.fetchSSLWeather(lat, lon);
+			props.fetchSearchWeather(lat, lon);
 		});
 		this.setState({ searchTerm: ''});
 	}
@@ -75,7 +74,7 @@ class SearchBar extends Component {
 };
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators({ fetchWeather, fetchGeocode, fetchSSLWeather }, dispatch);
+	return bindActionCreators({ fetchGeocode, fetchSearchWeather }, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);

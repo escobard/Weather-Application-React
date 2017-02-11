@@ -1,22 +1,22 @@
 // =============================================================
 // 
-// 	reducer_weather.js
+// 	reducer_ssl_weather.js
 //
 // =============================================================
 
 // imports the action.type of our fetchWeather component
-import { FETCH_WEATHER } from '../actions/action_fetchweather';
+import { FETCH_DATA } from '../actions/action_fetch_weather_data';
 
 // creates the reducer for our weather data post middleware
-function weatherReducer(state = [], action){
+function sslDataReducer(state = [], action){
 
 
 	// creates the switch to handle the incoming data from the action
 	switch (action.type){
 
 		// if the case returned is FETCH_WEATHER
-		case FETCH_WEATHER:
-			console.log("Action - Weather -", action.payload);
+		case FETCH_DATA:
+			console.log("Action - SSL Weather -", action.payload);
 			// returns the payload's relevant data, in this case its the .data object property of payload that we want to keep
 			// always have to make sure we are returning a new instance of state, not changing the current state with data. that messes up
 			// the application state entirely
@@ -40,4 +40,4 @@ function weatherReducer(state = [], action){
 	return state;
 };
 
-export default weatherReducer;
+export default sslDataReducer;
