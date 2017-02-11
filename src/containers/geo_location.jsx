@@ -107,7 +107,7 @@ class Location extends Component {
         <article id="geolocate" className="card animated fadeInUp" key={lat}>
           
           <div className="card-block">
-            <h4 className="card-title animated fadeInDown">Your current location is...</h4>
+            <h4 className="card-title animated fadeInDown">Your current location is ...</h4>
           </div>
           
           <section id="geolocateMap">

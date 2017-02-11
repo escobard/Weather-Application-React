@@ -24,56 +24,43 @@ class WeatherList extends Component {
 	const weathercurrent = weather;
 	console.log('weather', weather);
 	return weather.map((weather) => {
+		const lat = weather.latitude;
+		const lon = weather.longitude;
+		var alerts;
+        if (weather.alerts == undefined) {
+          alerts = undefined;
+        } else {
+          alerts = weatherData.alerts.map(alertData => alertData.description);
+        }
 		const summary = weather.daily.summary;
+        // console.log(alerts);
+
+        const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
+        // console.log(temp);
+
+        const humi = weather.daily.data.map(humis => humis.humidity);
+        // console.log(humi);
+
+        const wind = weather.daily.data.map(winds => winds.windSpeed);
+        // console.log(wind);
+        
 		console.log('CURENT WEATHER', weather);
 		return (
-			<article className="card animated fadeInDown" key={summary}>
+			<article className="card animated fadeInDown" key={lat}>
 						    <div className="card-block">
-						        <h4 className="card-title animated fadeInDown">Forecast for {summary}</h4>
+						        <h4 className="card-title animated fadeInDown">Forecast for ... </h4>
 						    </div>
-
+							<section id="geolocateMap">
+				            	<div className="mapContainer">           
+				                	<GoogleMap zoom={12} lon={lon} lat={lat}/>
+				            	</div> 
+				          	</section> 
+				          	<div className="localWeather">
+					            <Charts key={lon} summary={summary} temp={temp} humi={humi} wind={wind} alerts={alerts}/>    
+					        </div>  
 			</article>
 		);
 	});
-	// console.log('weathercurrent', weathercurrent)
-	// const city = this.props.geocode;
-	// console.log('city', city);
-	/*
-	const weather = this.props.sslweather;
-	if (city == undefined) {
-		return;
-	} else {
-		if (weather == undefined) {
-			return;
-		} else {
-			/* 
-			var alert;
-			if (weather.alerts == undefined) {
-	          alert = undefined;
-	        } else {
-	          alert = weather.alerts.map(alertData => alertData.description);
-	        }
-			const lat = weather.lat;
-			const lon = weather.lon;
-			const summary = weather.daily.summary;
-
-			const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
-			const humi = weather.daily.data.map(humis => humis.humidity);
-			const wind = weather.daily.data.map(winds => winds.windSpeed); 
-			 
-			console.log('CURRENT GEO', city);
-			console.log('CURRENT WEATHER', weather); 
-			
-				return(
-					<article className="card animated fadeInDown" key={city}>
-						    <div className="card-block">
-						        <h4 className="card-title animated fadeInDown">Forecast for </h4>
-						    </div>
-
-					</article>
-				); 
-		};
-	};*/
 	}
 	
 	render(){
