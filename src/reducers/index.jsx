@@ -7,13 +7,17 @@
 import { combineReducers } from 'redux';
 
 // imports the reducers
-import weatherReducer from './reducer_weather';
+import weatherData from './reducer_weather_data';
+import geocodeWeather from './reducer_geocode_weather_data';
 import LocationReducer from './reducer_geolocation';
+import geocodeReducer from './reducer_geocode';
 
 const rootReducer = combineReducers({
   
   // adds the reducer data to our App.state
-  weather: weatherReducer,
+  geoweather: geocodeWeather,
+  searchweather: weatherData,
+  geocode: geocodeReducer,
   location: LocationReducer
 });
 

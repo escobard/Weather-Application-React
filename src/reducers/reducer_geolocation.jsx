@@ -6,7 +6,7 @@
 
 import { GET_LOCATION } from '../actions/action_geolocation';
 
-const INIT_STATE = {
+var INIT_STATE = {
   coords: {
     latitude: 0,
     longitude: 0
@@ -18,7 +18,7 @@ function LocationReducer (state = INIT_STATE, action) {
   case GET_LOCATION:
     return action.payload;
   default:
-    return state
+    return state;
   }
 };
 

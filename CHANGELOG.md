@@ -1,8 +1,23 @@
 ** Changelog for Capstone project
 
-v0.9
-- prototype to do something with geolocation data
-- prototype to finalize application offline functionality
+v0.98
+- prototype to test offline functionality, and work 
+- prototype to update production process, will add gulp to application
+- prototype to refactor application content, to clean up file structuring
+- prototype to remove obsolete console.logs
+- prototype to add validation to search form.
+
+v0.97
+- geolocation and weather data working with new chained SSL API's
+- cleaned up animation styling
+- created unique reducers depending on weather data
+
+v0.96
+- application accepting HTTPS ajax requests, can run over HTTPS now. 
+
+v0.95
+- created a map with geolocation data, and posted coordinates
+- finalized and cleaned up offline functionality
 
 v0.8
 - added geolocation API into the application - originally from this fiddle : https://codepen.io/jnmorse/pen/qbLegO
