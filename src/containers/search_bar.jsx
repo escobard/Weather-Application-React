@@ -43,8 +43,6 @@ class SearchBar extends Component {
 		
 		// binds this.props to a variable that is usable within this scope
 		var props = this.props;
-
-		this.props.fetchWeather(this.state.searchTerm);
 		
 		// sets up promise to fetch the data for the geocode based on the city name and the weather data
 		var fetchCityWeather = this.props.fetchGeocode(this.state.searchTerm).then(function(result){

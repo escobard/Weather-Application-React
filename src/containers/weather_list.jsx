@@ -20,52 +20,66 @@ class WeatherList extends Component {
 		this.renderWeather = this.renderWeather.bind(this);
 	}
 
-	renderWeather(geocode){
-	const city = geocode.formatted_address;
+	renderWeather(weather){
+	const weathercurrent = weather;
+	console.log('weather', weather);
+	return weather.map((weather) => {
+		const summary = weather.daily.summary;
+		console.log('CURENT WEATHER', weather);
+		return (
+			<article className="card animated fadeInDown" key={summary}>
+						    <div className="card-block">
+						        <h4 className="card-title animated fadeInDown">Forecast for {summary}</h4>
+						    </div>
+
+			</article>
+		);
+	});
+	// console.log('weathercurrent', weathercurrent)
+	// const city = this.props.geocode;
+	// console.log('city', city);
+	/*
 	const weather = this.props.sslweather;
-	console.log('CITY', city);
-	console.log('WEATHER', weather);
 	if (city == undefined) {
 		return;
 	} else {
 		if (weather == undefined) {
-			return
+			return;
 		} else {
-		
-		/* 
-		var alert;
-		if (weather.alerts == undefined) {
-          alert = undefined;
-        } else {
-          alert = weather.alerts.map(alertData => alertData.description);
-        }
-		const lat = weather.lat;
-		const lon = weather.lon;
-		const summary = weather.daily.summary;
+			/* 
+			var alert;
+			if (weather.alerts == undefined) {
+	          alert = undefined;
+	        } else {
+	          alert = weather.alerts.map(alertData => alertData.description);
+	        }
+			const lat = weather.lat;
+			const lon = weather.lon;
+			const summary = weather.daily.summary;
 
-		const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
-		const humi = weather.daily.data.map(humis => humis.humidity);
-		const wind = weather.daily.data.map(winds => winds.windSpeed); 
-		 */
-		console.log('CURRENT GEO', city);
-		console.log('CURRENT WEATHER', weather); 
-		
-			return(
-				<article className="card animated fadeInDown" key={city}>
-					    <div className="card-block">
-					        <h4 className="card-title animated fadeInDown">Forecast for {city}</h4>
-					    </div>
+			const temp = weather.daily.data.map(temps => temps.apparentTemperatureMax);
+			const humi = weather.daily.data.map(humis => humis.humidity);
+			const wind = weather.daily.data.map(winds => winds.windSpeed); 
+			 
+			console.log('CURRENT GEO', city);
+			console.log('CURRENT WEATHER', weather); 
+			
+				return(
+					<article className="card animated fadeInDown" key={city}>
+						    <div className="card-block">
+						        <h4 className="card-title animated fadeInDown">Forecast for </h4>
+						    </div>
 
-				</article>
-			);
-		}
-	}
+					</article>
+				); 
+		};
+	};*/
 	}
 	
 	render(){
 		return(
 			<div>
-				{this.props.geocode.map(this.renderWeather)}
+				{this.renderWeather(this.props.sslweather)}
 		</div>
 			
 
