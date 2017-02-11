@@ -14,6 +14,9 @@ This application must meet the following criteria:
 - Native Features - Application uses native features, like push notifications, Bluetooth, geolocation, as appropriate for the application.
 
 ## Demo
+
+![desktop image](https://onlinedevelopers.ca/udacity/restaurant-reviewer/img/read-me/proj5-collage.jpg)
+
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
 
 To download and install, please follow the instructions below.
