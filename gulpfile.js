@@ -11,94 +11,59 @@ var gutil = require('gulp-util');
 var WebpackCluster = require('webpack-cluster');
 
 //publishes content, calls tasks that copy content over
-gulp.task('public', [
-	'copy-html',
-	'copy-html-components',
-	'copy-images',
-	'copy-sw',
-	'copy-jsSW',
-	'copy-json'
+gulp.task('bundle', [
+	'bundle-html',
+	'bundle-png',
+	'bundle-sw',
+	'bundle-jsSW',
+	'create-bundle',
+	'bundle-minify',
+	'bundle-styles'
 ]
 );
 
-// copy js files over to public folder, into a single file
-// this can be re-used for CSS compilation
-gulp.task('scripts', function() {
-  gulp.src('./components/js/*.js')
-    .pipe(babel({
-            presets: ['es2015']
-    }))
-    .pipe(concat('all.js'))
-    .pipe(gulp.dest('./public/components/js/'));
-});
-
-
 // copies over js SW files
-gulp.task('copy-jsSW', function() {
-	gulp.src('./components/js/sw/*.js')
-		.pipe(gulp.dest('./public/components/js/sw'));
+gulp.task('bundle-jsSW', function() {
+	gulp.src('sw-register')
+		.pipe(gulp.dest('./dist'));
 });
-
-// copies over json files
-gulp.task('copy-json', function() {
-	gulp.src('./components/json/*.json')
-		.pipe(gulp.dest('./public/components/json'));
-});
-
-
-/* copies over json files
-gulp.task('copy-bower', function() {
-	gulp.src('./components/bower_components/**')
-		.pipe(gulp.dest('./public/components/bower_components'));
-});
-*/
-
 // copies ALL html over from root to the public folder. This can be used for json / template files
 // USE THIS to setup these two tasks in the future when json files are in the right place
-gulp.task('copy-html', function() {
+gulp.task('bundle-html', function() {
 	gulp.src('index.html')
 		.pipe(minifyInline())
 		.pipe(htmlmin({collapseWhitespace: true}))
-		.pipe(gulp.dest('./public'));
+		.pipe(gulp.dest('./dist'));
 });
 
 // copies SW over from root to the public folder. 
-gulp.task('copy-sw', function() {
+gulp.task('bundle-sw', function() {
 	gulp.src('service-worker.js')
-		.pipe(gulp.dest('./public'));
+		.pipe(gulp.dest('./dist'));
 });
-
-// copies ALL html over from components to the public folder. This can be used for json / template files
-gulp.task('copy-html-components', function() {
-	gulp.src('components/*.html')
-		.pipe(vulcanize({
-	      stripComments: true,
-	      inlineScripts: true,
-	      inlineCss: true
-	    }))
-		.pipe(minifyInline())
-		.pipe(htmlmin({collapseWhitespace: true}))
-		.pipe(gulp.dest('./public/components'));
-});
-
 
 // copies images over to the public folder
-gulp.task('copy-images', function() {
-	gulp.src('img/*.jpg')
-		.pipe(gulp.dest('public/components/img'));
+gulp.task('bundle-png', function() {
+	gulp.src('src/img/*.png')
+		.pipe(gulp.dest('./dist/src/img'));
+});
+gulp.task('bundle-gif', function() {
+	gulp.src('src/img/*.gif')
+		.pipe(gulp.dest('./dist/src/img'));
+});
+gulp.task('bundle-minify', function() {
+	gulp.src('dist/bundle.js')
+		.pipe(uglify())
+		.pipe(gulp.dest('./dist/src/img'));
 });
 
+
 // copies css over to the public folder, after converting from scss
-gulp.task('styles', function() {
-	gulp.src('sass/**/*.scss')
-		.pipe(sass({
-			outputStyle: 'compressed'
-		}).on('error', sass.logError))
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions']
-		}))
-		.pipe(gulp.dest('public/css'))
-		.pipe(browserSync.stream());
+gulp.task('bundle-styles', function() {
+	gulp.src('src/style/*.css')
+		.pipe(cleanCSS())
+    	.pipe(concat('all.js'))
+    	.pipe(gulp.dest('./dist/src/styles'));
 });
  
 var webpackCluster = new WebpackCluster({
