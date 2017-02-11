@@ -310,6 +310,17 @@ h5 {
         width: 90%;
         max-width: none;
     }
+    #geolocate {
+    max-height: 470px;
+    margin-top: 8rem;
+    }
+    #geolocate.buttonClicked {
+    max-height: 1700px;
+    }
+    button#fetchWeather {
+        padding: 0.5rem;
+        width: 90%;
+    }
     .chartContainer {
     width: 98%;
     float: left;

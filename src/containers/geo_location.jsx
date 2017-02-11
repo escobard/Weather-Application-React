@@ -114,7 +114,7 @@ class Location extends Component {
             <div className="mapContainer animated fadeInDown">           
                 <GoogleMap zoom={16} lon={lon} lat={lat}/>
             </div> 
-            <button id="fetchWeather" className="btn btn-primary animated fadeInUp" onClick={this.fetchLocal}>Click to fetch the local forecast.</button>
+            <button id="fetchWeather" className="btn btn-primary animated fadeInUp" onClick={this.fetchLocal}>Fetch your local forecast.</button>
           </section>  
           <div id="localWeather" className="hidden">
             <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind} alerts={alerts}/>

@@ -51,6 +51,7 @@ $ npm build
 ## To Do's
 - Revise mobile dimensions.
 - Add city names to titles again; need to reverse-eng Geocode API within a render loop.
+- Convert temperature's array from Farenheit to Celcius
 - Revise screen reader and keyboard-only accessibility .
 - Refactor code to improve reusability.
 - Push all ajax requested data into indexDB for offline usability.
