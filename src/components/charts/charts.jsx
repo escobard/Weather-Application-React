@@ -33,7 +33,7 @@ export default class Charts extends Component {
 						<div className="chartContainer third animated fadeInUp">
 							<ChartSpots chartData={this.props.wind} color="#FF6E00" units="M/s"/>
 						</div>
-					<div id="alerts"><p>{alerts}</p></div>
+					<div id="alerts fourth animated fadeInUp"><p>{alerts}</p></div>
 				</section>		
 		);
 	}

@@ -262,6 +262,18 @@ article.card {
     -ms-animation-delay: 1.6s;
     animation-delay: 1.6s;
 }
+.forth {
+    margin-right: 0;
+    background-color: rgba(0, 188, 212, 0.8);
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    animation-delay: 2s;
+}
 h5 {
     text-align: center;
     color: #fff !important;
