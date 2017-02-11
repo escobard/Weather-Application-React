@@ -1,3 +1,4 @@
+
 /*===========================================================
 
     Main Application Styles
@@ -135,8 +136,11 @@ footer {
 ===========================================================*/
 
 .input-group{
+
     margin:20px 0px;
+
 }
+
 
 #searchInput {
     height: 50px;
@@ -169,6 +173,7 @@ footer {
     Weather Widget Styles
 
 ===========================================================*/
+
 article.card {
     background: rgb(0, 87, 162);
     margin: 25px 0 30px;
@@ -294,6 +299,7 @@ h5 {
     animation-delay: 2s;
 }
 
+
 /*===========================================================
 
     Responsive Styles
@@ -333,7 +339,20 @@ h5 {
         display: inline-block;
     }
 
+<<<<<<< HEAD
     form.input-group {
         height: 130px;
     }
 }
+||||||| merged common ancestors
+form.input-group {
+    height: 130px;
+}
+}
+=======
+form.input-group {
+    height: 130px;
+}
+}
+
+>>>>>>> 15c701fb969b3c63ea1ada95462c5438bad33bd8
