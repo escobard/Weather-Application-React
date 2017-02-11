@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 // imports actions
 import getLocation from '../actions/action_geolocation';
-import {fetchSearchWeather} from '../actions/action_fetch_weather_data';
+import {fetchGeocodeWeather} from '../actions/action_fetch_geocode_weather_data';
 
 // imports gmap
 import GoogleMap from '../components/google_map';
@@ -29,8 +29,8 @@ class Location extends Component {
   fetchLocal(){
 
     // initiates the fetch weather action
-    this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
-    // console.log('weather data loaded', this.props.searchweather);
+    this.props.fetchGeocodeWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
+    // console.log('weather data loaded', this.props.geoweather);
 
     // sets variables to handle animation transitions
     var local = document.querySelector('#localWeather');
@@ -46,7 +46,7 @@ class Location extends Component {
   renderWhenReady(){
     
     // sets coordinate variables
-    const weatherData = this.props.searchweather[0];
+    const weatherData = this.props.geoweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     // console.log('weather data initial', weatherData);
@@ -152,12 +152,12 @@ class Location extends Component {
   }
 }
 
-function mapStateToProps({ searchweather, location}){
-  return {searchweather, location};
+function mapStateToProps({ geoweather, location}){
+  return {geoweather, location};
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchSearchWeather, getLocation}, dispatch);
+  return bindActionCreators({fetchGeocodeWeather, getLocation}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);
