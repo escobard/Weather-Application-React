@@ -19,6 +19,7 @@ gulp.task('bundle', [
 	'bundle-jsSW',
 	'bundle-minify',
 	'bundle-styles',
+	'bundle-offline',
 	'bundle-fonts'
 ]
 );
@@ -54,6 +55,10 @@ gulp.task('bundle-gif', function() {
 gulp.task('bundle-fonts', function() {
 	gulp.src('src/style/font/**')
 		.pipe(gulp.dest('./dist/src/styles/font'));
+});
+gulp.task('bundle-offline', function() {
+	gulp.src('dist/style/all.css')
+		.pipe(gulp.dest('./src/style/'));
 });
 gulp.task('bundle-minify', function() {
 	gulp.src('bundle.js')
