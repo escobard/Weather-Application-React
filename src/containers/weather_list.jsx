@@ -66,7 +66,7 @@ class WeatherList extends Component {
 	render(){
 		return(
 			<div>
-				{this.renderWeather(this.props.sslweather)}
+				{this.renderWeather(this.props.searchweather)}
 		</div>
 			
 
@@ -76,7 +76,7 @@ class WeatherList extends Component {
 }
 
 // we can also write it with EMC6 syntax
- function mapStateToProps({ weather, geocode, sslweather }){
+ function mapStateToProps({ weather, geocode, searchweather }){
 
  	// this is how the function now looks
  	/*
@@ -84,7 +84,7 @@ class WeatherList extends Component {
 
 	//this can be further condensed with ES6 like so:
 	// because both the key and the value object have the same identifier
-	return { geocode, sslweather };
+	return { geocode, searchweather };
 }
 
 // creates the function to join the action creator with the BookList component, to update the app's state

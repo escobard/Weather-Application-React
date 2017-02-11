@@ -30,7 +30,7 @@ class Location extends Component {
 
     // initiates the fetch weather action
     this.props.fetchSSLWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
-    // console.log('weather data loaded', this.props.sslweather);
+    // console.log('weather data loaded', this.props.searchweather);
 
     // sets variables to handle animation transitions
     var local = document.querySelector('#localWeather');
@@ -46,7 +46,7 @@ class Location extends Component {
   renderWhenReady(){
     
     // sets coordinate variables
-    const weatherData = this.props.sslweather[0];
+    const weatherData = this.props.searchweather[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
     // console.log('weather data initial', weatherData);
@@ -152,8 +152,8 @@ class Location extends Component {
   }
 }
 
-function mapStateToProps({ sslweather, location}){
-  return {sslweather, location};
+function mapStateToProps({ searchweather, location}){
+  return {searchweather, location};
 }
 
 function mapDispatchToProps(dispatch) {
