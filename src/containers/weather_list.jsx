@@ -43,7 +43,7 @@ class WeatherList extends Component {
         const wind = weather.daily.data.map(winds => winds.windSpeed);
         // console.log(wind);
         
-		console.log('Weather Fetched ! - ', weather);
+		console.log('Weather fetched! - ', weather);
 		return (
 			<article className="card animated fadeInDown searchWeather" key={lat}>
 						    <div className="card-block">

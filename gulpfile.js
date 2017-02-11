@@ -7,7 +7,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-htmlmin');
 var cleanCSS = require('gulp-clean-css');
-
+var gutil = require('gulp-util');
+var WebpackCluster = require('webpack-cluster');
 
 //publishes content, calls tasks that copy content over
 gulp.task('public', [
@@ -98,4 +99,30 @@ gulp.task('styles', function() {
 		}))
 		.pipe(gulp.dest('public/css'))
 		.pipe(browserSync.stream());
+});
+ 
+var webpackCluster = new WebpackCluster({
+    dryRun: false,
+    concurrency: 10,
+    failures: {
+        sysErrors: true,
+        errors: true,
+        warnings: true
+    }
+});
+ 
+gulp.task('run', [], callback => {
+    webpackCluster.run([
+        './webpack.config.js'
+    ]).then(callback).catch(err => {
+        callback(new gutil.PluginError('webpack-cluster', err));
+    });
+});
+ 
+gulp.task('watch', [], callback => {
+    webpackCluster.watch([
+        './webpack.config.js'
+    ]).then(callback).catch(err => {
+        callback(new gutil.PluginError('webpack-cluster', err));
+    });
 });

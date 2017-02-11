@@ -75,7 +75,7 @@ class Location extends Component {
 
       else {
         
-        console.log('Geolocation Weather data fetched! - ', weatherData);
+        console.log('Geolocation weather data fetched! - ', weatherData);
         
         if (weatherData.alerts == undefined) {
           alerts = undefined;
