@@ -387,6 +387,11 @@ h5 {
     right: -1px !important;
     width: 70px !important;
 }}
+@media screen and (min-width: 1200px) and (max-width: 1300px) {
+#scrollToTop {
+    right: -27px !important;
+    width: 40px !important;
+}}
 @media screen and (min-width: 768px) and (max-width: 1400px) {
 #scrollToTop {
     width: 45px;

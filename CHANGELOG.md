@@ -1,6 +1,6 @@
 ** Changelog for Capstone project
 v0.99
-- prototype to add scroll to top.
+- added scroll to top, styled on all screens & devices
 - prototype to fix application icon on mobile.
 
 v0.98
