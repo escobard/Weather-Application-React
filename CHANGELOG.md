@@ -2,6 +2,7 @@
 v0.99
 - added scroll to top, styled on all screens & devices
 - prototype to fix application icon on mobile.
+- prototype to compress SW
 
 v0.98
 - offline functionality completed.
