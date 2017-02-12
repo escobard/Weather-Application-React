@@ -48,12 +48,10 @@ $ gulp create-bundle
 $ gulp build
 ```
 
-## Most Recent Update - v0.98
-- offline functionality completed.
-- distribution bundling completed with gulp.
-- cleaned up file structure, all relevant app content in /src.
-- removed obsolete console.logs, added relevant user console.logs.
-- added validation to search form.
+## Most Recent Update - v0.99
+- added scroll to top, styled on all screens & devices.
+- fixed application icon on mobile.
+- compressed service worker files.
 
 ## To Do's
 - Revise mobile dimensions.

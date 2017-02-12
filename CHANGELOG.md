@@ -1,8 +1,9 @@
 ** Changelog for Capstone project
+
 v0.99
-- added scroll to top, styled on all screens & devices
+- added scroll to top, styled on all screens & devices.
 - fixed application icon on mobile.
-- prototype to compress SW
+- compressed service worker files.
 
 v0.98
 - offline functionality completed.
