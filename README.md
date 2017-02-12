@@ -15,7 +15,7 @@ This application must meet the following criteria:
 
 ## Demo
 
-![desktop image](https://onlinedevelopers.ca/udacity/weather-app/img/read-me/proj5-collage.jpg)
+![desktop image](https://onlinedevelopers.ca/udacity/weather-app/src/img/read-me/proj5-collage.jpg)
 
 [To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
 
