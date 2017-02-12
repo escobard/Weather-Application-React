@@ -27,6 +27,7 @@ gulp.task('build', [
 // copies over js SW files
 gulp.task('bundle-jsSW', function() {
 	gulp.src('sw-register.js')
+		.pipe(uglify())
 		.pipe(gulp.dest('./dist'));
 });
 // copies ALL html over from root to the public folder. This can be used for json / template files
@@ -40,6 +41,7 @@ gulp.task('bundle-html', function() {
 // copies SW over from root to the public folder. 
 gulp.task('bundle-sw', function() {
 	gulp.src('service-worker.js')
+		.pipe(uglify())
 		.pipe(gulp.dest('./dist'));
 });
 gulp.task('bundle-manifest', function() {
