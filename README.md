@@ -48,12 +48,10 @@ $ gulp create-bundle
 $ gulp build
 ```
 
-## Most Recent Update - v0.98
-- offline functionality completed.
-- distribution bundling completed with gulp.
-- cleaned up file structure, all relevant app content in /src.
-- removed obsolete console.logs, added relevant user console.logs.
-- added validation to search form.
+## Most Recent Update - v0.99
+- added scroll to top, styled on all screens & devices.
+- fixed application icon on mobile.
+- compressed service worker files.
 
 ## To Do's
 - Revise mobile dimensions.
@@ -63,6 +61,11 @@ $ gulp build
 - Push all async requested data into indexDB for offline usability.
 - Add weather forecast icons to app forecast display.
 - Streamline gulp build process to work with a single command
+- Add animated / more visually appealing charts
+
+## Known Bugs
+- Application crashes if the search input is not found by the Geocode API.
+- Application stops working after multiple duplicate search inputs.
 
 ## Libraries, Frameworks, APIs
 

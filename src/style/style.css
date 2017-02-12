@@ -59,6 +59,10 @@ footer {
 .hidden {
     display: none !important;
 }
+#scrollToTop {
+    width: 80px;
+    margin-bottom: 4rem;
+}
 /*===========================================================
 
     Offline Styles
@@ -315,6 +319,9 @@ h5 {
     Responsive Styles
 
 ===========================================================*/
+@media (max-width: 768px) and (orientation: landscape) {#scrollToTop {
+    right: -22px !important;
+}}
 @media screen and (min-width: 0px) and (max-width: 768px) {
     main.container {
         width: 90%;
@@ -331,11 +338,18 @@ h5 {
     margin-top: 0;
     }
     #geolocate.buttonClicked {
-    max-height: 1700px;
+    max-height: 3000px;
     }
     #fetchWeather {
         padding: 0.5rem;
         width: 90%;
+    }
+    #scrollToTop {
+    margin-bottom: 1rem;
+    width: 30px;
+    position: absolute;
+    bottom: 0px;
+    right: -28px;
     }
     .chartContainer {
     width: 98%;
@@ -369,3 +383,19 @@ h5 {
         height: 110px;
     }
 }
+@media screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {#scrollToTop {
+    right: -1px !important;
+    width: 70px !important;
+}}
+@media screen and (min-width: 1200px) and (max-width: 1300px) {
+#scrollToTop {
+    right: -27px !important;
+    width: 40px !important;
+}}
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+#scrollToTop {
+    width: 45px;
+    position: absolute;
+    bottom: 14px;
+    right: -29px;
+}}

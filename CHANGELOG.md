@@ -1,5 +1,10 @@
 ** Changelog for Capstone project
 
+v0.99
+- added scroll to top, styled on all screens & devices.
+- fixed application icon on mobile.
+- compressed service worker files.
+
 v0.98
 - offline functionality completed.
 - distribution bundling completed with gulp
