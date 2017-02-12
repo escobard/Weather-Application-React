@@ -63,6 +63,11 @@ $ gulp build
 - Push all async requested data into indexDB for offline usability.
 - Add weather forecast icons to app forecast display.
 - Streamline gulp build process to work with a single command
+- Add animated / more visually appealing charts
+
+## Known Bugs
+- Application crashes if the search input is not found by the Geocode API.
+- Application stops working after multiple duplicate search inputs.
 
 ## Libraries, Frameworks, APIs
 

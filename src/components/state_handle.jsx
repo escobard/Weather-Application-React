@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import SearchBar from '../containers/search_bar';
 import WeatherList from '../containers/weather_list';
 import Location from '../containers/geo_location';
+import ScrollToTop from 'react-scroll-up';
 
 export default class StateHandle extends Component {
   stateHandle(){
@@ -27,6 +28,9 @@ export default class StateHandle extends Component {
 			<SearchBar />
 	        <WeatherList />
 	        <Location />
+	        <ScrollToTop showUnder={300}>
+			  <img id="scrollToTop" src="src/img/up-arrow.png" alt="scroll to top"/>
+			</ScrollToTop>
         </div>
 		);
 	}
