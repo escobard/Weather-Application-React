@@ -19,6 +19,7 @@ gulp.task('build', [
 	'bundle-jsSW',
 	'bundle-minify',
 	'bundle-styles',
+	'bundle-manifest',
 	'bundle-fonts'
 ]
 );
@@ -41,7 +42,10 @@ gulp.task('bundle-sw', function() {
 	gulp.src('service-worker.js')
 		.pipe(gulp.dest('./dist'));
 });
-
+gulp.task('bundle-manifest', function() {
+	gulp.src('manifest.json')
+		.pipe(gulp.dest('./dist/'));
+});
 // copies images over to the public folder
 gulp.task('bundle-png', function() {
 	gulp.src('src/img/*.png')
