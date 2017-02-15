@@ -162,7 +162,7 @@ footer {
     animation-delay: 0.5s;
 }
 #fetchWeather {
-    padding: 1rem 2rem;
+    padding: 14px 70px;
     margin-top: 2rem;
 }
 
@@ -341,7 +341,7 @@ h5 {
     max-height: 3000px;
     }
     #fetchWeather {
-        padding: 0.5rem;
+        padding: 14px;
         width: 90%;
         font-weight: bold;
     }
