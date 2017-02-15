@@ -29,7 +29,7 @@ class WeatherList extends Component {
         if (weather.alerts == undefined) {
           alerts = undefined;
         } else {
-          alerts = weatherData.alerts.map(alertData => alertData.description);
+          alerts = weather.alerts.map(alertData => alertData.description);
         }
 		const summary = weather.daily.summary;
         // console.log(alerts);

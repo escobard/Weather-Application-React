@@ -343,6 +343,7 @@ h5 {
     #fetchWeather {
         padding: 0.5rem;
         width: 90%;
+        font-weight: bold;
     }
     #scrollToTop {
     margin-bottom: 1rem;
@@ -377,6 +378,7 @@ h5 {
         width: 100%;
         position: absolute;
         margin: 53px 0 0 0;
+        font-weight: bold;
         display: inline-block;
     }
     form.input-group {
