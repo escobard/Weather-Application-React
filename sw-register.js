@@ -5,7 +5,7 @@
 ======================================*/
 
 // does not register service worker if unsupported
-if (!navigator.serviceWorker) {
+ if (!navigator.serviceWorker) {
 
  } 
 

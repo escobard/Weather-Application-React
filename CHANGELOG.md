@@ -1,4 +1,7 @@
 ** Changelog for Capstone project
+v0.99a
+- fixed error on search weather alert display.
+- Revised button style for responsive.
 
 v0.99
 - added scroll to top, styled on all screens & devices.

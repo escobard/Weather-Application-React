@@ -48,10 +48,12 @@ $ gulp create-bundle
 $ gulp build
 ```
 
-## Most Recent Update - v0.99
+## Most Recent Update - v0.99a
 - added scroll to top, styled on all screens & devices.
 - fixed application icon on mobile.
 - compressed service worker files.
+- fixed error on weather search with alerts.
+- revised mobile button style.
 
 ## To Do's
 - Revise mobile dimensions.
