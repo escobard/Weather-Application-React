@@ -2,7 +2,8 @@
 v0.99b
 - fixed color scheme.
 - fixed verbage on search bar and buttons.
-- added reverse geo-coding to fetch city name for geolocation
+- added reverse geo-coding to fetch city name for geolocation.
+- fixed google maps missing API key error.
 
 v0.99a
 - fixed error on search weather alert display.
