@@ -55,7 +55,6 @@ class SearchBar extends Component {
 			var lon = result.payload.data.results[0].geometry.location.lng;
 			// console.log('COORDINATES', lat, lon);
 			props.fetchSearchWeather(lat, lon);
-			props.fetchGeocodeReverse(lat, lon);
 		});
 		this.setState({ searchTerm: ''});
 	}
