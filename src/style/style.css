@@ -176,6 +176,7 @@ footer {
 }
 .charts h4 {
     padding: 0 0 2rem;
+    font-style: italic;
 }
 
 #alerts {
@@ -217,7 +218,10 @@ article.card {
     -ms-animation-delay: 0.5s;
     animation-delay: 0.5s;
 }
-
+h3.card-title {
+    margin: 1rem 0 !important;
+    font-size: 26px;
+}
 .card-block {
     padding-bottom: 10px !important;
 }
