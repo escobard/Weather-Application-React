@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import getLocation from '../actions/action_geolocation';
+import {fetchGeocodeReverse} from '../actions/action_fetch_geocode_reverse';
 import {fetchGeocodeWeather} from '../actions/action_fetch_geocode_weather_data';
 
 import GoogleMap from '../components/google_map';
@@ -28,8 +29,11 @@ class Location extends Component {
   }
 
   fetchLocal(){
+    const lat = this.props.location.coords.latitude;
+    const lon = this.props.location.coords.longitude;
 
-    this.props.fetchGeocodeWeather(this.props.location.coords.latitude, this.props.location.coords.longitude);
+    this.props.fetchGeocodeWeather(lat, lon);
+    this.props.fetchGeocodeReverse(lat, lon);
 
     var local = document.querySelector('#localWeather');
     var button = document.querySelector('#fetchWeather');
@@ -43,7 +47,8 @@ class Location extends Component {
 
   renderWhenReady(){
     
-    const weatherData = this.props.geoweather[0];
+    const weather = this.props.geoweather[0];
+    const city = this.props.geocodereverse;
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
 
@@ -63,7 +68,7 @@ class Location extends Component {
       // console.log(lon);
       // console.log(this.props.location);
 
-      if (weatherData == undefined) {
+      if (weather == undefined) {
         
         // console.log('weather data empty');
         var alerts;
@@ -75,26 +80,26 @@ class Location extends Component {
 
       else {
         
-        console.log('Geolocation weather data fetched! - ', weatherData);
-        
-        if (weatherData.alerts == undefined) {
+        console.log('Geolocation weather data fetched! - ', weather);
+        console.log('Geolocation city data fetched! - ', city);
+        if (weather.alerts == undefined) {
           alerts = undefined;
         } else {
-          alerts = weatherData.alerts.map(alertData => alertData.description);
+          alerts = weather.alerts.map(alertData => alertData.description);
         }
         
         // console.log(alerts);
         
-        var summary = weatherData.hourly.summary;
+        var summary = weather.hourly.summary;
         // console.log(summary);
         
-        var temp = weatherData.hourly.data.map(temps => temps.temperature);
+        var temp = weather.hourly.data.map(temps => temps.temperature);
         // console.log(temp);
 
-        var humi = weatherData.hourly.data.map(humis => humis.humidity);
+        var humi = weather.hourly.data.map(humis => humis.humidity);
         // console.log(humi);
 
-        var wind = weatherData.hourly.data.map(winds => winds.windSpeed);
+        var wind = weather.hourly.data.map(winds => winds.windSpeed);
         // console.log(wind);
       }
 
@@ -148,12 +153,12 @@ class Location extends Component {
   }
 }
 
-function mapStateToProps({ geoweather, location}){
-  return {geoweather, location};
+function mapStateToProps({ geoweather, geocodereverse, location}){
+  return {geoweather, geocodereverse, location};
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchGeocodeWeather, getLocation}, dispatch);
+  return bindActionCreators({fetchGeocodeWeather, fetchGeocodeReverse, getLocation}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

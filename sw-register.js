@@ -5,7 +5,7 @@
 ======================================*/
 
 // does not register service worker if unsupported
- if (!navigator.serviceWorker) {
+/* if (!navigator.serviceWorker) {
 
  } 
 
@@ -17,4 +17,4 @@
     window.addEventListener('load', function() {
     navigator.serviceWorker.register('./service-worker.js');
     });
-}
+} */
