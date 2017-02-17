@@ -48,16 +48,14 @@ $ gulp create-bundle
 $ gulp build
 ```
 
-## Most Recent Update - v0.99a
-- added scroll to top, styled on all screens & devices.
-- fixed application icon on mobile.
-- compressed service worker files.
-- fixed error on weather search with alerts.
-- revised mobile button style.
+## Most Recent Update - v0.99b
+- fixed color scheme.
+- fixed verbage on search bar and buttons.
+- added reverse geo-coding to fetch city, province, and country name for geolocation.
 
 ## To Do's
 - Revise mobile dimensions.
-- Add city names to titles again; need to reverse-eng Geocode API within a render loop.
+- Add city names to search results - need to chain three async requests.
 - Convert temperature's array from Farenheit to Celcius
 - Revise screen reader and keyboard-only accessibility .
 - Push all async requested data into indexDB for offline usability.
