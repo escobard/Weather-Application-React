@@ -48,10 +48,10 @@ class Location extends Component {
   renderWhenReady(){
     
     const weather = this.props.geoweather[0];
-    const city = this.props.geocodereverse;
+    const cityData = this.props.geocodereverse[0];
     const lat = this.props.location.coords.latitude;
     const lon = this.props.location.coords.longitude;
-
+    
     if (lat <= 0 && lon <= 0) { 
 
       // console.log("Loading Geolocation...")   
@@ -79,9 +79,11 @@ class Location extends Component {
       }
 
       else {
-        
+        var city = cityData.address_components[3].long_name;
+        var province = cityData.address_components[5].long_name;
+        var country = cityData.address_components[6].long_name; 
         console.log('Geolocation weather data fetched! - ', weather);
-        console.log('Geolocation city data fetched! - ', city);
+        console.log('Geolocation city data fetched! - ', cityData);
         if (weather.alerts == undefined) {
           alerts = undefined;
         } else {
@@ -118,6 +120,7 @@ class Location extends Component {
             <button id="fetchWeather" className="btn btn-primary animated fadeInUp" onClick={this.fetchLocal}>Show your local hourly forecast</button>
           </section>  
           <div id="localWeather" className="hidden">
+            <h3 className="card-title animated fadeInDown">48 hour forecast for: {city}, {province}, {country}.</h3>
             <Charts key={lat} summary={summary} temp={temp} humi={humi} wind={wind} alerts={alerts}/>
             
           </div>  
