@@ -85,12 +85,12 @@ class SearchBar extends Component {
 					<label id="searchLabel" htmlFor="searchInput" aria-hidden="false">Enter the name of a city to Fetch it's 5 day
 					<input 
 						id="searchInput"
-						placeholder="Type in a city to fetch it's weekly forecast"
+						placeholder="Type in the name of a city"
 						className="form-control animated fadeInLeft"
 						value={this.state.searchTerm}
 						onChange={this.onInputChange}
 					/></label>
-						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
+						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Search</button>
 				</form>
 				<span id="searchError" className="hidden animated shake">Please enter a valid city name.</span>
 			</div>

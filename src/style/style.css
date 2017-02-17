@@ -248,7 +248,7 @@ article.card {
 }
 
 .chartContainer.first {
-    background-color: rgba(0, 150, 136, 0.8);
+    background-color: rgba(0, 188, 212, 0.8);
     margin-left: 0;
     -webkit-animation-duration: 0.5s;
     -moz-animation-duration: 0.5s;
@@ -274,7 +274,7 @@ article.card {
 }
 
 .chartContainer.second {
-    background-color: rgba(224, 62, 50, 0.8);
+    background-color: rgba(0, 188, 212, 0.8);
     -webkit-animation-duration: 0.5s;
     -moz-animation-duration: 0.5s;
     -ms-animation-duration: 0.5s;
@@ -315,6 +315,7 @@ h5 {
     -webkit-animation-delay: 2s;
     -moz-animation-delay: 2s;
     -ms-animation-delay: 2s;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.93);
     animation-delay: 2s;
 }
 
