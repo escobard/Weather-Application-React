@@ -18,7 +18,7 @@ export default class Nav extends Component {
 
 		        <div className="navbar-toggleable-xs" id="collapseEx2">
 
-		            <h1 className="navbar-brand animated slideInDown"><img className="animated rubberBand" src="src/img/clouds.png" alt="weather icon"/>Weather Application <span id="versionNum">- v0.99</span></h1>
+		            <h1 className="navbar-brand animated slideInDown"><img className="animated rubberBand" src="src/img/clouds.png" alt="weather icon"/>Weather Application <span id="versionNum">- v0.99a</span></h1>
 
 		        </div>
 
