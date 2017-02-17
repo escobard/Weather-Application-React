@@ -1,4 +1,9 @@
 ** Changelog for Capstone project
+v0.99b
+- fixed color scheme.
+- fixed verbage on search bar and buttons.
+- added reverse geo-coding to fetch city name for geolocation
+
 v0.99a
 - fixed error on search weather alert display.
 - Revised button style for responsive.

@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux';
 
 import { fetchGeocode } from '../actions/action_fetch_geocode';
 import { fetchSearchWeather } from '../actions/action_fetch_weather_data';
+import {fetchGeocodeReverse} from '../actions/action_fetch_geocode_reverse';
 
 class SearchBar extends Component {
 
@@ -82,23 +83,24 @@ class SearchBar extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onFormSubmit} className="input-group">
+					<label id="searchLabel" htmlFor="searchInput" aria-hidden="false">Enter the name of a city to Fetch it's 5 day forecast'
 					<input 
 						id="searchInput"
-						placeholder="Get a five-day forecast in your favorite cities"
+						placeholder="Enter the name of a city"
 						className="form-control animated fadeInLeft"
 						value={this.state.searchTerm}
 						onChange={this.onInputChange}
-					/>
-						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Submit</button>
+					/></label>
+						<button type="submit" id="subButton" className="btn btn-primary animated fadeInRight">Search</button>
 				</form>
-				<span id="searchError" className="hidden animated shake">Please make sure to enter a valid city name.</span>
+				<span id="searchError" className="hidden animated shake">Please enter a valid city name.</span>
 			</div>
 		);
 	}
 };
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators({ fetchGeocode, fetchSearchWeather }, dispatch);
+	return bindActionCreators({ fetchGeocode, fetchSearchWeather, fetchGeocodeReverse}, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);
