@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux';
 
 import { fetchGeocode } from '../actions/action_fetch_geocode';
 import { fetchSearchWeather } from '../actions/action_fetch_weather_data';
+import {fetchGeocodeReverse} from '../actions/action_fetch_geocode_reverse';
 
 class SearchBar extends Component {
 
@@ -54,6 +55,7 @@ class SearchBar extends Component {
 			var lon = result.payload.data.results[0].geometry.location.lng;
 			// console.log('COORDINATES', lat, lon);
 			props.fetchSearchWeather(lat, lon);
+			props.fetchGeocodeReverse(lat, lon);
 		});
 		this.setState({ searchTerm: ''});
 	}
@@ -82,7 +84,7 @@ class SearchBar extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onFormSubmit} className="input-group">
-					<label id="searchLabel" htmlFor="searchInput" aria-hidden="false">Enter the name of a city to Fetch it's 5 day
+					<label id="searchLabel" htmlFor="searchInput" aria-hidden="false">Enter the name of a city to Fetch it's 5 day forecast'
 					<input 
 						id="searchInput"
 						placeholder="Type in the name of a city"
@@ -99,7 +101,7 @@ class SearchBar extends Component {
 };
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators({ fetchGeocode, fetchSearchWeather }, dispatch);
+	return bindActionCreators({ fetchGeocode, fetchSearchWeather, fetchGeocodeReverse}, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);
