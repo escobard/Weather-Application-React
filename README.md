@@ -51,7 +51,8 @@ $ gulp build
 ## Most Recent Update - v0.99b
 - fixed color scheme.
 - fixed verbage on search bar and buttons.
-- added reverse geo-coding to fetch city, province, and country name for geolocation.
+- added reverse geo-coding to fetch city name for geolocation.
+- fixed google maps missing API key error.
 
 ## To Do's
 - Revise mobile dimensions.
@@ -64,8 +65,7 @@ $ gulp build
 - Add animated / more visually appealing charts
 
 ## Known Bugs
-- Application crashes if the search input is not found by the Geocode API.
-- Application stops working after multiple duplicate search inputs.
+- Application live version showing an error due to bundle.js compression.
 
 ## Libraries, Frameworks, APIs
 
