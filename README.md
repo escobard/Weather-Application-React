@@ -3,7 +3,10 @@
 This repository contains all the files for the Capstone project of the [Udacity - Senior Web Developer Nanodegree - By Google](https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802) course with [Udacity](https://www.udacity.com/). 
 
 ## Project Criteria
-This application must meet the following criteria:
+
+This application was created as a Weather Forecast application, with special focus on responsive display, proper form input usage, offline functionality, accessibility, scalable / reusable components, home screen installation, asynchronous requests, geolocation, and various gooogle APIs.
+
+The application must meet the following criteria:
 
 - Responsive - App is equally functional on mobile and dektop.
 - Inputs - All form inputs have appropriate types, labels, placeholders and validators.
