@@ -74,25 +74,25 @@ $ gulp build
 
 [React](https://facebook.github.io/react/)
 
-[Redux] (http://redux.js.org/docs/introduction/)
+[Redux](http://redux.js.org/docs/introduction/)
 
-[ReduxSimpleStarter] (https://github.com/StephenGrider/ReduxSimpleStarter)
+[ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter)
 
-[Material Design for Bootstrap] (https://mdbootstrap.com/material-design-for-bootstrap/)
+[Material Design for Bootstrap](https://mdbootstrap.com/material-design-for-bootstrap/)
 
-[FLATICON - for the favicon] (http://www.flaticon.com/)
+[FLATICON - for the favicon](http://www.flaticon.com/)
 
-[Dark Sky API] (https://darksky.net/)
+[Dark Sky API](https://darksky.net/)
 
-[Google Maps] (https://www.google.ca/maps)
+[Google Maps](https://www.google.ca/maps)
 
-[Geolocation] (https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)
+[Geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)
 
 ##  Tutorials
 
-[Udemy - Modern React with Redux] (https://www.udemy.com/react-redux/)
+[Udemy - Modern React with Redux](https://www.udemy.com/react-redux/)
 
-[Udacity - Senior Web Developer Nanodegree] (https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802)
+[Udacity - Senior Web Developer Nanodegree](https://www.udacity.com/course/senior-web-developer-nanodegree-by-google--nd802)
 
 ## Contribution
 
