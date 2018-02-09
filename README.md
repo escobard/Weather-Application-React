@@ -18,7 +18,7 @@ The application must meet the following criteria:
 
 ## Demo
 
-![desktop image](https://odevs.ca/portfolio/weather-app/collage.jpg)
+![desktop image](http://odevs.ca/portfolio/weather-app/collage.jpg)
 
 [To view the application live click here](https://odevs.ca/portfolio/weather-app/)
 
